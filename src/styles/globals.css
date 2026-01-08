@@ -1,53 +1,6 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
-
-* {
-  /* padding: 0;
-  margin: 0; */
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  color: white;
-}
-body {
-  background-color: #262626;
-}
-
-#logo {
-  font-family: var(--font-instrument-serif);
-}
-
-#btn {
-  font-family: var(--font-inter);
-  box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
-}
-
-section {
-  margin-top: 10px;
-}
-
-h1,
-h2 {
-  font-family: var(--font-instrument-serif);
-}
-
-h1 {
-  font-size: 60px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-family: var(--font-inter);
-  font-size: 15px;
-}
-
-p {
-  font-size: 12px;
-}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -123,6 +76,40 @@ p {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --text-accent: #c8b792;
+}
+
+* {
+  /* padding: 0;
+  margin: 0; */
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: white;
+}
+body {
+  background-color: #262626;
+}
+
+#logo {
+  font-family: var(--font-instrument-serif);
+}
+
+section {
+  margin-top: 10px;
+}
+
+h1,
+h2 {
+  font-family: var(--font-instrument-serif);
+}
+
+h3 {
+  font-family: var(--font-inter);
+  font-size: 15px;
+}
+
+.text-accent {
+  color: var(--text-accent);
 }
 
 .dark {
