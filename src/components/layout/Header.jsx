@@ -48,12 +48,12 @@ const Header = () => {
         </div>
 
         <div className=" lg:block hidden">
-          <Button
-            className={`cursor-pointer items-center bg-black hover:bg-black text-sm`}
-          >
-            <Phone />
-            Réserver un appel
-          </Button>
+          <Link href={'/'}>
+            <Button className={`cursor-pointer items-center bg-black  text-sm`}>
+              <Phone />
+              Réserver un appel
+            </Button>
+          </Link>
         </div>
       </nav>
     </header>

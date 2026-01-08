@@ -1,4 +1,5 @@
 import { Calendar } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '../ui/button';
 
 const Hero = () => {
@@ -25,13 +26,14 @@ const Hero = () => {
               De la conception au déploiement, je m'occupe de tout.
             </p>
           </div>
-
-          <Button
-            className={` mt-5 text-sm items-center bg-black hover:bg-black cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]  `}
-          >
-            {' '}
-            <Calendar /> Réserver un appel
-          </Button>
+          <Link href={'/'}>
+            <Button
+              className={` mt-5 text-sm items-center bg-black cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]  `}
+            >
+              {' '}
+              <Calendar /> Réserver un appel
+            </Button>
+          </Link>
 
           <p className="text-[10px] text-[#C3C1BA]! mt-3">
             Réponse sous 24h • Accompagnement court ou long terme
