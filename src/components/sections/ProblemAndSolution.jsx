@@ -1,48 +1,12 @@
 import { Badge } from '@/components/ui/badge';
+import { problems, solutions } from '@/data/problemAndSolution';
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import PaS from '../../../public/images/problem-and-solution.png';
 import { Button } from '../ui/button';
 
-import Link from 'next/link';
-
 const ProblemAndSolution = () => {
-  const problems = [
-    {
-      title: 'Site lent & Obsolète',
-      description:
-        "Vos pages mettent plus de 3 secondes à charger. Vos clients partent avant d'avoir vu votre offre.",
-    },
-    {
-      title: 'Tâches répétitives (Excel/Saisie)',
-      description:
-        'Vos équipes perdent des heures sur des processus manuels à faible valeur ajoutée.',
-    },
-    {
-      title: 'Développeurs "Fantômes"',
-      description:
-        'Délais non respectés, jargon incompréhensible et silence radio après la livraison.',
-    },
-  ];
-
-  const solutions = [
-    {
-      title: 'Performance Next.js',
-      description:
-        'Une architecture moderne optimisée pour le chargement instantané. Vous récupérez le trafic que vous perdiez.',
-    },
-    {
-      title: 'Automatisation IA',
-      description:
-        "Intégration d'agents intelligents (OpenAI) pour traiter vos données et répondre à vos clients 24/7.",
-    },
-    {
-      title: 'Partenaire Business',
-      description:
-        'Une communication claire (background commercial), des deadlines respectées et un suivi post-projet.',
-    },
-  ];
-
   return (
     <section>
       <h2 className="text-3xl text-center italic mb-12">
@@ -51,7 +15,7 @@ const ProblemAndSolution = () => {
 
       <div className="lg:flex gap-10 items-start justify-center mt-10">
         {/* Image Column */}
-        <div className="flex-shrink-0 mb-10 lg:mb-0">
+        <div className="shrink-0 mb-10 lg:mb-0">
           <Image
             src={PaS}
             alt="Un problème ? Une Solution."
@@ -72,16 +36,14 @@ const ProblemAndSolution = () => {
 
             <div className="space-y-5">
               {problems.map((problem, index) => {
-                const Icon = problem.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-black p-3 rounded-sm border border-[#C8B792] "
+                    className="bg-gradient-to-br from-black to-[#262626] p-3 rounded-sm "
                   >
                     <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 mt-1"></div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-sm mb-1.5 text-white">
+                        <h3 className="font-semibold text-sm mb-1.5 text-[#C8B792]!">
                           {problem.title}
                         </h3>
                         <p className="text-sm text-gray-300 leading-relaxed">
@@ -103,16 +65,14 @@ const ProblemAndSolution = () => {
 
             <div className="space-y-5">
               {solutions.map((solution, index) => {
-                const Icon = solution.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-black p-3 rounded-sm border border-[#C8B792] "
+                    className="bg-gradient-to-bl from-black to-[#262626] p-3 rounded-sm "
                   >
                     <div className="flex gap-3 items-start">
-                      <div className="flex-shrink-0 mt-1"></div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-sm mb-1.5 text-white">
+                        <h3 className="font-semibold text-sm mb-1.5 text-[#C8B792]!">
                           {solution.title}
                         </h3>
                         <p className="text-sm text-gray-300 leading-relaxed">
