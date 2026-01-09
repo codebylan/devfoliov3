@@ -20,8 +20,8 @@ const ProblemAndSolution = () => {
             src={PaS}
             alt="Un problème ? Une Solution."
             width={350}
-            height={350}
-            quality={100}
+            height={'auto'}
+            quality={75}
             className="rounded-sm"
           />
         </div>

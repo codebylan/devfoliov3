@@ -25,7 +25,7 @@ export const solutions = [
   {
     title: 'Automatisation IA',
     description:
-      "Intégration d'agents intelligents (OpenAI) pour traiter vos données et répondre à vos clients 24/7.",
+      "Intégration d'agents intelligents pour traiter vos données et répondre à vos clients 24/7.",
   },
   {
     title: 'Partenaire Business',

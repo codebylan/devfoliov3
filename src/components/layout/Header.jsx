@@ -3,19 +3,12 @@
 import { Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import logo from '../../../public/images/logo.svg';
 import { Button } from '../ui/button';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
-    <header className="lg:text-end text-center">
+    <header className="lg:text-end text-center ">
       <nav className="flex   items-center justify-between relative ">
         <div id="logo ">
           <Link href={'/'} className="flex text-sm items-center gap-2 ">
@@ -33,10 +26,13 @@ const Header = () => {
         <div id="nav-links" className=" lg:block justify-center flex">
           <ul className="flex gap-5 text-sm">
             <li className="hover:underline">
+              <Link href={'#expertise'}>Expertise</Link>
+            </li>
+            <li className="hover:underline">
               <Link href={'/'}>Projets</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'/'}>Expertise</Link>
+              <Link href={'/'}>Tarifs</Link>
             </li>
             <li className="hover:underline">
               <Link href={'/'}>À propos</Link>
