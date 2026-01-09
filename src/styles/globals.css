@@ -149,3 +149,51 @@ h3 {
     @apply bg-background text-foreground;
   }
 }
+
+/* Infinite scroll carousel animations */
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-400px * 3 - 1.5rem * 2));
+  }
+}
+
+@keyframes scroll-infinite-md {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 3 - 1.5rem * 2));
+  }
+}
+
+@keyframes scroll-infinite-sm {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 3 - 1.5rem * 2));
+  }
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 25s linear infinite;
+}
+
+.animate-scroll-infinite:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 1024px) {
+  .animate-scroll-infinite {
+    animation: scroll-infinite-md 25s linear infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-scroll-infinite {
+    animation: scroll-infinite-sm 25s linear infinite;
+  }
+}

@@ -1,8 +1,6 @@
 import { technology } from '@/data/technology';
 import { BicepsFlexed, BrainCircuit, DatabaseZap, Rocket } from 'lucide-react';
 import Image from 'next/image';
-import myStackImage from '../../../public/images/mystack-img.png';
-
 const MyStack = () => {
   return (
     <section id="expertise">
@@ -36,8 +34,8 @@ const MyStack = () => {
         ))}
       </div>
 
-      <div className="bg-black mt-10 p-4 rounded-sm">
-        <div className="lg:flex col  items-center justify-center gap-10">
+      <div className=" mt-5 p-4 rounded-sm justify-center items-center flex">
+        <div className="lg:flex col  items-center justify-center gap-5">
           {/* Left Column  */}
           <div className="lg:flex mt-5 col gap-2">
             <div>
@@ -69,18 +67,6 @@ const MyStack = () => {
                   bugs, plus de facilité pour faire évoluer votre projet.
                 </p>
               </div>
-            </div>
-          </div>
-
-          {/* Middle Column  */}
-          <div>
-            <div className="shrink-0">
-              <Image
-                src={myStackImage}
-                width={350}
-                alt="Mon Arsenal Technique"
-                height={'auto'}
-              />
             </div>
           </div>
 
