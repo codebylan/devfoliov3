@@ -22,7 +22,6 @@ const Header = () => {
             <span className="hidden sm:inline">Dylan-Agboton.com</span>
           </Link>
         </div>
-
         <div id="nav-links" className=" lg:block justify-center flex">
           <ul className="flex gap-5 text-sm">
             <li className="hover:underline">
@@ -42,7 +41,6 @@ const Header = () => {
             </li>
           </ul>
         </div>
-
         <div className=" lg:block hidden">
           <Link href={'/'}>
             <Button className={`cursor-pointer items-center bg-black  text-sm`}>
