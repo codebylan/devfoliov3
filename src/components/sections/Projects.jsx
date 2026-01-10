@@ -40,7 +40,7 @@ const Projects = () => {
                 >
                   <Image
                     src={project.image}
-                    alt={project.name}
+                    alt={`Projet réalisé par Dylan Agboton - ${project.name} - ${project.type} - Développeur Freelance Paris`}
                     fill
                     className="object-cover  bg-gradient-to-br  from-black to-[#262626]  rounded-sm p-1 "
                     sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 400px"

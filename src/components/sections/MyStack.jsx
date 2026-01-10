@@ -1,106 +1,113 @@
-import { technology } from '@/data/technology';
-import { BicepsFlexed, BrainCircuit, DatabaseZap, Rocket } from 'lucide-react';
+'use client';
+
+import { stackCategories } from '@/data/stack';
 import Image from 'next/image';
+import mystackImg from '../../../public/images/mystack-img.png';
+
 const MyStack = () => {
   return (
-    <section id="expertise">
-      <h2 className="italic text-center text-3xl text-[#C8B792]!">
-        Mon arsenal technique
-      </h2>
-      <h3 className="text-center text-base">
-        La puissance de l&apos;écosystème JavaScript moderne, boosté par
-        l&apos;intelligence Artificielle.
-      </h3>
+    <section id="mystack">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+        {/* Left Column - Header */}
+        <div className="lg:w-[400px] shrink-0 space-y-4 lg:sticky lg:top-8 lg:self-start">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl italic leading-tight">
+            Mon arsenal <span className="text-accent">technique</span>
+          </h2>
+          <p className="text-base text-white/50 max-w-xl">
+            L&apos;écosystème JavaScript moderne, boosté par l&apos;IA.
+          </p>
 
-      <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-10 px-4">
-        {technology.map((tech, index) => (
-          <div key={tech.name} className="flex items-center">
-            <div
-              className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 relative group"
-              title={tech.name}
-            >
-              <Image
-                src={tech.icon}
-                alt={tech.name}
-                width={48}
-                height={48}
-                className="object-contain opacity-70 p-4 rounded-sm bg-[#C8B792]! group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </div>
-            {index < technology.length - 1 && (
-              <div className="w-px h-8 md:h-10 bg-gray-500/40 mx-2 md:mx-3"></div>
-            )}
+          {/* Image */}
+          <div className="relative w-full aspect-square max-w-md">
+            <Image
+              src={mystackImg}
+              alt="Stack technique Dylan Agboton - Next.js, React, Node.js, IA - Développeur Freelance Paris"
+              fill
+              className="object-cover rounded-sm"
+              sizes="(max-width: 1024px) 100vw, 400px"
+              priority={false}
+            />
           </div>
-        ))}
-      </div>
+        </div>
 
-      <div className=" mt-5 p-4 rounded-sm justify-center items-center flex">
-        <div className="lg:flex col  items-center justify-center gap-5">
-          {/* Left Column  */}
-          <div className="lg:flex mt-5 col gap-2">
-            <div>
-              <div className="bg-gradient-to-br max-w-sm from-black to-[#262626] p-3 rounded-sm mb-5 mt-5">
-                <div className="flex gap-2 items-center ">
-                  <div className="bg-[#262626] p-1 rounded-sm">
-                    <Rocket width={25} height={'auto'} color="#C8B792" />
+        {/* Right Column - Vertical Carousels */}
+        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {stackCategories.map((category) => {
+            // Dupliquer les technologies pour l'effet infini
+            const duplicatedTechnologies = [
+              ...category.technologies,
+              ...category.technologies,
+              ...category.technologies,
+            ];
+
+            return (
+              <div key={category.category} className="space-y-4">
+                {/* Category Header */}
+                <div className="flex items-center gap-3">
+                  <span className="text-xs uppercase tracking-widest text-accent font-medium">
+                    {category.category}
+                  </span>
+                </div>
+
+                {/* Vertical Carousel Container */}
+                <div className="relative h-[600px] overflow-hidden">
+                  {/* Gradient top */}
+                  <div className="absolute top-0 left-0 right-0 h-20 bg-linear-to-b from-[#262626] to-transparent z-10 pointer-events-none" />
+
+                  {/* Gradient bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-[#262626] to-transparent z-10 pointer-events-none" />
+
+                  {/* Vertical Carousel */}
+                  <div className="overflow-hidden h-full">
+                    <div className="flex flex-col gap-6 animate-scroll-vertical">
+                      {duplicatedTechnologies.map((tech, index) => (
+                        <div
+                          key={`${category.category}-${tech.name}-${index}`}
+                          className="shrink-0 group"
+                        >
+                          {/* Tech Card */}
+                          <div className="space-y-3">
+                            {/* Tech Header */}
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 flex items-center justify-center shrink-0 bg-accent/10 rounded-sm">
+                                <Image
+                                  src={tech.logo}
+                                  alt={tech.name}
+                                  width={24}
+                                  height={24}
+                                  className="object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-all duration-500"
+                                  style={{
+                                    filter:
+                                      'brightness(0) saturate(100%) invert(81%) sepia(13%) saturate(744%) hue-rotate(355deg) brightness(93%) contrast(88%)',
+                                  }}
+                                />
+                              </div>
+                              <div>
+                                <h3 className="text-base font-medium text-white group-hover:text-accent transition-colors duration-300">
+                                  {tech.name}
+                                </h3>
+                                {tech.subtitle && (
+                                  <span className="text-xs text-white/30">
+                                    {tech.subtitle}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* Description */}
+                            <div className="space-y-2 text-xs leading-relaxed">
+                              <p className="text-white/50">{tech.what}</p>
+                              <p className="text-white/35">{tech.why}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="text-sm font-semibold text-accent">
-                    Performance | Next.js React
-                  </h3>
                 </div>
-                <p className="text-sm mt-3">
-                  Le standard actuel pour des sites ultra-rapides et optimisé
-                  SEO. Utimisé pour garantir une expérience utilisateur fluide.
-                </p>
               </div>
-              <div className="bg-gradient-to-br max-w-sm from-black to-[#262626] p-3 rounded-sm mb-5 mt-5">
-                <div className="flex gap-2 items-center ">
-                  <div className="bg-[#262626] p-1 rounded-sm">
-                    <BicepsFlexed width={25} height={'auto'} color="#C8B792" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-accent">
-                    Robustesse | Node.js & TypeScript
-                  </h3>
-                </div>
-                <p className="text-sm mt-3">
-                  Un code backend structuré, sécurisé et maintenable. Moins de
-                  bugs, plus de facilité pour faire évoluer votre projet.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column  */}
-          <div>
-            <div className="bg-gradient-to-br max-w-sm from-black to-[#262626] p-3 rounded-sm mb-5 mt-5">
-              <div className="flex gap-2 items-center ">
-                <div className="bg-[#262626] p-1 rounded-sm">
-                  <BrainCircuit width={25} height={'auto'} color="#C8B792" />
-                </div>
-                <h3 className="text-sm text-accent font-semibold">
-                  Innovation | IA Automatisation
-                </h3>
-              </div>
-              <p className="text-sm mt-3">
-                Intégration d'IA générative pour créer des fonctionnalités
-                intelligentes (Chatbots, analyses, génération de contenu).
-              </p>
-            </div>
-            <div className="bg-gradient-to-br max-w-sm from-black to-[#262626] p-3 rounded-sm mb-5 mt-5">
-              <div className="flex gap-2 items-center ">
-                <div className="bg-[#262626] p-1 rounded-sm">
-                  <DatabaseZap width={25} height={'auto'} color="#C8B792" />
-                </div>
-                <h3 className="text-sm text-accent font-semibold">
-                  Infrastructure | Vercel & Supabase
-                </h3>
-              </div>
-              <p className="text-sm  mt-3">
-                Hébergement Cloud haute disponibilité et bases de données
-                évolutives. Votre site grandit avec vous, sans friction.
-              </p>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

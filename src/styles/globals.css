@@ -197,3 +197,79 @@ h3 {
     animation: scroll-infinite-sm 25s linear infinite;
   }
 }
+
+/* Hide scrollbar for swipable carousel (mobile/tablet) */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Infinite scroll animation for MyStack */
+@keyframes scroll-tech {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-360px * 4 - 1.5rem * 3));
+  }
+}
+
+@keyframes scroll-tech-md {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-320px * 4 - 1.5rem * 3));
+  }
+}
+
+@keyframes scroll-tech-sm {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-280px * 4 - 1.5rem * 3));
+  }
+}
+
+.animate-scroll-tech {
+  animation: scroll-tech 30s linear infinite;
+}
+
+.animate-scroll-tech:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 1024px) {
+  .animate-scroll-tech {
+    animation: scroll-tech-md 30s linear infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  .animate-scroll-tech {
+    animation: scroll-tech-sm 30s linear infinite;
+  }
+}
+
+/* Vertical scroll animation for MyStack */
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-vertical {
+  animation: scroll-vertical 40s linear infinite;
+}
+
+.animate-scroll-vertical:hover {
+  animation-play-state: paused;
+}

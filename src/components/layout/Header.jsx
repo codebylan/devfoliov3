@@ -14,7 +14,7 @@ const Header = () => {
           <Link href={'/'} className="flex text-sm items-center gap-2 ">
             <Image
               src={logo}
-              alt="Dylan-Agboton.com"
+              alt="Dylan Agboton - Développeur Next.js Freelance Paris & Intégrateur IA"
               width={55}
               height={55}
               className=" "
@@ -25,19 +25,19 @@ const Header = () => {
         <div id="nav-links" className=" lg:block justify-center flex">
           <ul className="flex gap-5 text-sm">
             <li className="hover:underline">
-              <Link href={'#expertise'}>Expertise</Link>
+              <Link href={'#mystack'}>Expertise</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'/'}>Projets</Link>
+              <Link href={'#projects'}>Projets</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'/'}>Tarifs</Link>
+              <Link href={'#prices'}>Tarifs</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'/'}>À propos</Link>
+              <Link href={'#about'}>À propos</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'/'}>Journal</Link>
+              <Link href={'#faq'}>FAQ</Link>
             </li>
           </ul>
         </div>

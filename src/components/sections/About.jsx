@@ -85,7 +85,7 @@ const About = () => {
           <div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[280px]">
             <Image
               src={me}
-              alt="Dylan Agboton - Développeur Web Freelance"
+              alt="Dylan Agboton - Développeur Fullstack Next.js & Intégrateur IA Freelance à Paris"
               width={640}
               height={640}
               quality={100}

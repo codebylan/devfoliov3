@@ -18,7 +18,7 @@ const ProblemAndSolution = () => {
         <div className="shrink-0 mb-10 lg:mb-0">
           <Image
             src={PaS}
-            alt="Un problème ? Une Solution."
+            alt="Solutions Développement Web & Automatisation IA pour PME Paris - Dylan Agboton"
             width={350}
             height={'auto'}
             quality={75}
