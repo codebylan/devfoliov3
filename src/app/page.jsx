@@ -1,3 +1,4 @@
+import About from '@/components/sections/About';
 import Hero from '@/components/sections/Hero';
 import MyStack from '@/components/sections/MyStack';
 import ProblemAndSolution from '@/components/sections/ProblemAndSolution';
@@ -10,6 +11,7 @@ export default function Home() {
       <ProblemAndSolution />
       <MyStack />
       <Projects />
+      <About />
     </main>
   );
 }

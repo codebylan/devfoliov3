@@ -7,10 +7,10 @@ const MyStack = () => {
       <h2 className="italic text-center text-3xl text-[#C8B792]!">
         Mon arsenal technique
       </h2>
-      <p className="text-center text-base mt-2">
+      <h3 className="text-center text-base">
         La puissance de l&apos;écosystème JavaScript moderne, boosté par
         l&apos;intelligence Artificielle.
-      </p>
+      </h3>
 
       <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mt-10 px-4">
         {technology.map((tech, index) => (

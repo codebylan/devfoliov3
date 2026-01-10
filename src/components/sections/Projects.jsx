@@ -42,7 +42,7 @@ const Projects = () => {
                     src={project.image}
                     alt={project.name}
                     fill
-                    className="object-cover bg-[#988c72] rounded-sm p-1 "
+                    className="object-cover  bg-gradient-to-br  from-black to-[#262626]  rounded-sm p-1 "
                     sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 400px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
