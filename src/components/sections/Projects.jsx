@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { project } from '../../data/projects';
 
 const Projects = () => {
-  // Duplicate for infinite effect
   const duplicatedProjects = [...project, ...project, ...project];
 
   return (
@@ -40,21 +39,27 @@ const Projects = () => {
               key={`${item.name}-${index}`}
               className="group relative shrink-0 w-[75vw] sm:w-[50vw] lg:w-[35vw] xl:w-[28vw]"
             >
-              {/* Image Container */}
-              <div className="relative aspect-video overflow-hidden rounded-sm mb-5">
-                <Image
-                  src={item.image}
-                  alt={`${item.name} - ${item.type}`}
-                  fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                  sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
-                />
-                {/* Number Overlay */}
-                {/* <div className="absolute top-4 left-4">
-                  <span className="text-white/10 text-6xl sm:text-7xl font-light leading-none">
-                    {String((index % project.length) + 1).padStart(2, '0')}
-                  </span>
-                </div> */}
+              {/* Video/Image Container */}
+              <div className="relative aspect-video overflow-hidden rounded-sm mb-5 bg-white/5">
+                {item.video ? (
+                  <video
+                    src={item.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    poster={item.image}
+                  />
+                ) : (
+                  <Image
+                    src={item.image}
+                    alt={`${item.name} - ${item.type}`}
+                    fill
+                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
+                  />
+                )}
               </div>
 
               {/* Content */}
@@ -76,7 +81,6 @@ const Projects = () => {
 
       {/* Footer */}
       <div className="mt-10 flex items-center justify-between text-xs text-white/30">
-        {/* <p>Portfolio sélectif — hover pour pause</p> */}
         <div className="flex gap-1">
           {project.map((_, i) => (
             <span key={i} className="w-6 h-px bg-accent/40" />
