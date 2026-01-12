@@ -1,9 +1,13 @@
+'use client';
+
 import { Github, Linkedin, Mail, Phone, Twitter } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../../public/images/logo.svg';
+import { useBooking } from '../../contexts/BookingContext';
 
 const Footer = () => {
+  const { openBookingModal } = useBooking();
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
@@ -102,15 +106,15 @@ const Footer = () => {
                 </div>
                 <span>d.agboton.dev@gmail.com</span>
               </Link>
-              <Link
-                href="/"
-                className="flex items-center gap-3 text-sm text-white/60 hover:text-accent transition-colors duration-300 group"
+              <button
+                onClick={openBookingModal}
+                className="flex items-center gap-3 text-sm text-white/60 hover:text-accent transition-colors duration-300 group w-full text-left"
               >
                 <div className="w-8 h-8 rounded-sm border border-white/10 group-hover:border-accent/50 flex items-center justify-center transition-all duration-300">
                   <Phone size={16} className="text-white/60 group-hover:text-accent" />
                 </div>
                 <span>Réserver un appel</span>
-              </Link>
+              </button>
             </div>
           </div>
         </div>

@@ -1,9 +1,10 @@
-import Footer from '@/components/layout/Footer';
-import Header from '@/components/layout/Header';
-import StructuredData from '@/components/seo/StructuredData';
-import { seoConfig } from '@/data/seo-config';
+import Footer from '../components/layout/Footer';
+import Header from '../components/layout/Header';
+import StructuredData from '../components/seo/StructuredData';
+import { seoConfig } from '../data/seo-config';
 import { Instrument_Serif, Inter } from 'next/font/google';
 import '../styles/globals.css';
+import { BookingProvider } from '../contexts/BookingContext';
 
 const instrumentSerif = Instrument_Serif({
   subsets: ['latin'],
@@ -77,11 +78,13 @@ export default function RootLayout({ children }) {
     >
       <body className="antialiased flex flex-col min-h-screen">
         <StructuredData />
-        <div className="flex-1 flex flex-col  gap-12 py-8 lg:gap-12 lg:max-w-7xl max-w-xl px-4 mx-auto w-full">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <BookingProvider>
+          <div className="flex-1 flex flex-col  gap-12 py-8 lg:gap-12 lg:max-w-7xl max-w-xl px-4 mx-auto w-full">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </BookingProvider>
       </body>
     </html>
   );

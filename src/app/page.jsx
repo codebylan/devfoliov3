@@ -1,12 +1,12 @@
-import About from '@/components/sections/About';
-import CTA from '@/components/sections/CTA';
-import FAQ from '@/components/sections/FAQ';
-import Hero from '@/components/sections/Hero';
-import MyStack from '@/components/sections/MyStack';
-import Prices from '@/components/sections/Prices';
-import ProblemAndSolution from '@/components/sections/ProblemAndSolution';
-import Projects from '@/components/sections/Projects';
-import { seoConfig } from '@/data/seo-config';
+import About from '../components/sections/About';
+import CTA from '../components/sections/CTA';
+import FAQ from '../components/sections/FAQ';
+import Hero from '../components/sections/Hero';
+import MyStack from '../components/sections/MyStack';
+import Prices from '../components/sections/Prices';
+import ProblemAndSolution from '../components/sections/ProblemAndSolution';
+import Projects from '../components/sections/Projects';
+import { seoConfig } from '../data/seo-config';
 
 export const metadata = {
   title: seoConfig.pages.home.title,

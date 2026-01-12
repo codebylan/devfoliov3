@@ -5,8 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '../../../public/images/logo.svg';
 import { Button } from '../ui/button';
+import { useBooking } from '../../contexts/BookingContext';
 
 const Header = () => {
+  const { openBookingModal } = useBooking();
   return (
     <header className="lg:text-end text-center ">
       <nav className="flex   items-center justify-between relative ">
@@ -30,11 +32,12 @@ const Header = () => {
             <li className="hover:underline">
               <Link href={'#projects'}>Projets</Link>
             </li>
-            <li className="hover:underline">
-              <Link href={'#prices'}>Tarifs</Link>
-            </li>
+
             <li className="hover:underline">
               <Link href={'#about'}>À propos</Link>
+            </li>
+            <li className="hover:underline">
+              <Link href={'#prices'}>Tarifs</Link>
             </li>
             <li className="hover:underline">
               <Link href={'#faq'}>FAQ</Link>
@@ -42,12 +45,13 @@ const Header = () => {
           </ul>
         </div>
         <div className=" lg:block hidden">
-          <Link href={'/'}>
-            <Button className={`cursor-pointer items-center bg-black  text-sm`}>
-              <Phone />
-              Réserver un appel
-            </Button>
-          </Link>
+          <Button
+            onClick={openBookingModal}
+            className={`cursor-pointer items-center bg-black  text-sm`}
+          >
+            <Phone />
+            Réserver un appel
+          </Button>
         </div>
       </nav>
     </header>

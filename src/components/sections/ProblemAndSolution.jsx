@@ -1,12 +1,15 @@
-import { Badge } from '@/components/ui/badge';
-import { problems, solutions } from '@/data/problemAndSolution';
+'use client';
+
+import { Badge } from '../ui/badge';
+import { problems, solutions } from '../../data/problemAndSolution';
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import PaS from '../../../public/images/problem-and-solution.png';
 import { Button } from '../ui/button';
+import { useBooking } from '../../contexts/BookingContext';
 
 const ProblemAndSolution = () => {
+  const { openBookingModal } = useBooking();
   return (
     <section>
       <h2 className="text-3xl text-center italic mb-12">
@@ -15,7 +18,7 @@ const ProblemAndSolution = () => {
 
       <div className="lg:flex gap-10 items-start justify-center mt-10">
         {/* Image Column */}
-        <div className="shrink-0 mb-10 lg:mb-0">
+        <div className="shrink-0 hidden lg:block mb-10 lg:mb-0">
           <Image
             src={PaS}
             alt="Solutions Développement Web & Automatisation IA pour PME Paris - Dylan Agboton"
@@ -89,12 +92,10 @@ const ProblemAndSolution = () => {
       </div>
 
       <div className="justify-center text-center">
-        <Link href={'/'}>
-          <Button className={`bg-black cursor-pointer`}>
-            <Calendar />
-            Réserver un créneau
-          </Button>
-        </Link>
+        <Button onClick={openBookingModal} className={`bg-black cursor-pointer`}>
+          <Calendar />
+          Réserver un créneau
+        </Button>
       </div>
     </section>
   );

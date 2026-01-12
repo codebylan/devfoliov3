@@ -1,8 +1,12 @@
+'use client';
+
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 import { Button } from '../ui/button';
+import { useBooking } from '../../contexts/BookingContext';
 
 const CTA = () => {
+  const { openBookingModal } = useBooking();
+
   return (
     <section id="cta" className="relative overflow-hidden">
       {/* Background Accent Box */}
@@ -30,15 +34,16 @@ const CTA = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link href="/">
-              <Button className="group bg-black text-black cursor-pointer font-semibold px-8 py-6 text-base sm:text-sm duration-300">
-                Réserver un appel gratuit
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform duration-300"
-                />
-              </Button>
-            </Link>
+            <Button
+              onClick={openBookingModal}
+              className="group bg-black text-black cursor-pointer font-semibold px-8 py-6 text-base sm:text-sm duration-300"
+            >
+              Réserver un appel gratuit
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform duration-300"
+              />
+            </Button>
           </div>
 
           {/* Trust Indicators */}

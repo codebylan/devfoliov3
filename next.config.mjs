@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    qualities: [75, 90, 100],
     remotePatterns: [
       {
         protocol: 'https',
@@ -8,6 +9,10 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  // Désactiver Turbopack temporairement pour résoudre les problèmes d'imports
+  experimental: {
+    turbo: false,
   },
 };
 

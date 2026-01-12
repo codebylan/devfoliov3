@@ -1,10 +1,13 @@
+'use client';
+
 import { Calendar } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
 import me from '../../../public/images/me.webp';
 import { Button } from '../ui/button';
+import { useBooking } from '../../contexts/BookingContext';
 
 const About = () => {
+  const { openBookingModal } = useBooking();
   return (
     <section id="about" className="space-y-6 sm:space-y-8 lg:space-y-10">
       <div className="text-center space-y-2 sm:space-y-3">
@@ -98,11 +101,12 @@ const About = () => {
       </div>
 
       <div className="flex flex-col items-center sm:items-start space-y-3">
-        <Link href={'/'} className="w-full sm:w-auto">
-          <Button className="w-full sm:w-auto mt-5 text-sm items-center bg-black cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-            <Calendar /> Réserver un appel
-          </Button>
-        </Link>
+        <Button
+          onClick={openBookingModal}
+          className="w-full sm:w-auto mt-5 text-sm items-center bg-black cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]"
+        >
+          <Calendar /> Réserver un appel
+        </Button>
 
         <p className="text-[10px] text-[#C3C1BA] text-center sm:text-left">
           Réponse sous 24h • Accompagnement court ou long terme

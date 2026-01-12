@@ -1,6 +1,6 @@
 'use client';
 
-import { stackCategories } from '@/data/stack';
+import { stackCategories } from '../../data/stack';
 import Image from 'next/image';
 import mystackImg from '../../../public/images/mystack-img.png';
 
@@ -18,7 +18,7 @@ const MyStack = () => {
           </p>
 
           {/* Image */}
-          <div className="relative w-full aspect-square max-w-md">
+          <div className="relative hidden lg:block  w-full aspect-square max-w-md">
             <Image
               src={mystackImg}
               alt="Stack technique Dylan Agboton - Next.js, React, Node.js, IA - Développeur Freelance Paris"

@@ -273,3 +273,37 @@ h3 {
 .animate-scroll-vertical:hover {
   animation-play-state: paused;
 }
+
+/* Scroll offset for anchor links (fixed header compensation) */
+section[id] {
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 768px) {
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+}
+
+/* Modal animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation: fade-in 200ms ease-out, zoom-in 200ms ease-out;
+}

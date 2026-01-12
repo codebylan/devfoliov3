@@ -1,10 +1,13 @@
-import { pricingData } from '@/data/pricing';
+'use client';
+
+import { pricingData } from '../../data/pricing';
 import { Check } from 'lucide-react';
-import Link from 'next/link';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
+import { useBooking } from '../../contexts/BookingContext';
 
 const Prices = () => {
+  const { openBookingModal } = useBooking();
   return (
     <section id="prices" className="">
       <div className="text-center space-y-2 sm:space-y-3">
@@ -124,8 +127,9 @@ const Prices = () => {
               </div>
 
               {/* CTA Button */}
-              <Link href="/" className="mt-auto">
+              <div className="mt-auto">
                 <Button
+                  onClick={openBookingModal}
                   className={`
                   w-full text-sm transition-all cursor-pointer duration-300
                   ${
@@ -137,7 +141,7 @@ const Prices = () => {
                 >
                   Demander mon devis personnalisé
                 </Button>
-              </Link>
+              </div>
             </div>
           ))}
         </div>

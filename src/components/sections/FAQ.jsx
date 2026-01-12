@@ -1,6 +1,6 @@
 'use client';
 
-import { faqData } from '@/data/faq';
+import { faqData } from '../../data/faq';
 import {
   Briefcase,
   HeartHandshake,

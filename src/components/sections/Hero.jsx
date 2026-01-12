@@ -1,8 +1,12 @@
+'use client';
+
 import { Calendar } from 'lucide-react';
-import Link from 'next/link';
 import { Button } from '../ui/button';
+import { useBooking } from '../../contexts/BookingContext';
 
 const Hero = () => {
+  const { openBookingModal } = useBooking();
+
   return (
     <section id="hero">
       {/* left column  */}
@@ -26,14 +30,13 @@ const Hero = () => {
               De la conception au déploiement, je m'occupe de tout.
             </p>
           </div>
-          <Link href={'/'}>
-            <Button
-              className={` mt-5 text-sm items-center bg-black cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]  `}
-            >
-              {' '}
-              <Calendar /> Réserver un appel
-            </Button>
-          </Link>
+          <Button
+            onClick={openBookingModal}
+            className={` mt-5 text-sm items-center bg-black cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]  `}
+          >
+            {' '}
+            <Calendar /> Réserver un appel
+          </Button>
 
           <p className="text-[10px] text-[#C3C1BA]! mt-3">
             Réponse sous 24h • Accompagnement court ou long terme

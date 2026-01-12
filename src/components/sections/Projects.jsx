@@ -1,6 +1,6 @@
 'use client';
 
-import { project } from '@/data/projects';
+import { project } from '../../data/projects';
 import Image from 'next/image';
 
 const Projects = () => {
