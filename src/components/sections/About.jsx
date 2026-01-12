@@ -90,7 +90,7 @@ const About = () => {
             <p className="text-white/70 leading-relaxed">
               La passion ne s&apos;éteint jamais. Fort de cette vision business,
               je suis revenu au code. Discipline de fer, rattrapage
-              technologique. Next.js, React, Node.js, IA — l&apos;écosystème
+              technologique. Next.js, React, Node.js, IA. L&apos;écosystème
               moderne maîtrisé.
             </p>
           </div>

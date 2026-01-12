@@ -20,11 +20,4 @@ export const project = [
     image: '/images/ridenow.png',
     video: '/videos/ridenow.mp4', // Ajouter la vidéo ici
   },
-  {
-    name: 'Run Wear',
-    type: 'E-commerce',
-    job: 'Développement Front-end | HTML & Tailwind CSS',
-    image: '/images/runwear.png',
-    video: '/videos/runwear.mp4', // Ajouter la vidéo ici
-  },
 ];
