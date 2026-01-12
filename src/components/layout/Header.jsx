@@ -47,9 +47,9 @@ const Header = () => {
         <div className=" lg:block hidden">
           <Button
             onClick={openBookingModal}
-            className={`cursor-pointer items-center bg-black  text-sm`}
+            className="cursor-pointer items-center bg-accent text-black font-semibold text-sm transition-colors"
           >
-            <Phone />
+            <Phone size={16} />
             Réserver un appel
           </Button>
         </div>

@@ -1,75 +1,86 @@
 'use client';
 
-import { project } from '../../data/projects';
 import Image from 'next/image';
+import { project } from '../../data/projects';
 
 const Projects = () => {
-  // Dupliquer les images pour l'effet infini
+  // Duplicate for infinite effect
   const duplicatedProjects = [...project, ...project, ...project];
 
   return (
     <section id="projects">
-      <h2 className="italic text-3xl text-center">
-        Ils avaient une vision,{' '}
-        <span className="text-accent">nous l&apos;avons réalisée</span>
-      </h2>
-      {/* 
-      <p className="text-center text-base mt-2">
-        Derrière chaque ligne de code, il y a un entrepreneur et un objectif.{' '}
-        <br />
-        Découvrez comment j&apos;ai aidé ces entreprises à franchir un cap
-        technique.
-      </p> */}
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+        <div>
+          <p className="text-accent text-xs uppercase tracking-[0.2em] mb-4">
+            Réalisations
+          </p>
+          <h2 className="text-4xl sm:text-5xl italic leading-[0.95]">
+            Ils avaient une vision,{' '}
+            <span className="text-accent">nous l&apos;avons réalisée.</span>
+          </h2>
+        </div>
+        <p className="text-white/30 text-xs shrink-0">
+          {project.length} projets
+        </p>
+      </div>
 
-      <div className="mt-10 space-y-10">
-        {/* Top Carousel */}
-        <div className="relative overflow-hidden">
-          {/* Gradient left */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#262626] to-transparent z-10 pointer-events-none" />
+      {/* Infinite Carousel Container */}
+      <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 overflow-hidden">
+        {/* Gradient Fade Left */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-linear-to-r from-[#262626] to-transparent z-10 pointer-events-none" />
 
-          {/* Gradient right */}
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#262626] to-transparent z-10 pointer-events-none " />
+        {/* Gradient Fade Right */}
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-linear-to-l from-[#262626] to-transparent z-10 pointer-events-none" />
 
-          {/* Carousel container */}
-          <div className="overflow-hidden justify-start  ">
-            <div className="flex gap-2 animate-scroll-infinite w-fit">
-              {duplicatedProjects.map((project, index) => (
-                <div
-                  key={`top-${project.name}-${index}`}
-                  className="shrink-0 w-[180px] md:w-[250px]  lg:w-[400px] h-[100px] md:h-[150px] lg:h-[200px] relative rounded-sm overflow-hidden group"
-                >
-                  <Image
-                    src={project.image}
-                    alt={`Projet réalisé par Dylan Agboton - ${project.name} - ${project.type} - Développeur Freelance Paris`}
-                    fill
-                    className="object-cover  bg-gradient-to-br  from-black to-[#262626]  rounded-sm p-1 "
-                    sizes="(max-width: 768px) 280px, (max-width: 1024px) 350px, 400px"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-2.5 md:p-3 lg:p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[1px]">
-                    <div className="space-y-0.5 sm:space-y-1 md:space-y-1.5">
-                      <h3 className="text-accent font-bold text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-lg leading-tight truncate">
-                        {project.name}
-                      </h3>
-                      <p className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm text-white/90 font-medium leading-tight">
-                        {project.type}
-                      </p>
-                      <p
-                        className="text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs text-white/80 leading-tight overflow-hidden"
-                        style={{
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                        }}
-                      >
-                        {project.job}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Scrolling Track */}
+        <div className="flex gap-6 animate-scroll-projects w-fit hover:[animation-play-state:paused]">
+          {duplicatedProjects.map((item, index) => (
+            <article
+              key={`${item.name}-${index}`}
+              className="group relative shrink-0 w-[75vw] sm:w-[50vw] lg:w-[35vw] xl:w-[28vw]"
+            >
+              {/* Image Container */}
+              <div className="relative aspect-video overflow-hidden rounded-sm mb-5">
+                <Image
+                  src={item.image}
+                  alt={`${item.name} - ${item.type}`}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                  sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
+                />
+                {/* Number Overlay */}
+                {/* <div className="absolute top-4 left-4">
+                  <span className="text-white/10 text-6xl sm:text-7xl font-light leading-none">
+                    {String((index % project.length) + 1).padStart(2, '0')}
+                  </span>
+                </div> */}
+              </div>
+
+              {/* Content */}
+              <div className="space-y-2">
+                <span className="text-accent text-xs uppercase tracking-[0.15em]">
+                  {item.type}
+                </span>
+                <h3 className="text-lg sm:text-xl text-white font-medium group-hover:text-accent transition-colors duration-300">
+                  {item.name}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed line-clamp-2">
+                  {item.job}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-10 flex items-center justify-between text-xs text-white/30">
+        {/* <p>Portfolio sélectif — hover pour pause</p> */}
+        <div className="flex gap-1">
+          {project.map((_, i) => (
+            <span key={i} className="w-6 h-px bg-accent/40" />
+          ))}
         </div>
       </div>
     </section>

@@ -1,150 +1,154 @@
 'use client';
 
-import { pricingData } from '../../data/pricing';
-import { Check } from 'lucide-react';
-import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
+import { ArrowRight } from 'lucide-react';
 import { useBooking } from '../../contexts/BookingContext';
+import { pricingData } from '../../data/pricing';
+import { Button } from '../ui/button';
 
 const Prices = () => {
   const { openBookingModal } = useBooking();
-  return (
-    <section id="prices" className="">
-      <div className="text-center space-y-2 sm:space-y-3">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl italic leading-tight px-4">
-          <span className="text-accent">Un investissement,</span> pas une
-          dépense.
-        </h2>
-        <h3 className="text-sm sm:text-base lg:text-lg text-muted-foreground px-4">
-          Des tarifs transparents, adaptés à la valeur apportée. Pas de coûts
-          cachés.
-        </h3>
 
-        {/* TJM Info */}
-        <div className="pt-3">
-          <p className="text-xs sm:text-sm text-accent/80 font-medium">
-            TJM : <span className="text-accent font-semibold">450€/jour</span>
+  return (
+    <section id="prices">
+      {/* Header */}
+      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+        <div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl italic leading-[0.95]">
+            <span className="text-accent">Investissement,</span>
+            <br />
+            pas dépense.
+          </h2>
+        </div>
+        <div className="lg:text-right">
+          <p className="text-white/50 text-sm max-w-sm">
+            Tarifs transparents, adaptés à la valeur créée. Pas de surprise, pas
+            de coûts cachés.
+          </p>
+          <p className="text-accent text-sm mt-2">
+            TJM : <span className="font-semibold">450€</span>/jour
           </p>
         </div>
       </div>
 
-      {/* Mobile/Tablet: Swipable Carousel | Desktop: Grid */}
-      <div className="mt-8 sm:mt-10 relative pt-4">
-        {/* Gradient overlays for mobile/tablet (hidden on desktop) */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 bg-linear-to-r from-[#262626] to-transparent z-10 pointer-events-none lg:hidden" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 bg-linear-to-l from-[#262626] to-transparent z-10 pointer-events-none lg:hidden" />
-
-        {/* Scrollable container */}
-        <div
-          className="
-            flex gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-hide
-            px-4 pb-4
-            lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0
-          "
-        >
-          {pricingData.map((pricing, index) => (
+      {/* Pricing Tiers */}
+      <div className="space-y-4">
+        {pricingData.map((tier, index) => (
+          <div
+            key={index}
+            className={`group relative ${
+              tier.isRecommended ? 'bg-accent/3' : ''
+            }`}
+          >
+            {/* Main Row */}
             <div
-              key={index}
               className={`
-                relative bg-black border rounded-sm p-5 sm:p-6 
-                transition-all duration-300
-                flex flex-col
-                snap-center
-                min-w-[70vw] sm:min-w-[60vw] lg:min-w-0
-                ${
-                  pricing.isRecommended
-                    ? 'border-accent lg:scale-105 shadow-lg shadow-accent/10'
-                    : 'border-accent/40 hover:border-accent/60'
-                }
+                grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 
+                py-8 lg:py-10 px-6 lg:px-8
+                border-t border-white/10
+                ${tier.isRecommended ? 'border-t-accent/40' : ''}
               `}
             >
-              {/* Badge "Recommandé" */}
-              {pricing.isRecommended && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-black text-white border border-[#c8b792] font-semibold px-3 py-1 text-xs">
-                    Recommandé
-                  </Badge>
-                </div>
-              )}
-
-              {/* Header */}
-              <div className="space-y-3 mb-5">
-                <h4 className="text-accent font-semibold text-base sm:text-lg">
-                  {pricing.title}
-                </h4>
-                <p className="italic text-xs sm:text-sm text-white/70">
-                  {pricing.subtitle}
-                </p>
-
-                {/* Prix avec mention "À partir de" en plus petit */}
-                <div>
-                  {pricing.price.includes('À partir de') ? (
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-xs text-white/50">À partir de</span>
-                      <span className="text-2xl sm:text-3xl font-bold text-accent">
-                        {pricing.price.replace('À partir de ', '')}
-                      </span>
-                    </div>
-                  ) : (
-                    <p className="text-lg sm:text-xl font-bold text-white">
-                      {pricing.price}
-                    </p>
+              {/* Tier Name & Badge */}
+              <div className="lg:col-span-3">
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className="text-xl sm:text-2xl text-white font-medium">
+                    {tier.title}
+                  </h3>
+                  {tier.isRecommended && (
+                    <span className="text-[10px] uppercase tracking-widest text-accent bg-accent/10 px-2 py-1 rounded-sm">
+                      Recommandé
+                    </span>
                   )}
                 </div>
+                <p className="text-white/40 text-sm italic">{tier.subtitle}</p>
               </div>
 
-              {/* Features list */}
-              <div className="space-y-4 mb-5 flex-1">
-                <p className="text-sm font-medium text-white/90">
-                  Ce qui est inclus :
-                </p>
-                <ul className="space-y-3">
-                  {pricing.features.map((feature, featureIndex) => (
+              {/* Price */}
+              <div className="lg:col-span-2 flex items-start">
+                {tier.price.includes('À partir de') ? (
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
+                      À partir de
+                    </p>
+                    <p className="text-3xl sm:text-4xl font-light text-accent">
+                      {tier.price.replace('À partir de ', '')}
+                    </p>
+                  </div>
+                ) : (
+                  <div>
+                    <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
+                      Sur devis
+                    </p>
+                    <p className="text-xl sm:text-2xl font-light text-white/70">
+                      {tier.price.replace('Sur Devis ', '')}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Features */}
+              <div className="lg:col-span-5">
+                <ul className="space-y-2">
+                  {tier.features.map((feature, i) => (
                     <li
-                      key={featureIndex}
-                      className="flex gap-3 items-start text-xs sm:text-sm"
+                      key={i}
+                      className="text-sm text-white/60 flex items-start gap-3"
                     >
-                      <div className="bg-[#c8b792] rounded-sm p-0.5 shrink-0 mt-0.5">
-                        <Check width={16} height={16} color="black" />
-                      </div>
-                      <span className="text-white/80 leading-relaxed">
-                        {feature}
-                      </span>
+                      <span className="text-accent/60 mt-0.5">—</span>
+                      <span>{feature}</span>
                     </li>
                   ))}
-                  {pricing.bonus && (
-                    <li className="flex gap-3 items-start text-xs sm:text-sm">
-                      <div className="bg-accent rounded-sm p-0.5 shrink-0 mt-0.5">
-                        <Check width={16} height={16} color="black" />
-                      </div>
-                      <span className="text-accent/90 leading-relaxed font-medium">
-                        <span className="font-semibold">Bonus : </span>
-                        {pricing.bonus}
-                      </span>
+                  {tier.bonus && (
+                    <li className="text-sm text-accent flex items-start gap-3 pt-2">
+                      <span className="text-accent mt-0.5">+</span>
+                      <span className="font-medium">{tier.bonus}</span>
                     </li>
                   )}
                 </ul>
               </div>
 
-              {/* CTA Button */}
-              <div className="mt-auto">
+              {/* CTA */}
+              <div className="lg:col-span-2 flex items-center justify-start lg:justify-end">
                 <Button
                   onClick={openBookingModal}
                   className={`
-                  w-full text-sm transition-all cursor-pointer duration-300
-                  ${
-                    pricing.isRecommended
-                      ? 'bg-[#c8b792] border border-white text-black! hover:bg-white font-semibold shadow-lg'
-                      : 'border border-accent/40 hover:border-accent hover:bg-accent/10 bg-transparent'
-                  }
-                `}
+                    group/btn cursor-pointer text-sm px-6 py-5 transition-all duration-300
+                    ${
+                      tier.isRecommended
+                        ? 'bg-accent text-black font-semibold'
+                        : 'bg-transparent border border-white/20 hover:border-accent hover:bg-accent/5 text-white'
+                    }
+                  `}
                 >
-                  Demander mon devis personnalisé
+                  <span className="flex items-center gap-2">
+                    Devis
+                    <ArrowRight
+                      size={14}
+                      className="group-hover/btn:translate-x-1 transition-transform"
+                    />
+                  </span>
                 </Button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom Border */}
+      <div className="border-t border-white/10 mt-0" />
+
+      {/* Footer Note */}
+      <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-white/30">
+        <p>
+          Chaque projet est unique. Les tarifs sont indicatifs et ajustés selon
+          vos besoins spécifiques.
+        </p>
+        <button
+          onClick={openBookingModal}
+          className="text-accent hover:underline cursor-pointer"
+        >
+          Discutons de votre projet →
+        </button>
       </div>
     </section>
   );

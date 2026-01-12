@@ -12,7 +12,7 @@ const Footer = () => {
 
   const footerLinks = {
     navigation: [
-      { label: 'Expertise', href: '#expertise' },
+      { label: 'Expertise', href: '#mystack' },
       { label: 'Projets', href: '#projects' },
       { label: 'Tarifs', href: '#prices' },
       { label: 'À propos', href: '#about' },

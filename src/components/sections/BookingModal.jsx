@@ -1,12 +1,12 @@
 'use client';
 
-import { Calendar, ChevronLeft, Clock, Mail, Phone, User } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '../ui/button';
 import Modal from '../ui/modal';
 
 const BookingModal = ({ isOpen, onClose }) => {
-  const [step, setStep] = useState(1); // 1: Date, 2: Heure, 3: Infos
+  const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [formData, setFormData] = useState({
@@ -17,14 +17,12 @@ const BookingModal = ({ isOpen, onClose }) => {
     message: '',
   });
 
-  // Générer les 14 prochains jours
   const generateDates = () => {
     const dates = [];
     const today = new Date();
-    for (let i = 0; i < 14; i++) {
+    for (let i = 1; i <= 14; i++) {
       const date = new Date(today);
       date.setDate(today.getDate() + i);
-      // Skip weekends
       if (date.getDay() !== 0 && date.getDay() !== 6) {
         dates.push(date);
       }
@@ -32,12 +30,11 @@ const BookingModal = ({ isOpen, onClose }) => {
     return dates;
   };
 
-  // Générer les créneaux de 10h à 19h (par 30min)
   const generateTimeSlots = () => {
     const slots = [];
     for (let hour = 10; hour < 19; hour++) {
-      slots.push(`${hour.toString().padStart(2, '0')}:00`);
-      slots.push(`${hour.toString().padStart(2, '0')}:30`);
+      slots.push(`${hour}:00`);
+      if (hour < 18) slots.push(`${hour}:30`);
     }
     return slots;
   };
@@ -47,10 +44,9 @@ const BookingModal = ({ isOpen, onClose }) => {
 
   const projectTypes = [
     'Site Vitrine / MVP',
-    'Application Web / SaaS',
+    'Application Web',
     'Intégration IA',
     'Maintenance',
-    'Conseil Stratégique',
     'Autre',
   ];
 
@@ -60,19 +56,13 @@ const BookingModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const booking = {
+    console.log('Booking:', {
       date: selectedDate,
       time: selectedTime,
       ...formData,
-    };
-    console.log('Réservation:', booking);
-    alert(
-      `Rendez-vous confirmé le ${selectedDate?.toLocaleDateString(
-        'fr-FR'
-      )} à ${selectedTime} !`
-    );
+    });
+    alert(`Rendez-vous confirmé !`);
     onClose();
-    // Reset
     setStep(1);
     setSelectedDate(null);
     setSelectedTime(null);
@@ -85,89 +75,46 @@ const BookingModal = ({ isOpen, onClose }) => {
     });
   };
 
-  const formatDate = (date) => {
-    const days = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
-    const months = [
-      'Jan',
-      'Fév',
-      'Mar',
-      'Avr',
-      'Mai',
-      'Juin',
-      'Juil',
-      'Août',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Déc',
-    ];
-    return {
-      day: days[date.getDay()],
-      date: date.getDate(),
-      month: months[date.getMonth()],
-    };
-  };
+  const formatDate = (date) => ({
+    day: date.toLocaleDateString('fr-FR', { weekday: 'short' }),
+    num: date.getDate(),
+    month: date.toLocaleDateString('fr-FR', { month: 'short' }),
+  });
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Réserver un appel gratuit">
-      <div className="p-6">
-        {/* Progress Steps */}
-        <div className="flex items-center justify-center gap-2 mb-8">
-          {[1, 2, 3].map((s) => (
-            <div key={s} className="flex items-center">
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
-                  step >= s
-                    ? 'bg-accent text-black'
-                    : 'bg-white/5 text-white/40'
-                }`}
-              >
-                {s}
-              </div>
-              {s < 3 && (
-                <div
-                  className={`w-12 h-px mx-2 ${
-                    step > s ? 'bg-accent' : 'bg-white/10'
-                  }`}
-                />
-              )}
-            </div>
-          ))}
+    <Modal isOpen={isOpen} onClose={onClose} title="Réserver un appel">
+      <div className="p-6 sm:p-8">
+        {/* Step indicator */}
+        <div className="flex items-center gap-4 mb-8 text-xs text-white/40">
+          <span className={step >= 1 ? 'text-accent' : ''}>Date</span>
+          <span>→</span>
+          <span className={step >= 2 ? 'text-accent' : ''}>Heure</span>
+          <span>→</span>
+          <span className={step >= 3 ? 'text-accent' : ''}>Infos</span>
         </div>
 
-        {/* Step 1: Sélection de la date */}
+        {/* Step 1: Date */}
         {step === 1 && (
-          <div className="space-y-6">
-            <div className="text-center space-y-2">
-              <h3 className="text-lg font-semibold text-white">
-                Choisissez une date
-              </h3>
-              <p className="text-sm text-white/50">
-                Sélectionnez un jour disponible
-              </p>
-            </div>
+          <div>
+            <h3 className="text-xl text-white mb-6">Choisissez une date</h3>
 
-            <div className="grid grid-cols-5 gap-3">
+            <div className="grid grid-cols-5 gap-2 mb-8">
               {dates.map((date) => {
-                const formatted = formatDate(date);
+                const f = formatDate(date);
                 const isSelected =
                   selectedDate?.toDateString() === date.toDateString();
                 return (
                   <button
                     key={date.toISOString()}
                     onClick={() => setSelectedDate(date)}
-                    className={`
-                      p-3 rounded-sm border transition-all
-                      ${
-                        isSelected
-                          ? 'border-accent bg-black text-accent'
-                          : 'border-white/10 hover:border-accent/50 text-white/70 hover:text-white'
-                      }
-                    `}
+                    className={`py-3 text-center border transition-colors ${
+                      isSelected
+                        ? 'border-accent text-accent'
+                        : 'border-white/10 text-white/60 hover:border-white/30'
+                    }`}
                   >
-                    <div className="text-xs">{formatted.day}</div>
-                    <div className="text-xl font-bold">{formatted.date}</div>
-                    <div className="text-xs">{formatted.month}</div>
+                    <div className="text-[10px] uppercase">{f.day}</div>
+                    <div className="text-lg font-medium">{f.num}</div>
                   </button>
                 );
               })}
@@ -176,51 +123,43 @@ const BookingModal = ({ isOpen, onClose }) => {
             <Button
               onClick={() => setStep(2)}
               disabled={!selectedDate}
-              className="w-full bg-black text-black hover:bg-accent/90 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-accent text-black font-semibold disabled:opacity-30"
             >
               Continuer
             </Button>
           </div>
         )}
 
-        {/* Step 2: Sélection de l'heure */}
+        {/* Step 2: Time */}
         {step === 2 && (
-          <div className="space-y-6">
-            <div className="text-center space-y-2">
-              <button
-                onClick={() => setStep(1)}
-                className="text-sm text-accent hover:underline flex items-center gap-1 mx-auto"
-              >
-                <ChevronLeft size={16} />
-                {selectedDate?.toLocaleDateString('fr-FR', {
-                  weekday: 'long',
-                  day: 'numeric',
-                  month: 'long',
-                })}
-              </button>
-              <h3 className="text-lg font-semibold text-white">
-                Choisissez un créneau
-              </h3>
-              <p className="text-sm text-white/50">Entre 10h00 et 19h00</p>
-            </div>
+          <div>
+            <button
+              onClick={() => setStep(1)}
+              className="flex items-center gap-1 text-sm text-white/50 hover:text-accent mb-4"
+            >
+              <ChevronLeft size={16} />
+              {selectedDate?.toLocaleDateString('fr-FR', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+              })}
+            </button>
 
-            <div className="grid grid-cols-4 gap-3 max-h-[400px] overflow-y-auto">
+            <h3 className="text-xl text-white mb-6">Choisissez un créneau</h3>
+
+            <div className="grid grid-cols-4 gap-2 mb-8">
               {timeSlots.map((time) => {
                 const isSelected = selectedTime === time;
                 return (
                   <button
                     key={time}
                     onClick={() => setSelectedTime(time)}
-                    className={`
-                      py-3 px-4 rounded-sm border text-sm font-medium transition-all
-                      ${
-                        isSelected
-                          ? 'border-accent bg-accent/10 text-accent'
-                          : 'border-white/10 hover:border-accent/50 text-white/70 hover:text-white'
-                      }
-                    `}
+                    className={`py-3 text-sm border transition-colors ${
+                      isSelected
+                        ? 'border-accent text-accent'
+                        : 'border-white/10 text-white/60 hover:border-white/30'
+                    }`}
                   >
-                    <Clock size={14} className="inline mr-1" />
                     {time}
                   </button>
                 );
@@ -230,14 +169,14 @@ const BookingModal = ({ isOpen, onClose }) => {
             <div className="flex gap-3">
               <Button
                 onClick={() => setStep(1)}
-                className="flex-1 border border-white/10 hover:bg-white/5 bg-transparent"
+                className="flex-1 bg-transparent border border-white/20 text-white hover:border-white/40"
               >
                 Retour
               </Button>
               <Button
                 onClick={() => setStep(3)}
                 disabled={!selectedTime}
-                className="flex-1 bg-accent text-black hover:bg-accent/90 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-accent text-black font-semibold disabled:opacity-30"
               >
                 Continuer
               </Button>
@@ -245,137 +184,96 @@ const BookingModal = ({ isOpen, onClose }) => {
           </div>
         )}
 
-        {/* Step 3: Informations personnelles */}
+        {/* Step 3: Form */}
         {step === 3 && (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="text-center space-y-2 pb-4 border-b border-white/10">
-              <button
-                onClick={() => setStep(2)}
-                className="text-sm text-accent hover:underline flex items-center gap-1 mx-auto"
-              >
-                <ChevronLeft size={16} />
-                Modifier le créneau
-              </button>
-              <div className="flex items-center justify-center gap-2 text-sm">
-                <Calendar size={16} className="text-accent" />
-                <span className="text-white/70">
-                  {selectedDate?.toLocaleDateString('fr-FR', {
-                    weekday: 'long',
-                    day: 'numeric',
-                    month: 'long',
-                  })}
-                </span>
-                <span className="text-white/40">•</span>
-                <Clock size={16} className="text-accent" />
-                <span className="text-white/70">{selectedTime}</span>
-              </div>
-            </div>
+          <form onSubmit={handleSubmit}>
+            <button
+              type="button"
+              onClick={() => setStep(2)}
+              className="flex items-center gap-1 text-sm text-white/50 hover:text-accent mb-2"
+            >
+              <ChevronLeft size={16} />
+              Modifier
+            </button>
 
-            {/* Nom */}
-            <div className="space-y-2">
-              <label className="text-sm text-white/70 flex items-center gap-2">
-                <User size={16} className="text-accent" />
-                Nom complet *
-              </label>
+            <p className="text-accent text-sm mb-6">
+              {selectedDate?.toLocaleDateString('fr-FR', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+              })}{' '}
+              à {selectedTime}
+            </p>
+
+            <div className="space-y-4 mb-8">
               <input
                 type="text"
                 name="name"
                 required
+                placeholder="Nom *"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-black/40 border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:border-accent focus:outline-none transition-colors"
-                placeholder="Votre nom"
+                className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
               />
-            </div>
-
-            {/* Email */}
-            <div className="space-y-2">
-              <label className="text-sm text-white/70 flex items-center gap-2">
-                <Mail size={16} className="text-accent" />
-                Email *
-              </label>
               <input
                 type="email"
                 name="email"
                 required
+                placeholder="Email *"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-black/40 border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:border-accent focus:outline-none transition-colors"
-                placeholder="votre@email.com"
+                className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
               />
-            </div>
-
-            {/* Téléphone */}
-            <div className="space-y-2">
-              <label className="text-sm text-white/70 flex items-center gap-2">
-                <Phone size={16} className="text-accent" />
-                Téléphone *
-              </label>
               <input
                 type="tel"
                 name="phone"
                 required
+                placeholder="Téléphone *"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full bg-black/40 border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:border-accent focus:outline-none transition-colors"
-                placeholder="+33 6 12 34 56 78"
+                className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
               />
-            </div>
-
-            {/* Type de projet */}
-            <div className="space-y-2">
-              <label className="text-sm text-white/70">Type de projet *</label>
               <select
                 name="projectType"
                 required
                 value={formData.projectType}
                 onChange={handleChange}
-                className="w-full bg-black/40 border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:border-accent focus:outline-none transition-colors"
+                className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:border-accent focus:outline-none"
               >
-                <option value="">Sélectionnez...</option>
+                <option value="" className="bg-[#262626]">
+                  Type de projet *
+                </option>
                 {projectTypes.map((type) => (
-                  <option key={type} value={type}>
+                  <option key={type} value={type} className="bg-[#262626]">
                     {type}
                   </option>
                 ))}
               </select>
-            </div>
-
-            {/* Message */}
-            <div className="space-y-2">
-              <label className="text-sm text-white/70">
-                Parlez-moi de votre projet (optionnel)
-              </label>
               <textarea
                 name="message"
+                placeholder="Message (optionnel)"
                 value={formData.message}
                 onChange={handleChange}
-                rows={3}
-                className="w-full bg-black/40 border border-white/10 rounded-sm px-4 py-3 text-sm text-white focus:border-accent focus:outline-none transition-colors resize-none"
-                placeholder="Décrivez brièvement votre projet..."
+                rows={2}
+                className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none resize-none"
               />
             </div>
 
-            {/* Actions */}
-            <div className="flex gap-3 pt-4">
+            <div className="flex gap-3">
               <Button
                 type="button"
                 onClick={() => setStep(2)}
-                className="flex-1 border border-white/10 hover:bg-white/5 bg-transparent"
+                className="flex-1 bg-transparent border border-white/20 text-white hover:border-white/40"
               >
                 Retour
               </Button>
               <Button
                 type="submit"
-                className="flex-1 bg-accent text-black hover:bg-accent/90 font-semibold"
+                className="flex-1 bg-accent text-black font-semibold"
               >
-                Confirmer le rendez-vous
+                Confirmer
               </Button>
             </div>
-
-            <p className="text-xs text-center text-white/40 pt-2">
-              Je vous recontacterai pour confirmer le créneau sous 24h
-            </p>
           </form>
         )}
       </div>

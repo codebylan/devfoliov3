@@ -1,8 +1,8 @@
 'use client';
 
 import { Calendar } from 'lucide-react';
-import { Button } from '../ui/button';
 import { useBooking } from '../../contexts/BookingContext';
+import { Button } from '../ui/button';
 
 const Hero = () => {
   const { openBookingModal } = useBooking();
@@ -32,10 +32,10 @@ const Hero = () => {
           </div>
           <Button
             onClick={openBookingModal}
-            className={` mt-5 text-sm items-center bg-black cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]  `}
+            className="mt-5 text-sm items-center bg-accent text-black font-semibold cursor-pointer transition-colors"
           >
-            {' '}
-            <Calendar /> Réserver un appel
+            <Calendar size={18} />
+            Réserver un appel
           </Button>
 
           <p className="text-[10px] text-[#C3C1BA]! mt-3">

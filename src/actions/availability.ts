@@ -1,7 +1,7 @@
 'use server';
 
-import { addMinutes, parseISO, startOfDay } from 'date-fns';
-import { fromZonedTime } from 'date-fns-tz';
+import { addMinutes, parseISO, startOfDay, isSameDay } from 'date-fns';
+import { fromZonedTime, toZonedTime } from 'date-fns-tz';
 
 export async function getAvailableSlots(
   date: string,
@@ -11,6 +11,11 @@ export async function getAvailableSlots(
     // Utiliser createAdminClient pour bypasser RLS (lecture sécurisée côté serveur)
     const { createAdminClient } = await import('../lib/supabase/server');
     const supabase = await createAdminClient();
+
+    // Obtenir l'heure actuelle dans le timezone spécifié
+    const nowInTimezone = toZonedTime(new Date(), timezone);
+    const requestedDate = parseISO(date);
+    const isToday = isSameDay(nowInTimezone, requestedDate);
 
     // 1. Vérifier les overrides (jours fériés, vacances)
     const { data: override } = await supabase
@@ -98,7 +103,7 @@ export async function getAvailableSlots(
       .map(([time, duration]) => ({ time, duration }))
       .sort((a, b) => a.time.localeCompare(b.time));
 
-    // 6. Filtrer les créneaux qui chevauchent des bookings existants
+    // 6. Filtrer les créneaux passés (pour aujourd'hui) et ceux qui chevauchent des bookings
     const availableSlots = uniqueSlots
       .filter((slot) => {
         const [hours, minutes] = slot.time.split(':').map(Number);
@@ -108,16 +113,24 @@ export async function getAvailableSlots(
         const slotStart = fromZonedTime(slotDate, timezone);
         const slotEnd = addMinutes(slotStart, slot.duration);
 
-      // Vérifier si ce slot chevauche un booking existant
-      const hasOverlap = bookedSlots?.some((booking) => {
-        const bookingStart = parseISO(booking.booking_start);
-        const bookingEnd = parseISO(booking.booking_end);
+        // Si c'est aujourd'hui, filtrer les créneaux passés (avec 30 min de marge)
+        if (isToday) {
+          const nowPlusBuffer = addMinutes(new Date(), 30);
+          if (slotStart <= nowPlusBuffer) {
+            return false; // Créneau passé ou trop proche
+          }
+        }
 
-        // Logique de chevauchement : (slotStart < bookingEnd) AND (slotEnd > bookingStart)
-        return slotStart < bookingEnd && slotEnd > bookingStart;
-      });
+        // Vérifier si ce slot chevauche un booking existant
+        const hasOverlap = bookedSlots?.some((booking) => {
+          const bookingStart = parseISO(booking.booking_start);
+          const bookingEnd = parseISO(booking.booking_end);
 
-      return !hasOverlap; // Disponible si aucun chevauchement
+          // Logique de chevauchement : (slotStart < bookingEnd) AND (slotEnd > bookingStart)
+          return slotStart < bookingEnd && slotEnd > bookingStart;
+        });
+
+        return !hasOverlap; // Disponible si aucun chevauchement
       })
       .map((slot) => slot.time); // Retourner uniquement les heures
 

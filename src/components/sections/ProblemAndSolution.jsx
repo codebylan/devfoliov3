@@ -1,101 +1,84 @@
 'use client';
 
-import { Badge } from '../ui/badge';
-import { problems, solutions } from '../../data/problemAndSolution';
-import { Calendar } from 'lucide-react';
 import Image from 'next/image';
 import PaS from '../../../public/images/problem-and-solution.png';
-import { Button } from '../ui/button';
-import { useBooking } from '../../contexts/BookingContext';
+import { problems, solutions } from '../../data/problemAndSolution';
 
 const ProblemAndSolution = () => {
-  const { openBookingModal } = useBooking();
   return (
     <section>
-      <h2 className="text-3xl text-center italic mb-12">
-        Un problème ? <span className="text-accent">Une solution.</span>
-      </h2>
-
-      <div className="lg:flex gap-10 items-start justify-center mt-10">
-        {/* Image Column */}
-        <div className="shrink-0 hidden lg:block mb-10 lg:mb-0">
-          <Image
-            src={PaS}
-            alt="Solutions Développement Web & Automatisation IA pour PME Paris - Dylan Agboton"
-            width={350}
-            height={'auto'}
-            quality={75}
-            className="rounded-sm"
-          />
+      {/* Header */}
+      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+        <div>
+          <p className="text-accent text-xs uppercase tracking-[0.2em] mb-4">
+            Proposition de valeur
+          </p>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl italic leading-[0.95]">
+            Un problème ? <span className="text-accent">Une solution.</span>
+          </h2>
         </div>
-
-        {/* Problems & Solutions Container */}
-        <div className="flex-1 grid lg:grid-cols-2 gap-6">
-          {/* Problems Column */}
-          <div className="space-y-6">
-            <Badge className="bg-red-900/80  text-white ">
-              Votre situation actuelle
-            </Badge>
-
-            <div className="space-y-5">
-              {problems.map((problem, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="bg-gradient-to-br from-black to-[#262626] p-3 rounded-sm "
-                  >
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-sm mb-1.5 text-[#C8B792]!">
-                          {problem.title}
-                        </h3>
-                        <p className="text-sm text-gray-300 leading-relaxed">
-                          {problem.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Solutions Column */}
-          <div className="space-y-6 mb-10">
-            <Badge className="bg-green-900/80 text-white ">
-              Ce que je vous apporte
-            </Badge>
-
-            <div className="space-y-5">
-              {solutions.map((solution, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="bg-gradient-to-bl from-black to-[#262626] p-3 rounded-sm "
-                  >
-                    <div className="flex gap-3 items-start">
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-sm mb-1.5 text-[#C8B792]!">
-                          {solution.title}
-                        </h3>
-                        <p className="text-sm text-gray-300 leading-relaxed">
-                          {solution.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        <p className="text-white/40 text-sm max-w-xs lg:text-right">
+          Ce qui vous bloque aujourd&apos;hui, je le transforme en avantage.
+        </p>
       </div>
 
-      <div className="justify-center text-center">
-        <Button onClick={openBookingModal} className={`bg-black cursor-pointer`}>
-          <Calendar />
-          Réserver un créneau
-        </Button>
+      {/* Main Grid with Image */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        {/* Image Column */}
+        <div className="lg:col-span-5 order-2 lg:order-1">
+          <div className="sticky top-24">
+            <Image
+              src={PaS}
+              alt="Solutions développement web & IA"
+              width={500}
+              height={600}
+              quality={85}
+              className="w-full max-w-md lg:max-w-none rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+            />
+            <p className="mt-4 text-xs text-white/30">
+              Transformer les obstacles en opportunités
+            </p>
+          </div>
+        </div>
+
+        {/* Content Column */}
+        <div className="lg:col-span-7 order-1 lg:order-2 space-y-12">
+          {problems.map((problem, index) => (
+            <div key={index} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Problem */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="text-white/20 text-sm font-mono">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-white/40 text-xs uppercase tracking-widest">
+                    Problème
+                  </span>
+                </div>
+                <h3 className="text-white font-medium">{problem.title}</h3>
+                <p className="text-white/50 text-sm leading-relaxed">
+                  {problem.description}
+                </p>
+              </div>
+
+              {/* Solution */}
+              <div className="space-y-3 sm:border-l sm:border-accent/20 sm:pl-6">
+                <div className="flex items-center gap-3">
+                  <span className="text-accent/40 text-sm font-mono">→</span>
+                  <span className="text-accent text-xs uppercase tracking-widest">
+                    Solution
+                  </span>
+                </div>
+                <h3 className="text-accent font-medium">
+                  {solutions[index].title}
+                </h3>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  {solutions[index].description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

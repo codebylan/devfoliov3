@@ -1,66 +1,43 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import { Button } from '../ui/button';
 import { useBooking } from '../../contexts/BookingContext';
+import { Button } from '../ui/button';
 
 const CTA = () => {
   const { openBookingModal } = useBooking();
 
   return (
-    <section id="cta" className="relative overflow-hidden">
-      {/* Background Accent Box */}
-      <div className="relative  rounded-sm p-4 sm:p-6 lg:p-10 bg-linear-to-br from-black via-[#1a1a1a] to-black">
-        {/* Decorative Elements */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
-
-        {/* Content */}
-        <div className="relative z-10 text-center max-w-3xl mx-auto space-y-6 sm:space-y-8">
-          {/* Eyebrow */}
-
-          {/* Main Heading */}
-          <h2 className="text-3xl italic leading-tight">
-            Transformons votre vision{' '}
-            <span className="text-accent">en réalité digitale.</span>
-          </h2>
-
-          {/* Subheading */}
-          <p className="text-sm sm:text-base lg:text-sm text-white/70 leading-relaxed max-w-2xl mx-auto">
-            Discutons de votre projet. Aucun engagement, juste un échange
-            transparent sur vos ambitions et comment je peux vous aider à les
-            concrétiser.
+    <section id="cta">
+      <div className="py-16 sm:py-24 border-t border-white/10">
+        {/* Centered layout */}
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-accent text-xs uppercase tracking-[0.2em] mb-6">
+            Prochaine étape
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button
-              onClick={openBookingModal}
-              className="group bg-black text-black cursor-pointer font-semibold px-8 py-6 text-base sm:text-sm duration-300"
-            >
-              Réserver un appel gratuit
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl italic leading-tight mb-6">
+            On en <span className="text-accent">discute</span> ?
+          </h2>
+
+          <p className="text-white/50 mb-10 max-w-md mx-auto">
+            30 minutes pour parler de votre projet. Gratuit, sans engagement.
+          </p>
+
+          <Button
+            onClick={openBookingModal}
+            className="group bg-accent text-black font-semibold cursor-pointer px-10 py-6 text-base"
+          >
+            <span className="flex items-center gap-3">
+              Réserver un appel
               <ArrowRight
                 size={18}
-                className="group-hover:translate-x-1 transition-transform duration-300"
+                className="group-hover:translate-x-1 transition-transform"
               />
-            </Button>
-          </div>
+            </span>
+          </Button>
 
-          {/* Trust Indicators */}
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-6 text-sm sm:gap-8   text-white/50">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-accent rounded-full" />
-              <span>Réponse sous 24h</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-accent rounded-full" />
-              <span>Sans engagement</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-accent rounded-full" />
-              <span>Devis personnalisé</span>
-            </div>
-          </div>
+          <p className="text-white/30 text-xs mt-6">Réponse sous 24h</p>
         </div>
       </div>
     </section>
