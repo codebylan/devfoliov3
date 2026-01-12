@@ -10,10 +10,6 @@ const nextConfig = {
       },
     ],
   },
-  // Désactiver Turbopack temporairement pour résoudre les problèmes d'imports
-  experimental: {
-    turbo: false,
-  },
 };
 
 export default nextConfig;
