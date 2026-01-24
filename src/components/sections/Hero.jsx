@@ -2,8 +2,8 @@
 
 import { Calendar, Check } from 'lucide-react';
 import { useBooking } from '../../contexts/BookingContext';
-import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
 
 const Hero = () => {
   const { openBookingModal } = useBooking();
@@ -54,13 +54,13 @@ const Hero = () => {
               <Check className="text-accent" />
               30 min • Gratuit • Sans engagement
             </Badge>
-            <Badge
+            {/* <Badge
               variant="outline"
               className="border-white/15 text-white/70 bg-white/5"
             >
               <Check className="text-accent" />
               Livrables clairs (scope + délais)
-            </Badge>
+            </Badge> */}
           </div>
         </div>
       </div>

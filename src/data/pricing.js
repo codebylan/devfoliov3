@@ -2,14 +2,14 @@ export const pricingData = [
   {
     title: 'Site Vitrine Premium',
     subtitle:
-      'Pour lancer une activité ou moderniser une image avec une performance maximale.',
+      'Pour lancer une activité ou moderniser votre image, avec un site rapide et crédible.',
     price: 'À partir de 1 990€',
     features: [
-      'Site Next.js ultra-rapide (5 pages max)',
-      'Design responsive & Mobile First',
-      'Optimisation SEO technique (Google Friendly)',
-      'Gestion de contenu (CMS) pour modifier vos textes',
-      'Formulaire de contact sécurisé',
+      'Site ultra-rapide (jusqu’à 5 pages)',
+      'Design moderne, adapté mobile + ordinateur',
+      'Bases SEO propres (indexation, vitesse, structure)',
+      'Zone d’édition pour modifier vos textes (sans développeur)',
+      'Formulaire de contact fiable et sécurisé',
     ],
     bonus: 'Formation à la prise en main (1h)',
     isRecommended: false,
@@ -17,14 +17,14 @@ export const pricingData = [
   {
     title: 'Pack MVP / Lancement SaaS',
     subtitle:
-      'Pour transformer une idée en produit fonctionnel et encaisser vos premiers clients.',
+      'Pour transformer une idée en produit fonctionnel et commencer à vendre.',
     price: 'À partir de 4 990€',
     features: [
-      'Architecture Scalable (Frontend + Backend Node.js)',
-      'Authentification & Gestion utilisateurs sécurisée',
-      'Intégration Paiements (Stripe Abonnement/Unique)',
-      'Développement des fonctionnalités cœur (Core Features)',
-      'Dashboard Admin de gestion',
+      'Base solide pour évoluer (site + espace client)',
+      'Création de comptes + connexion sécurisée',
+      'Paiement en ligne (abonnement ou achat unique)',
+      'Développement des fonctionnalités essentielles du MVP',
+      'Espace admin simple pour gérer vos utilisateurs / contenus',
     ],
     bonus: 'Mise en ligne + 1 mois de maintenance offert',
     isRecommended: true,
@@ -32,14 +32,14 @@ export const pricingData = [
   {
     title: 'Intégration IA & Automation',
     subtitle:
-      'Pour booster la productivité et éliminer les tâches répétitives.',
+      'Pour gagner du temps et automatiser les tâches répétitives.',
     price: 'Sur Devis (1 500€ - 3 000€)',
     features: [
-      'Audit des processus internes',
-      "Création d'agents IA (Chatbots Service Client, Analyseurs)",
-      'Connexion API & Scénarios (OpenAI, Make, n8n)',
-      'Automatisation des flux de travail (CRM, Emails)',
-      'Formation des équipes aux outils',
+      'Audit rapide: où l’IA peut vous faire gagner du temps',
+      'Mise en place d’IA utile (assistant, FAQ, tri, analyse)',
+      'Connexions entre vos outils (site, CRM, emails, formulaires)',
+      'Automatisations concrètes (leads, support, relances, reporting)',
+      'Formation courte pour être autonome',
     ],
     bonus: null,
     isRecommended: false,
