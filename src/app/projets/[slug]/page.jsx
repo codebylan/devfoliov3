@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import CTA from '../../../components/sections/CTA';
-import { seoConfig } from '../../../data/seo-config';
 import { getAllProjectSlugs, getProjectBySlug } from '../../../data/projects';
+import { seoConfig } from '../../../data/seo-config';
 
 export const dynamicParams = false;
 
@@ -21,14 +21,13 @@ export const generateMetadata = async ({ params }) => {
     };
   }
 
-  const title =
-    project.seo?.title ??
-    `${project.name} — Case study`;
+  const title = project.seo?.title ?? `${project.name} — Case study`;
   const description =
     project.seo?.description ??
     project.valueProposition ??
     seoConfig.site.defaultDescription;
-  const ogImage = project.seo?.ogImage ?? project.image ?? seoConfig.site.defaultImage;
+  const ogImage =
+    project.seo?.ogImage ?? project.image ?? seoConfig.site.defaultImage;
   const canonicalPath = `/projets/${project.slug}`;
 
   return {
@@ -94,7 +93,7 @@ export default async function ProjectCaseStudyPage({ params }) {
           >
             ← Retour aux projets
           </Link>
-          <span className="text-white/30">Case study</span>
+          {/* <span className="text-white/30">Case study</span> */}
         </div>
 
         <header className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -191,19 +190,20 @@ export default async function ProjectCaseStudyPage({ params }) {
               </div>
             </section>
 
-            {Array.isArray(project.constraints) && project.constraints.length > 0 && (
-              <section className="space-y-3">
-                <h2 className="text-2xl italic text-white">Contraintes</h2>
-                <ul className="space-y-2 text-sm text-white/60">
-                  {project.constraints.map((c) => (
-                    <li key={c} className="flex gap-2">
-                      <span className="text-accent">—</span>
-                      <span>{c}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+            {Array.isArray(project.constraints) &&
+              project.constraints.length > 0 && (
+                <section className="space-y-3">
+                  <h2 className="text-2xl italic text-white">Contraintes</h2>
+                  <ul className="space-y-2 text-sm text-white/60">
+                    {project.constraints.map((c) => (
+                      <li key={c} className="flex gap-2">
+                        <span className="text-accent">—</span>
+                        <span>{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
             {Array.isArray(project.solution) && project.solution.length > 0 && (
               <section className="space-y-3">
@@ -263,4 +263,3 @@ export default async function ProjectCaseStudyPage({ params }) {
     </main>
   );
 }
-
