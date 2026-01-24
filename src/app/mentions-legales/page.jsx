@@ -24,7 +24,7 @@ export default function MentionsLegales() {
         </h1>
         <p className="text-white/40 text-sm max-w-md">
           Conformément à la loi n° 2004-575 du 21 juin 2004
-          pour la confiance dans l'économie numérique.
+          pour la confiance dans l&apos;économie numérique.
         </p>
       </header>
 
@@ -73,7 +73,7 @@ export default function MentionsLegales() {
           </h2>
           <div className="text-white/70 leading-relaxed space-y-4">
             <p>
-              L'ensemble du contenu de ce site — textes, images, graphismes, 
+              L&apos;ensemble du contenu de ce site — textes, images, graphismes, 
               logo, code source — est la propriété exclusive de Dylan Agboton.
             </p>
             <p>
@@ -89,7 +89,7 @@ export default function MentionsLegales() {
           </h2>
           <div className="text-white/70 leading-relaxed space-y-4">
             <p>
-              Conformément au RGPD, vous disposez d'un droit d'accès, 
+              Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, 
               de rectification et de suppression de vos données.
             </p>
             <p>
@@ -124,8 +124,8 @@ export default function MentionsLegales() {
           </h2>
           <p className="text-white/70 leading-relaxed">
             Dylan Agboton ne saurait être tenu responsable des dommages 
-            directs ou indirects causés au matériel de l'utilisateur 
-            lors de l'accès au site.
+            directs ou indirects causés au matériel de l&apos;utilisateur 
+            lors de l&apos;accès au site.
           </p>
         </section>
       </article>

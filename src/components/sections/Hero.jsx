@@ -24,11 +24,11 @@ const Hero = () => {
               Développeur Fullstack Next.js, Node.js et Intégrateur IA.
             </p>
             <p>
-              J'accompagne les entreprises de toute taille dans la création
-              d'applications web rapides, robustes et rentables.
+              J&apos;accompagne les entreprises de toute taille dans la création
+              d&apos;applications web rapides, robustes et rentables.
             </p>
             <p className="mt-2">
-              De la conception au déploiement, je m'occupe de tout.
+              De la conception au déploiement, je m&apos;occupe de tout.
             </p>
           </div>
           <Button

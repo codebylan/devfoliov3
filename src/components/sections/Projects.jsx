@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { project } from '../../data/projects';
 
 const Projects = () => {
@@ -35,9 +36,11 @@ const Projects = () => {
         {/* Scrolling Track */}
         <div className="flex gap-6 animate-scroll-projects w-fit hover:[animation-play-state:paused]">
           {duplicatedProjects.map((item, index) => (
-            <article
-              key={`${item.name}-${index}`}
-              className="group relative shrink-0 w-[75vw] sm:w-[50vw] lg:w-[35vw] xl:w-[28vw]"
+            <Link
+              key={`${item.slug}-${index}`}
+              href={`/projets/${item.slug}`}
+              aria-label={`Voir le cas complet: ${item.name}`}
+              className="group relative shrink-0 w-[75vw] sm:w-[50vw] lg:w-[35vw] xl:w-[28vw] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#262626]"
             >
               {/* Video/Image Container */}
               <div className="relative aspect-video overflow-hidden rounded-sm mb-5 bg-white/5">
@@ -60,6 +63,7 @@ const Projects = () => {
                     sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
                   />
                 )}
+                <div className="absolute inset-0 ring-1 ring-white/10 group-hover:ring-accent/25 transition-colors" />
               </div>
 
               {/* Content */}
@@ -73,8 +77,11 @@ const Projects = () => {
                 <p className="text-white/40 text-sm leading-relaxed line-clamp-2">
                   {item.job}
                 </p>
+                <p className="text-white/30 text-xs uppercase tracking-[0.15em] pt-1">
+                  Voir le cas complet →
+                </p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

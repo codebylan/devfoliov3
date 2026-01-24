@@ -97,20 +97,20 @@ const Header = () => {
         <div id="nav-links" className="hidden lg:flex justify-center">
           <ul className="flex gap-5 text-sm" aria-label="Navigation principale">
             <li className="hover:underline">
-              <Link href={'#mystack'}>Expertise</Link>
+              <Link href={'/#mystack'}>Expertise</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'#projects'}>Projets</Link>
+              <Link href={'/#projects'}>Projets</Link>
             </li>
 
             <li className="hover:underline">
-              <Link href={'#about'}>À propos</Link>
+              <Link href={'/#about'}>À propos</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'#prices'}>Tarifs</Link>
+              <Link href={'/#prices'}>Tarifs</Link>
             </li>
             <li className="hover:underline">
-              <Link href={'#faq'}>FAQ</Link>
+              <Link href={'/#faq'}>FAQ</Link>
             </li>
           </ul>
         </div>
@@ -177,27 +177,27 @@ const Header = () => {
 
               <ul className="flex flex-col gap-4 text-base" aria-label="Navigation principale">
                 <li className="hover:underline">
-                  <Link href={'#mystack'} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href={'/#mystack'} onClick={() => setIsMobileMenuOpen(false)}>
                     Expertise
                   </Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href={'#projects'} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href={'/#projects'} onClick={() => setIsMobileMenuOpen(false)}>
                     Projets
                   </Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href={'#about'} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href={'/#about'} onClick={() => setIsMobileMenuOpen(false)}>
                     À propos
                   </Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href={'#prices'} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href={'/#prices'} onClick={() => setIsMobileMenuOpen(false)}>
                     Tarifs
                   </Link>
                 </li>
                 <li className="hover:underline">
-                  <Link href={'#faq'} onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href={'/#faq'} onClick={() => setIsMobileMenuOpen(false)}>
                     FAQ
                   </Link>
                 </li>
