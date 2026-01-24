@@ -74,6 +74,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="fr"
+      suppressHydrationWarning
       className={`${instrumentSerif.variable} ${inter.variable} `}
     >
       <body className="antialiased flex flex-col min-h-screen">
