@@ -1,8 +1,9 @@
 'use client';
 
-import { Calendar } from 'lucide-react';
+import { Calendar, Check } from 'lucide-react';
 import { useBooking } from '../../contexts/BookingContext';
 import { Button } from '../ui/button';
+import { Badge } from '../ui/badge';
 
 const Hero = () => {
   const { openBookingModal } = useBooking();
@@ -38,9 +39,29 @@ const Hero = () => {
             Réserver un appel
           </Button>
 
-          <p className="text-[10px] text-[#C3C1BA]! mt-3">
-            Réponse sous 24h • Accompagnement court ou long terme
-          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-2">
+            <Badge
+              variant="outline"
+              className="border-white/15 text-white/70 bg-white/5"
+            >
+              <Check className="text-accent" />
+              Réponse sous 24h
+            </Badge>
+            <Badge
+              variant="outline"
+              className="border-white/15 text-white/70 bg-white/5"
+            >
+              <Check className="text-accent" />
+              30 min • Gratuit • Sans engagement
+            </Badge>
+            <Badge
+              variant="outline"
+              className="border-white/15 text-white/70 bg-white/5"
+            >
+              <Check className="text-accent" />
+              Livrables clairs (scope + délais)
+            </Badge>
+          </div>
         </div>
       </div>
     </section>

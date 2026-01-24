@@ -1,4 +1,5 @@
 import About from '../components/sections/About';
+import ClientLogos from '../components/sections/ClientLogos';
 import CTA from '../components/sections/CTA';
 import FAQ from '../components/sections/FAQ';
 import Hero from '../components/sections/Hero';
@@ -6,6 +7,7 @@ import MyStack from '../components/sections/MyStack';
 import Prices from '../components/sections/Prices';
 import ProblemAndSolution from '../components/sections/ProblemAndSolution';
 import Projects from '../components/sections/Projects';
+import Testimonials from '../components/sections/Testimonials';
 import { seoConfig } from '../data/seo-config';
 
 export const metadata = {
@@ -40,6 +42,8 @@ export default function Home() {
       {/* <Expertise /> */}
       <MyStack />
       <Projects />
+      <ClientLogos />
+      <Testimonials />
       <About />
       <Prices />
       <FAQ />

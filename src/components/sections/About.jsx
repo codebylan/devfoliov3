@@ -1,9 +1,10 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import Image from 'next/image';
 import me from '../../../public/images/me.webp';
 import { useBooking } from '../../contexts/BookingContext';
+import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 
 const About = () => {
@@ -133,9 +134,26 @@ const About = () => {
                 />
               </span>
             </Button>
-            <div className="text-xs text-white/30">
-              <p>Réponse sous 24h</p>
-              <p>Accompagnement court ou long terme</p>
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge
+                  variant="outline"
+                  className="border-white/15 text-white/70 bg-white/5"
+                >
+                  <Check className="text-accent" />
+                  Réponse sous 24h
+                </Badge>
+                <Badge
+                  variant="outline"
+                  className="border-white/15 text-white/70 bg-white/5"
+                >
+                  <Check className="text-accent" />
+                  Sans engagement
+                </Badge>
+              </div>
+              <p className="text-xs text-white/30">
+                Accompagnement court ou long terme • Paris & remote
+              </p>
             </div>
           </div>
         </div>
