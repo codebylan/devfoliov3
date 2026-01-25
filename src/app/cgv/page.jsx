@@ -1,10 +1,14 @@
 import Link from 'next/link';
+import { buildPageMetadata } from '../../lib/seo';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: 'CGV | Dylan Agboton',
-  description: 'Conditions générales de vente des prestations de développement web.',
-  robots: 'noindex, nofollow',
-};
+  description:
+    'Conditions générales de vente des prestations de développement web.',
+  canonicalPath: '/cgv',
+  openGraphType: 'article',
+  robots: { index: false, follow: false },
+});
 
 const articles = [
   {
@@ -66,11 +70,36 @@ const articles = [
 ];
 
 export default function CGV() {
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Accueil',
+        item: '/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'CGV',
+        item: '/cgv',
+      },
+    ],
+  };
+
   return (
     <main className="py-12 sm:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* Breadcrumb */}
       <p className="text-xs text-white/30 mb-12">
-        <Link href="/" className="hover:text-accent transition-colors">Accueil</Link>
+        <Link href="/" className="hover:text-accent transition-colors">
+          Accueil
+        </Link>
         <span className="mx-2">/</span>
         <span>CGV</span>
       </p>
@@ -78,20 +107,20 @@ export default function CGV() {
       {/* Title */}
       <header className="mb-20">
         <h1 className="text-5xl sm:text-6xl lg:text-7xl italic leading-[0.9] mb-6">
-          Conditions<br />
+          Conditions
+          <br />
           <span className="text-accent">générales</span>
         </h1>
         <p className="text-white/40 text-sm max-w-md">
-          Applicables à toute prestation de développement web 
-          et intégration IA.
+          Applicables à toute prestation de développement web et intégration IA.
         </p>
       </header>
 
       {/* Articles */}
       <article className="max-w-2xl">
         {articles.map((article, index) => (
-          <section 
-            key={index} 
+          <section
+            key={index}
             className="mb-12 pb-12 border-b border-white/5 last:border-0"
           >
             <div className="flex items-baseline gap-4 mb-4">
@@ -111,8 +140,18 @@ export default function CGV() {
       <footer className="mt-20 pt-8 border-t border-white/5 flex flex-col sm:flex-row gap-4 justify-between text-xs text-white/30">
         <p>Mise à jour : Janvier 2026</p>
         <nav className="flex gap-6">
-          <Link href="/mentions-legales" className="hover:text-accent transition-colors">Mentions légales</Link>
-          <Link href="/confidentialite" className="hover:text-accent transition-colors">Confidentialité</Link>
+          <Link
+            href="/mentions-legales"
+            className="hover:text-accent transition-colors"
+          >
+            Mentions légales
+          </Link>
+          <Link
+            href="/confidentialite"
+            className="hover:text-accent transition-colors"
+          >
+            Confidentialité
+          </Link>
         </nav>
       </footer>
     </main>

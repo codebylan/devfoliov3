@@ -1,21 +1,92 @@
 'use client';
 
 import { X } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useId, useRef } from 'react';
 
-const Modal = ({ isOpen, onClose, children, title }) => {
-  // Fermer avec Escape
+const getFocusableElements = (root) => {
+  if (!root) return [];
+  const selectors = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(',');
+
+  return Array.from(root.querySelectorAll(selectors)).filter(
+    (el) => el instanceof HTMLElement && !el.hasAttribute('disabled')
+  );
+};
+
+const Modal = ({ isOpen, onClose, children, title, ariaLabel }) => {
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const previouslyFocusedRef = useRef(null);
+
+  const titleId = useId();
+  const contentId = useId();
+
+  const accessibleTitle =
+    typeof title === 'string' && title.trim().length > 0
+      ? title
+      : ariaLabel || 'Fenêtre de dialogue';
+
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') onClose();
+    if (!isOpen) return;
+
+    previouslyFocusedRef.current = document.activeElement;
+    document.body.style.overflow = 'hidden';
+
+    const focusInitial = () => {
+      const closeBtn = closeButtonRef.current;
+      if (closeBtn instanceof HTMLElement) {
+        closeBtn.focus();
+        return;
+      }
+      const focusables = getFocusableElements(dialogRef.current);
+      if (focusables[0]) focusables[0].focus();
     };
-    if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
-    }
+
+    const focusTimer = window.setTimeout(focusInitial, 0);
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key !== 'Tab') return;
+
+      const focusables = getFocusableElements(dialogRef.current);
+      if (focusables.length === 0) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (!e.shiftKey && active === last) {
+        e.preventDefault();
+        first.focus();
+        return;
+      }
+
+      if (e.shiftKey && active === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
     return () => {
-      document.removeEventListener('keydown', handleEscape);
+      window.clearTimeout(focusTimer);
+      document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
+
+      const prev = previouslyFocusedRef.current;
+      if (prev instanceof HTMLElement) prev.focus();
     };
   }, [isOpen, onClose]);
 
@@ -27,14 +98,31 @@ const Modal = ({ isOpen, onClose, children, title }) => {
       <div
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Modal Container */}
-      <div className="relative bg-[#1a1a1a] border border-accent/20 rounded-sm w-full max-w-2xl max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-300">
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        aria-describedby={contentId}
+        className="relative bg-[#1a1a1a] border border-accent/20 rounded-sm w-full max-w-2xl max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-300"
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-white/10">
-          <h2 className="text-2xl italic text-accent">{title}</h2>
+          {typeof title === 'string' && title.trim().length > 0 ? (
+            <h2 id={titleId} className="text-2xl italic text-accent">
+              {title}
+            </h2>
+          ) : (
+            <h2 id={titleId} className="sr-only">
+              {accessibleTitle}
+            </h2>
+          )}
           <button
+            ref={closeButtonRef}
             onClick={onClose}
             className="w-8 h-8 flex items-center justify-center rounded-sm hover:bg-white/5 transition-colors"
             aria-label="Fermer"
@@ -44,7 +132,7 @@ const Modal = ({ isOpen, onClose, children, title }) => {
         </div>
 
         {/* Content */}
-        <div className="overflow-y-auto max-h-[calc(90vh-80px)]">
+        <div id={contentId} className="overflow-y-auto max-h-[calc(90vh-80px)]">
           {children}
         </div>
       </div>

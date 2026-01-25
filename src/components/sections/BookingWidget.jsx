@@ -262,7 +262,12 @@ const BookingWidget = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={handleReset} title="">
+    <Modal
+      isOpen={isOpen}
+      onClose={handleReset}
+      title=""
+      ariaLabel="Réserver un appel"
+    >
       <div className="p-6 sm:p-8">
         {/* Progress */}
         <div className="flex items-center gap-3 mb-8 text-xs text-white/40">
@@ -369,11 +374,12 @@ const BookingWidget = ({ isOpen, onClose }) => {
                 </p>
 
                 {isLoadingSlots ? (
-                  <div className="text-center py-6">
+                  <div className="text-center py-6" aria-busy="true">
                     <Loader2
                       size={20}
                       className="animate-spin text-white/40 mx-auto"
                     />
+                    <p className="sr-only">Chargement des créneaux</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-4 gap-2 mb-6">
@@ -419,8 +425,8 @@ const BookingWidget = ({ isOpen, onClose }) => {
                               isPast
                                 ? 'Créneau passé'
                                 : !availableSlots.includes(slot)
-                                ? 'Déjà réservé'
-                                : ''
+                                  ? 'Déjà réservé'
+                                  : ''
                             }
                           >
                             {slot}
@@ -431,7 +437,9 @@ const BookingWidget = ({ isOpen, onClose }) => {
                 )}
 
                 {errors.timeSlot && (
-                  <p className="text-sm text-red-400 mb-4">{errors.timeSlot}</p>
+                  <p className="text-sm text-red-400 mb-4" role="alert">
+                    {errors.timeSlot}
+                  </p>
                 )}
 
                 {selectedTime && (
@@ -450,7 +458,11 @@ const BookingWidget = ({ isOpen, onClose }) => {
 
         {/* STEP 2: Form */}
         {step === 2 && (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6"
+            aria-busy={isSubmitting}
+          >
             <div>
               <button
                 type="button"
@@ -491,7 +503,9 @@ const BookingWidget = ({ isOpen, onClose }) => {
               ))}
             </div>
             {errors.meetingType && (
-              <p className="text-xs text-red-400">{errors.meetingType}</p>
+              <p className="text-xs text-red-400" role="alert">
+                {errors.meetingType}
+              </p>
             )}
 
             {/* Form Fields */}
@@ -506,7 +520,9 @@ const BookingWidget = ({ isOpen, onClose }) => {
                 className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
               />
               {errors.name && (
-                <p className="text-xs text-red-400">{errors.name}</p>
+                <p className="text-xs text-red-400" role="alert">
+                  {errors.name}
+                </p>
               )}
 
               <input
@@ -519,7 +535,9 @@ const BookingWidget = ({ isOpen, onClose }) => {
                 className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
               />
               {errors.email && (
-                <p className="text-xs text-red-400">{errors.email}</p>
+                <p className="text-xs text-red-400" role="alert">
+                  {errors.email}
+                </p>
               )}
 
               {formData.meetingType === 'phone' && (
@@ -534,7 +552,9 @@ const BookingWidget = ({ isOpen, onClose }) => {
                     className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
                   />
                   {errors.phone && (
-                    <p className="text-xs text-red-400">{errors.phone}</p>
+                    <p className="text-xs text-red-400" role="alert">
+                      {errors.phone}
+                    </p>
                   )}
                 </>
               )}
@@ -572,7 +592,9 @@ const BookingWidget = ({ isOpen, onClose }) => {
                 </option>
               </select>
               {errors.projectType && (
-                <p className="text-xs text-red-400">{errors.projectType}</p>
+                <p className="text-xs text-red-400" role="alert">
+                  {errors.projectType}
+                </p>
               )}
             </div>
 
@@ -599,12 +621,16 @@ const BookingWidget = ({ isOpen, onClose }) => {
                 options={{ theme: 'dark', size: 'normal' }}
               />
               {errors.turnstile && (
-                <p className="text-xs text-red-400 mt-2">{errors.turnstile}</p>
+                <p className="text-xs text-red-400 mt-2" role="alert">
+                  {errors.turnstile}
+                </p>
               )}
             </div>
 
             {errors.submit && (
-              <p className="text-sm text-red-400">{errors.submit}</p>
+              <p className="text-sm text-red-400" role="alert">
+                {errors.submit}
+              </p>
             )}
 
             {/* Actions */}

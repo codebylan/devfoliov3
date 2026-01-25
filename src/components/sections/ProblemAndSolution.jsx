@@ -33,6 +33,8 @@ const ProblemAndSolution = () => {
               width={500}
               height={600}
               quality={85}
+              priority
+              sizes="(max-width: 1024px) 100vw, 42vw"
               className="w-full max-w-md lg:max-w-none rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
             />
             <p className="mt-4 text-xs text-white/30">

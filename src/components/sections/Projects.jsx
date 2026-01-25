@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { project } from '../../data/projects';
+import LazyVideo from '../media/LazyVideo';
 
 const Projects = () => {
   const duplicatedProjects = [...project, ...project, ...project];
@@ -45,14 +46,15 @@ const Projects = () => {
               {/* Video/Image Container */}
               <div className="relative aspect-video overflow-hidden rounded-sm mb-5 bg-white/5">
                 {item.video ? (
-                  <video
+                  <LazyVideo
                     src={item.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                     poster={item.image}
+                    alt={`${item.name} - ${item.type}`}
+                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
+                    className="grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    preloadVisible="metadata"
+                    preloadHidden="none"
+                    interactive={false}
                   />
                 ) : (
                   <Image

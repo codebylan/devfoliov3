@@ -50,6 +50,7 @@ export const generateMetadata = async ({ params }) => {
     },
     twitter: {
       card: 'summary_large_image',
+      site: seoConfig.site.twitterHandle,
       title,
       description,
       images: [ogImage],

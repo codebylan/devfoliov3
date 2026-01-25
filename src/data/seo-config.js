@@ -9,7 +9,7 @@ export const seoConfig = {
       'Développeur Fullstack Next.js, Node.js et Intégrateur IA basé à Paris. Je crée des applications rapides et des automatisations IA pour booster la croissance des PME et startups.',
     defaultImage: '/images/me.webp', // Image OG par défaut
     locale: 'fr_FR',
-    twitterHandle: '@dylanagboton', // À remplacer si tu as un compte
+    twitterHandle: '@codebylan',
   },
 
   // KEYWORDS STRATEGY
@@ -40,7 +40,7 @@ export const seoConfig = {
       name: 'Dylan Agboton',
       jobTitle: 'Développeur Fullstack & Intégrateur IA',
       description:
-        'Développeur Web freelance spécialisé Next.js, Node.js et intégration IA basé à Paris. J\'accompagne les PME et startups dans la création d\'applications performantes et l\'automatisation de processus via l\'IA.',
+        "Développeur Web freelance spécialisé Next.js, Node.js et intégration IA basé à Paris. J'accompagne les PME et startups dans la création d'applications performantes et l'automatisation de processus via l'IA.",
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Paris',
@@ -53,7 +53,7 @@ export const seoConfig = {
       sameAs: [
         'https://linkedin.com/in/dylanagboton',
         'https://github.com/dylanagboton',
-        'https://twitter.com/dylanagboton',
+        'https://twitter.com/codebylan',
       ],
       knowsAbout: [
         'Next.js',
@@ -80,7 +80,7 @@ export const seoConfig = {
         name: 'Dylan Agboton',
       },
       description:
-        'Développement d\'applications web Next.js, Node.js et intégration d\'intelligence artificielle pour PME et startups basées à Paris et en Ile-de-France.',
+        "Développement d'applications web Next.js, Node.js et intégration d'intelligence artificielle pour PME et startups basées à Paris et en Ile-de-France.",
       areaServed: {
         '@type': 'City',
         name: 'Paris',
