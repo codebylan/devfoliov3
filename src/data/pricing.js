@@ -32,7 +32,7 @@ export const pricingData = [
   {
     title: 'Intégration IA & Automation',
     subtitle: 'Pour gagner du temps et automatiser les tâches répétitives.',
-    price: 'Sur Devis (1 200€ - 3 000€)',
+    price: '',
     features: [
       'Audit rapide: où l’IA peut vous faire gagner du temps',
       'Mise en place d’IA utile (assistant, FAQ, tri, analyse)',
