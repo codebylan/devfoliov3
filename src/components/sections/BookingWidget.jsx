@@ -126,6 +126,19 @@ const BookingWidget = ({ isOpen, onClose }) => {
   };
 
   useEffect(() => {
+    if (step === 2 && (!selectedDate || !selectedTime)) {
+      setStep(1);
+      return;
+    }
+  }, [step, selectedDate, selectedTime]);
+
+  useEffect(() => {
+    if (step === 3) {
+      document.getElementById('booking-success-close')?.focus();
+    }
+  }, [step]);
+
+  useEffect(() => {
     const fetchAvailableSlots = async () => {
       if (!selectedDate || !hasAvailability(selectedDate)) {
         setAvailableSlots([]);
@@ -317,7 +330,7 @@ const BookingWidget = ({ isOpen, onClose }) => {
                     {d}
                   </div>
                 ))}
-                {calendarDays.map((day, idx) => {
+                {calendarDays.map((day) => {
                   const isSelected =
                     selectedDate && isSameDay(day, selectedDate);
                   const isToday = isSameDay(day, startOfToday());
@@ -330,7 +343,7 @@ const BookingWidget = ({ isOpen, onClose }) => {
 
                   return (
                     <button
-                      key={idx}
+                      key={format(day, 'yyyy-MM-dd')}
                       onClick={() => handleDateSelect(day)}
                       disabled={isDisabled}
                       className={`
@@ -510,92 +523,165 @@ const BookingWidget = ({ isOpen, onClose }) => {
 
             {/* Form Fields */}
             <div className="space-y-4">
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Nom *"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
-              />
-              {errors.name && (
-                <p className="text-xs text-red-400" role="alert">
-                  {errors.name}
-                </p>
-              )}
+              <div>
+                <label htmlFor="booking-name" className="sr-only">
+                  Nom
+                </label>
+                <input
+                  id="booking-name"
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Nom *"
+                  value={formData.name}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={
+                    errors.name ? 'booking-name-error' : undefined
+                  }
+                  className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
+                />
+                {errors.name && (
+                  <p
+                    id="booking-name-error"
+                    className="text-xs text-red-400"
+                    role="alert"
+                  >
+                    {errors.name}
+                  </p>
+                )}
+              </div>
 
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Email *"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
-              />
-              {errors.email && (
-                <p className="text-xs text-red-400" role="alert">
-                  {errors.email}
-                </p>
-              )}
+              <div>
+                <label htmlFor="booking-email" className="sr-only">
+                  Email
+                </label>
+                <input
+                  id="booking-email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Email *"
+                  value={formData.email}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={
+                    errors.email ? 'booking-email-error' : undefined
+                  }
+                  className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
+                />
+                {errors.email && (
+                  <p
+                    id="booking-email-error"
+                    className="text-xs text-red-400"
+                    role="alert"
+                  >
+                    {errors.email}
+                  </p>
+                )}
+              </div>
 
               {formData.meetingType === 'phone' && (
-                <>
+                <div>
+                  <label htmlFor="booking-phone" className="sr-only">
+                    Téléphone
+                  </label>
                   <input
+                    id="booking-phone"
                     type="tel"
                     name="phone"
                     required
                     placeholder="Téléphone *"
                     value={formData.phone}
                     onChange={handleChange}
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={
+                      errors.phone ? 'booking-phone-error' : undefined
+                    }
                     className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
                   />
                   {errors.phone && (
-                    <p className="text-xs text-red-400" role="alert">
+                    <p
+                      id="booking-phone-error"
+                      className="text-xs text-red-400"
+                      role="alert"
+                    >
                       {errors.phone}
                     </p>
                   )}
-                </>
+                </div>
               )}
 
-              <input
-                type="url"
-                name="company"
-                placeholder="Site web (optionnel)"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
-              />
+              <div>
+                <label htmlFor="booking-company" className="sr-only">
+                  Site web (optionnel)
+                </label>
+                <input
+                  id="booking-company"
+                  type="url"
+                  name="company"
+                  placeholder="Site web (optionnel, ex. https://…)"
+                  value={formData.company}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.company}
+                  aria-describedby={
+                    errors.company ? 'booking-company-error' : undefined
+                  }
+                  className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder:text-white/30 focus:border-accent focus:outline-none"
+                />
+                {errors.company && (
+                  <p
+                    id="booking-company-error"
+                    className="text-xs text-red-400"
+                    role="alert"
+                  >
+                    {errors.company}
+                  </p>
+                )}
+              </div>
 
-              <select
-                name="projectType"
-                required
-                value={formData.projectType}
-                onChange={handleChange}
-                className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:border-accent focus:outline-none"
-              >
-                <option value="" className="bg-[#262626]">
-                  Type de projet *
-                </option>
-                <option value="saas" className="bg-[#262626]">
-                  Application Web / SaaS
-                </option>
-                <option value="ecommerce" className="bg-[#262626]">
-                  E-commerce
-                </option>
-                <option value="vitrine" className="bg-[#262626]">
-                  Site Vitrine / MVP
-                </option>
-                <option value="autre" className="bg-[#262626]">
-                  Autre
-                </option>
-              </select>
-              {errors.projectType && (
-                <p className="text-xs text-red-400" role="alert">
-                  {errors.projectType}
-                </p>
-              )}
+              <div>
+                <label htmlFor="booking-projectType" className="sr-only">
+                  Type de projet
+                </label>
+                <select
+                  id="booking-projectType"
+                  name="projectType"
+                  required
+                  value={formData.projectType}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.projectType}
+                  aria-describedby={
+                    errors.projectType ? 'booking-projectType-error' : undefined
+                  }
+                  className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:border-accent focus:outline-none"
+                >
+                  <option value="" className="bg-[#262626]">
+                    Type de projet *
+                  </option>
+                  <option value="saas" className="bg-[#262626]">
+                    Application Web / SaaS
+                  </option>
+                  <option value="ecommerce" className="bg-[#262626]">
+                    E-commerce
+                  </option>
+                  <option value="vitrine" className="bg-[#262626]">
+                    Site Vitrine / MVP
+                  </option>
+                  <option value="autre" className="bg-[#262626]">
+                    Autre
+                  </option>
+                </select>
+                {errors.projectType && (
+                  <p
+                    id="booking-projectType-error"
+                    className="text-xs text-red-400"
+                    role="alert"
+                  >
+                    {errors.projectType}
+                  </p>
+                )}
+              </div>
             </div>
 
             {/* Turnstile */}
@@ -661,10 +747,15 @@ const BookingWidget = ({ isOpen, onClose }) => {
         )}
 
         {/* STEP 3: Success */}
-        {step === 3 && (
-          <div className="text-center space-y-6">
+        {step === 3 && selectedDate && selectedTime && (
+          <div className="text-center space-y-6" aria-live="polite">
             <div>
-              <h3 className="text-2xl text-white italic mb-2">Confirmé</h3>
+              <h3
+                className="text-2xl text-white italic mb-2"
+                id="booking-success-heading"
+              >
+                Confirmé
+              </h3>
               <p className="text-white/50 text-sm">
                 {format(selectedDate, 'EEEE d MMMM', { locale: fr })} à{' '}
                 {selectedTime}
@@ -689,8 +780,10 @@ const BookingWidget = ({ isOpen, onClose }) => {
             </div>
 
             <Button
+              id="booking-success-close"
               onClick={handleReset}
               className="bg-accent text-black font-semibold px-8"
+              aria-describedby="booking-success-heading"
             >
               Fermer
             </Button>

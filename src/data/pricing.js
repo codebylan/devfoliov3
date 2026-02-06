@@ -3,7 +3,7 @@ export const pricingData = [
     title: 'Site Vitrine Premium',
     subtitle:
       'Pour lancer une activité ou moderniser votre image, avec un site rapide et crédible.',
-    price: 'À partir de 1 990€',
+    price: 'À partir de 1 500€',
     features: [
       'Site ultra-rapide (jusqu’à 5 pages)',
       'Design moderne, adapté mobile + ordinateur',
@@ -18,7 +18,7 @@ export const pricingData = [
     title: 'Pack MVP / Lancement SaaS',
     subtitle:
       'Pour transformer une idée en produit fonctionnel et commencer à vendre.',
-    price: 'À partir de 4 990€',
+    price: 'À partir de 3 990€',
     features: [
       'Base solide pour évoluer (site + espace client)',
       'Création de comptes + connexion sécurisée',
@@ -31,9 +31,8 @@ export const pricingData = [
   },
   {
     title: 'Intégration IA & Automation',
-    subtitle:
-      'Pour gagner du temps et automatiser les tâches répétitives.',
-    price: 'Sur Devis (1 500€ - 3 000€)',
+    subtitle: 'Pour gagner du temps et automatiser les tâches répétitives.',
+    price: 'ze',
     features: [
       'Audit rapide: où l’IA peut vous faire gagner du temps',
       'Mise en place d’IA utile (assistant, FAQ, tri, analyse)',
