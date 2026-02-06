@@ -3,6 +3,10 @@
 import { X } from 'lucide-react';
 import { useEffect, useId, useRef } from 'react';
 
+const isTouchDevice = () =>
+  typeof window !== 'undefined' &&
+  ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
 const getFocusableElements = (root) => {
   if (!root) return [];
   const selectors = [
@@ -23,6 +27,8 @@ const Modal = ({ isOpen, onClose, children, title, ariaLabel }) => {
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
   const previouslyFocusedRef = useRef(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
   const titleId = useId();
   const contentId = useId();
@@ -52,8 +58,18 @@ const Modal = ({ isOpen, onClose, children, title, ariaLabel }) => {
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
+        const active = document.activeElement;
+        const isFormControl =
+          active &&
+          (active.tagName === 'INPUT' ||
+            active.tagName === 'TEXTAREA' ||
+            active.tagName === 'SELECT');
+        if (isFormControl) {
+          active.blur();
+          return;
+        }
         e.preventDefault();
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -88,16 +104,27 @@ const Modal = ({ isOpen, onClose, children, title, ariaLabel }) => {
       const prev = previouslyFocusedRef.current;
       if (prev instanceof HTMLElement) prev.focus();
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Overlay */}
+      {/* Overlay: on touch devices, do not close on backdrop tap — viewport resize when keyboard opens causes spurious overlay "clicks". Close only via X or Escape. */}
       <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={onClose}
+        className="absolute inset-0 z-0 bg-black/80 backdrop-blur-sm"
+        onClick={(e) => {
+          if (isTouchDevice()) return;
+          if (e.target !== e.currentTarget) return;
+          const active = document.activeElement;
+          const isFormControl =
+            active &&
+            (active.tagName === 'INPUT' ||
+              active.tagName === 'TEXTAREA' ||
+              active.tagName === 'SELECT');
+          if (isFormControl) return;
+          onClose();
+        }}
         aria-hidden="true"
       />
 
@@ -108,7 +135,7 @@ const Modal = ({ isOpen, onClose, children, title, ariaLabel }) => {
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={contentId}
-        className="relative bg-[#1a1a1a] border border-accent/20 rounded-sm w-full max-w-2xl max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-300"
+        className="relative z-10 bg-[#1a1a1a] border border-accent/20 rounded-sm w-full max-w-2xl max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-300"
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-white/10">
