@@ -1,5 +1,56 @@
 export const projects = [
   {
+    slug: 'LRD-vous-assiste',
+    name: 'LRD Vous Assistes',
+    type: 'Saas / Back-office',
+    job: 'Développement Fullstack | Next.js, Supabase & Resend',
+    valueProposition:
+      'Un Back-office pour assistantes : clients, tâches, documents et espace client dans une seul app.',
+    image: undefined,
+    video: '/videos/lrd-vous-assistes.mov',
+    role: [
+      'Cadrage technique',
+      'Développement fullstack',
+      'Auth & espace client (supabase)',
+      'Notifications email (resend)',
+    ],
+    context: {
+      sector: 'Assistance administrative',
+      objective:
+        'Donner aux assistantes un outil unique pour gérer leurs dossiers clients, tâches et échanges documents, avec espace client dédié',
+    },
+    constraints: [
+      'Multi-utilisateur',
+      'Documents sensibles et traçabilité',
+      'Invitation client et premier accès sécurisé',
+    ],
+    solution: [
+      'App Next.js (Dashboard, clients,tâches, documents)',
+      'Supabase (Auth, BDD,RLS)',
+      'client (login, envoi de documents)',
+    ],
+    stack: [
+      'Next.js',
+      'Supabase',
+      'Resend',
+      'Tailwind CSS',
+      'React Hook Form',
+      'Zod',
+    ],
+    outcomes: [
+      'Vue centralisée : tâches urgentes, clients actifs, activité récente',
+      'Tunnel d’invitation,client et accès sécurisé',
+      'Base prête pour évoluer (temps passé, rappels, etc.)',
+    ],
+    seo: {
+      title:
+        'LRD Vous Assiste — Case study back-office assistantes (Next.js + Supabase) | Dylan Agboton',
+      description:
+        'Case study : outil métier pour assistantes. Gestion clients, tâches, documents et espace client.',
+      ogImage: null,
+    },
+  },
+  {
     slug: 'dayness-cosmetics',
     name: 'Dayness Cosmetics',
     type: 'E-commerce',
@@ -77,7 +128,7 @@ export const projects = [
       title:
         'Dayness Institut — Case study plateforme de réservation | Dylan Agboton',
       description:
-        "Case study: plateforme de réservation Dayness Institut. Contexte, rôle, contraintes, solution (Next.js + API Google) et résultats.",
+        'Case study: plateforme de réservation Dayness Institut. Contexte, rôle, contraintes, solution (Next.js + API Google) et résultats.',
       ogImage: '/images/dayness-institut.png',
     },
   },
@@ -95,7 +146,11 @@ export const projects = [
       objective:
         'Présenter une offre de façon claire et crédible avec un focus sur la conversion.',
     },
-    constraints: ['Hiérarchie claire', 'Responsive strict', 'Temps de chargement'],
+    constraints: [
+      'Hiérarchie claire',
+      'Responsive strict',
+      'Temps de chargement',
+    ],
     solution: [
       'Mise en page orientée “scan” (titres, sections, preuves)',
       'Composants Tailwind réutilisables et cohérents',
@@ -110,7 +165,7 @@ export const projects = [
     seo: {
       title: 'RideNow — Case study landing page | Dylan Agboton',
       description:
-        "Case study: landing page RideNow. Contexte, rôle, contraintes, solution front-end et résultats orientés conversion.",
+        'Case study: landing page RideNow. Contexte, rôle, contraintes, solution front-end et résultats orientés conversion.',
       ogImage: '/images/ridenow.png',
     },
   },

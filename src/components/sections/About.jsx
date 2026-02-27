@@ -18,8 +18,8 @@ const About = () => {
           À propos
         </p>
         <h2 className="text-4xl sm:text-5xl lg:text-6xl italic leading-[0.95] max-w-3xl">
-          Entre la rigueur du code et{' '}
-          <span className="text-accent">la réalité du business.</span>
+          Des sites et applications web complets,{' '}
+          <span className="text-accent">rapides et fiables.</span>
         </h2>
       </div>
 
@@ -48,76 +48,81 @@ const About = () => {
         </div>
 
         {/* Story Column */}
-        <div className="lg:col-span-7 lg:col-start-6 space-y-16">
-          {/* Chapter 1 */}
+        <div className="lg:col-span-7 lg:col-start-6 space-y-12">
           <div className="relative pl-8 border-l border-white/10">
             <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
-            <p className="text-white/30 text-xs uppercase tracking-widest mb-4">
-              L&apos;origine — 6 ans
-            </p>
             <p className="text-white/70 leading-relaxed">
-              Ce n&apos;est pas devant une console que je passais mes journées,
-              mais <span className="text-white italic">à côté de mon père</span>
-              . C&apos;est lui qui m&apos;a mis les mains sur le clavier. Ce qui
-              n&apos;était qu&apos;une curiosité d&apos;enfant s&apos;est
-              transformé en obsession : comprendre{' '}
-              <span className="text-accent">
-                comment tout fonctionnait sous le capot.
-              </span>
+              Je conçois des sites et applications web de A à Z : ce que voient
+              vos visiteurs, la logique qui tourne derrière, et la façon dont
+              vos données sont stockées. Le tout rapide, fiable et capable de
+              grandir avec vous.
+            </p>
+            <p className="text-white/70 leading-relaxed mt-4">
+              Avec 3 ans d&apos;expérience en développement web, j&apos;accompagne
+              des entreprises et des entrepreneurs sur des projets concrets :
+              boutiques en ligne, systèmes de réservation en ligne, outils
+              sur-mesure pour votre activité, et mise en place de
+              l&apos;Intelligence Artificielle dans vos produits.
             </p>
           </div>
 
-          {/* Chapter 2 */}
           <div className="relative pl-8 border-l border-white/10">
             <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-white/20" />
             <p className="text-white/30 text-xs uppercase tracking-widest mb-4">
-              Le détour — Commerce
+              Ce que j&apos;apporte concrètement
             </p>
-            <p className="text-white/70 leading-relaxed">
-              Je n&apos;ai pas foncé vers une école d&apos;ingénieur. J&apos;ai
-              choisi <span className="text-accent">le commerce</span>. La vente,
-              la psychologie client, la rentabilité. J&apos;ai compris
-              qu&apos;un produit, aussi technique soit-il, ne sert à rien
-              s&apos;il ne répond pas à un besoin humain.
-            </p>
+            <ul className="space-y-3 text-white/70 leading-relaxed">
+              <li className="flex gap-2">
+                <span className="text-accent shrink-0">→</span>
+                Des sites et applications agréables à utiliser, modernes et
+                rapides
+              </li>
+              <li className="flex gap-2">
+                <span className="text-accent shrink-0">→</span>
+                Une logique serveur fiable : vos données et vos processus
+                sécurisés et bien organisés
+              </li>
+              <li className="flex gap-2">
+                <span className="text-accent shrink-0">→</span>
+                Des données bien structurées et sécurisées (clients, commandes,
+                réservations…)
+              </li>
+              <li className="flex gap-2">
+                <span className="text-accent shrink-0">→</span>
+                L&apos;intégration de l&apos;IA dans vos produits (chatbots,
+                aide à la décision, automatisation)
+              </li>
+            </ul>
           </div>
 
-          {/* Chapter 3 */}
           <div className="relative pl-8 border-l border-white/10">
             <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-white/20" />
             <p className="text-white/30 text-xs uppercase tracking-widest mb-4">
-              Le retour — Reconversion
+              Quelques résultats récents
             </p>
-            <p className="text-white/70 leading-relaxed">
-              La passion ne s&apos;éteint jamais. Fort de cette vision business,
-              je suis revenu au code. Discipline de fer, rattrapage
-              technologique. Next.js, React, Node.js, IA. L&apos;écosystème
-              moderne maîtrisé.
-            </p>
+            <ul className="space-y-3 text-white/70 leading-relaxed">
+              <li className="flex gap-2">
+                <span className="text-accent shrink-0">→</span>
+                +40% de visiteurs qui passent à l&apos;achat sur une boutique
+                en ligne cosmétiques
+              </li>
+              <li className="flex gap-2">
+                <span className="text-accent shrink-0">→</span>
+                +50% de réservations pour un institut basé en Suisse
+              </li>
+              <li className="flex gap-2">
+                <span className="text-accent shrink-0">→</span>
+                -30% de temps de chargement grâce à l&apos;optimisation du site
+              </li>
+            </ul>
           </div>
 
-          {/* Conclusion - Pull Quote */}
-          <div className="pt-8 border-t border-white/10">
-            <blockquote className="text-2xl sm:text-3xl italic leading-snug text-white/90 mb-8">
-              &ldquo;Je ne code pas pour la beauté du geste.{' '}
-              <span className="text-accent">
-                Je code pour votre croissance.
-              </span>
-              &rdquo;
-            </blockquote>
-
-            <div className="space-y-4 text-white/50 text-sm">
-              <p>
-                <span className="text-white">Conversion</span> — je comprends.
-              </p>
-              <p>
-                <span className="text-white">ROI</span> — je comprends.
-              </p>
-              <p>
-                <span className="text-white">Application performante</span> — je
-                réalise.
-              </p>
-            </div>
+          <div className="pt-6 border-t border-white/10">
+            <p className="text-white/70 leading-relaxed">
+              Que vous soyez une startup, une PME ou une agence, je peux
+              intégrer votre équipe ou prendre en charge votre projet de bout en
+              bout.
+            </p>
           </div>
 
           {/* CTA */}

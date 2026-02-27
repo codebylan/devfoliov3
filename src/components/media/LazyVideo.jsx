@@ -29,6 +29,9 @@ const LazyVideo = ({
 
   const reduceMotion = useMemo(() => prefersReducedMotion(), []);
 
+  const hasValidPoster =
+    typeof poster === 'string' && poster.length > 0 && poster !== 'undefined';
+
   // We only assign <video src> when it is near viewport OR user interacted.
   const shouldLoad = isInViewport || hasUserIntent;
 
@@ -107,14 +110,21 @@ const LazyVideo = ({
         pause();
       }}
     >
-      {/* Poster (always rendered to avoid CLS and keep Next optimization) */}
-      <Image
-        src={poster}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes={sizes}
-      />
+      {/* Poster (always rendered to avoid CLS; skip Image if poster invalid) */}
+      {hasValidPoster ? (
+        <Image
+          src={poster}
+          alt={alt}
+          fill
+          className="object-cover"
+          sizes={sizes}
+        />
+      ) : (
+        <div
+          className="absolute inset-0 bg-white/5 object-cover"
+          aria-hidden
+        />
+      )}
 
       {/* Video (only attaches src when needed) */}
       {src ? (
@@ -124,7 +134,7 @@ const LazyVideo = ({
           preload={shouldLoad ? preloadVisible : preloadHidden}
           muted
           playsInline
-          poster={poster}
+          poster={hasValidPoster ? poster : undefined}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
             shouldLoad ? 'opacity-100' : 'opacity-0'
           }`}
