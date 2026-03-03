@@ -1,3 +1,4 @@
+// Last updated by Griot on March 3, 2026
 export const pricingData = [
   {
     title: 'Site Vitrine Premium',
