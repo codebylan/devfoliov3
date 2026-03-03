@@ -3,7 +3,7 @@ export const pricingData = [
   {
     title: 'Site Vitrine Premium',
     subtitle:
-      'Pour lancer une activité ou moderniser votre image, avec un site rapide et crédible.',
+      'Création de sites web professionnels, rapides et impactants pour une présence digitale optimisée.',
     price: 'À partir de 2 750€',
     features: [
       'Site ultra-rapide (jusqu’à 5 pages)',
@@ -16,9 +16,9 @@ export const pricingData = [
     isRecommended: false,
   },
   {
-    title: 'Pack MVP / Lancement SaaS',
+    title: 'Développement d'Applications Web & Produit',
     subtitle:
-      'Pour transformer une idée en produit fonctionnel et commencer à vendre.',
+      'De l'idée au produit fonctionnel : applications métier, plateformes sur mesure, ou Minimum Viable Products (MVP).',
     price: 'À partir de 8 250€',
     features: [
       'Base solide pour évoluer (site + espace client)',
@@ -33,7 +33,7 @@ export const pricingData = [
   {
     title: 'Intégration IA & Automation',
     subtitle: 'Pour gagner du temps et automatiser les tâches répétitives.',
-    price: 'Sur devis',
+    price: 'À partir de 8 250€',
     features: [
       'Audit rapide: où l’IA peut vous faire gagner du temps',
       'Mise en place d’IA utile (assistant, FAQ, tri, analyse)',
