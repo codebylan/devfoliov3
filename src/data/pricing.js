@@ -3,7 +3,7 @@ export const pricingData = [
     title: 'Site Vitrine Premium',
     subtitle:
       'Pour lancer une activité ou moderniser votre image, avec un site rapide et crédible.',
-    price: 'À partir de 1 500€',
+    price: 'À partir de 2 750€',
     features: [
       'Site ultra-rapide (jusqu’à 5 pages)',
       'Design moderne, adapté mobile + ordinateur',
@@ -18,7 +18,7 @@ export const pricingData = [
     title: 'Pack MVP / Lancement SaaS',
     subtitle:
       'Pour transformer une idée en produit fonctionnel et commencer à vendre.',
-    price: 'À partir de 3 990€',
+    price: 'À partir de 8 250€',
     features: [
       'Base solide pour évoluer (site + espace client)',
       'Création de comptes + connexion sécurisée',

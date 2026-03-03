@@ -25,7 +25,7 @@ const Prices = () => {
             de coûts cachés.
           </p>
           <p className="text-accent text-sm mt-2">
-            TJM : <span className="font-semibold">450€</span>/jour
+            TJM : <span className="font-semibold">550€</span>/jour
           </p>
         </div>
       </div>
