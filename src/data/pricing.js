@@ -3,11 +3,11 @@ export const pricingData = [
   {
     title: 'Site Vitrine Premium',
     subtitle:
-      'Création de sites web professionnels, rapides et impactants pour une présence digitale optimisée.',
+      "Création de sites web professionnels, rapides et impactants pour une présence digitale optimisée.",
     price: 'À partir de 2 750€',
     features: [
       'Site web ultra-rapide et fluide (jusqu’à 5 pages), pour une expérience utilisateur moderne',
-      'Design professionnel et responsive, s'adaptant parfaitement à tous les écrans (mobile, tablette, desktop)',
+      "Design professionnel et responsive, s'adaptant parfaitement à tous les écrans (mobile, tablette, desktop)",
       'Optimisation pour les moteurs de recherche (Google) pour améliorer votre visibilité et attirer plus de clients',
       'Système simple pour mettre à jour vos textes et images vous-même, sans intervention de développeur',
       'Formulaire de contact sécurisé pour recevoir les demandes de vos prospects directement',
@@ -19,19 +19,19 @@ export const pricingData = [
     isRecommended: false,
   },
   {
-    title: 'Développement d'Applications Web & Produit',
+    title: "Développement d'Applications Web & Produit",
     subtitle:
-      'De l'idée au produit fonctionnel : applications métier, plateformes sur mesure, ou Minimum Viable Products (MVP).',
+      "De l'idée au produit fonctionnel : applications métier, plateformes sur mesure, ou Minimum Viable Products (MVP).",
     price: 'À partir de 8 250€',
     features: [
-      'Création d'une application web sur mesure, avec une base technique solide et flexible pour vos futures évolutions',
-      'Gestion sécurisée des utilisateurs : inscription, connexion, et personnalisation des accès',
+      "Création d'une application web sur mesure, avec une base technique solide et flexible pour vos futures évolutions",
+      "Gestion sécurisée des utilisateurs : inscription, connexion, et personnalisation des accès",
       'Intégration de solutions de paiement en ligne (abonnements, achats uniques) pour monétiser votre service',
       'Développement des fonctionnalités essentielles pour lancer votre produit rapidement sur le marché (MVP)',
-      'Espace d'administration intuitif pour gérer facilement vos clients, contenus et données',
-      'Conception pour s'adapter à une forte croissance, garantissant la fluidité même avec un grand nombre d'utilisateurs',
+      "Espace d'administration intuitif pour gérer facilement vos clients, contenus et données",
+      "Conception pour s'adapter à une forte croissance, garantissant la fluidité même avec un grand nombre d'utilisateurs",
       'Garantie de la qualité du code par des tests rigoureux pour une application fiable et sans bugs',
-      'Préparation de votre produit pour qu'il fonctionne bien avec d'autres outils et services'
+      "Préparation de votre produit pour qu'il fonctionne bien avec d'autres outils et services"
     ],
     bonus: 'Mise en ligne + 1 mois de maintenance offert',
     isRecommended: true,
@@ -41,14 +41,14 @@ export const pricingData = [
     subtitle: 'Pour gagner du temps et automatiser les tâches répétitives.',
     price: 'À partir de 8 250€',
     features: [
-      'Analyse de vos activités pour identifier où l'intelligence artificielle peut vous faire gagner du temps et de l'argent',
-      'Mise en place d'assistants virtuels intelligents (chatbots, FAQ automatiques) pour répondre à vos clients 24/7',
-      'Création de ponts entre vos différents logiciels (site web, emails, gestion client) pour qu'ils communiquent mieux',
-      'Automatisation des tâches répétitives : gestion de contacts, relances clients, rapports automatiques, etc.',
-      'Tableaux de bord simples pour suivre l'efficacité de vos automatisations et des outils IA',
-      'Formation personnalisée pour que vous soyez autonome dans l'utilisation et la gestion de ces nouvelles solutions',
-      'Conseils experts pour anticiper les évolutions technologiques et rester à la pointe de l'innovation',
-      'Gain de temps significatif et réduction des erreurs humaines grâce à des processus optimisés par l'IA'
+      "Analyse de vos activités pour identifier où l'intelligence artificielle peut vous faire gagner du temps et de l'argent",
+      "Mise en place d'assistants virtuels intelligents (chatbots, FAQ automatiques) pour répondre à vos clients 24/7",
+      "Création de ponts entre vos différents logiciels (site web, emails, gestion client) pour qu'ils communiquent mieux",
+      "Automatisation des tâches répétitives : gestion de contacts, relances clients, rapports automatiques, etc.",
+      "Tableaux de bord simples pour suivre l'efficacité de vos automatisations et des outils IA",
+      "Formation personnalisée pour que vous soyez autonome dans l'utilisation et la gestion de ces nouvelles solutions",
+      "Conseils experts pour anticiper les évolutions technologiques et rester à la pointe de l'innovation",
+      "Gain de temps significatif et réduction des erreurs humaines grâce à des processus optimisés par l'IA"
     ],
     bonus: null,
     isRecommended: false,
