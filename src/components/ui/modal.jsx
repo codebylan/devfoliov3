@@ -28,7 +28,10 @@ const Modal = ({ isOpen, onClose, children, title, ariaLabel }) => {
   const closeButtonRef = useRef(null);
   const previouslyFocusedRef = useRef(null);
   const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   const titleId = useId();
   const contentId = useId();
