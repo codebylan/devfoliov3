@@ -4,18 +4,17 @@ export default function StructuredData() {
   const webSiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${seoConfig.site.url}/#website`,
     name: seoConfig.site.name,
     url: seoConfig.site.url,
-    inLanguage: seoConfig.site.locale,
-    publisher: {
-      '@type': 'Person',
-      name: seoConfig.site.name,
-      url: seoConfig.site.url,
-    },
+    inLanguage: 'fr-FR',
+    description: seoConfig.site.defaultDescription,
+    publisher: { '@id': `${seoConfig.site.url}/#person` },
   };
 
   const schemas = [
     seoConfig.schemas.person,
+    seoConfig.schemas.profilePage,
     seoConfig.schemas.professionalService,
     seoConfig.schemas.localBusiness,
     webSiteSchema,

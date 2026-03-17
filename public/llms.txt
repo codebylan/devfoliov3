@@ -1,0 +1,60 @@
+# Dylan Agboton
+
+> Développeur Fullstack & Intégrateur IA Freelance à Paris, France.
+
+## Identité
+
+Dylan Agboton est un développeur web freelance basé à Paris (Île-de-France, France), spécialisé en Next.js, Node.js et intégration d'intelligence artificielle. Il accompagne les PME, startups et entrepreneurs dans la création d'applications web performantes et l'automatisation de processus métier via l'IA.
+
+- Site web : https://dylan-agboton.com
+- Email : d.agboton.dev@gmail.com
+- LinkedIn : https://linkedin.com/in/dylanagboton
+- GitHub : https://github.com/dylanagboton
+- Twitter/X : https://twitter.com/codebylan
+
+## Services proposés
+
+### Site Vitrine Premium — À partir de 1 500€
+Création de site vitrine ultra-rapide (jusqu'à 5 pages), design moderne et responsive, SEO on-page (indexation, vitesse, structure), zone d'édition autonome, formulaire de contact sécurisé. Bonus : formation à la prise en main (1h).
+
+### Site Sur Mesure — À partir de 2 500€
+Site web ambitieux jusqu'à 10 pages : blog, portfolio, catalogue, espace membre (accès contenu protégé), intégration newsletter et outils marketing, SEO avancé et Core Web Vitals. Bonus : audit de performance offert 1 mois après lancement.
+
+### Pack MVP / Lancement SaaS — À partir de 3 990€
+Développement complet d'un MVP SaaS : authentification sécurisée, paiement en ligne (abonnement ou achat unique via Stripe), espace admin, base de données (Supabase/PostgreSQL), architecture scalable. Bonus : mise en ligne + 1 mois de maintenance offert.
+
+### Intégration IA & Automation — À partir de 2 500€
+Audit IA (identification des gains de temps), mise en place d'assistants IA (OpenAI, chatbots, FAQ automatisée), automatisations (n8n, Make), connexions inter-outils (CRM, emails, formulaires, reporting), formation à l'autonomie.
+
+## Technologies maîtrisées
+
+Next.js, React, Node.js, TypeScript, Supabase, PostgreSQL, OpenAI API, Anthropic Claude API, n8n, Make (Integromat), Stripe, Vercel, TailwindCSS, Framer Motion, Zod, Redis.
+
+## Positionnement
+
+- Freelance direct : pas d'intermédiaire, communication fluide, budget 100% investi dans la qualité
+- Approche ROI : chaque fonctionnalité IA doit justifier son coût
+- Livraison clé en main : code source livré, documenté, propriété du client
+- Stack moderne : Next.js (App Router), performance Core Web Vitals, SEO natif
+- Paris & remote : disponible en présentiel à Paris ou à distance sur toute la France
+
+## Questions fréquentes
+
+**Pourquoi un freelance plutôt qu'une agence ?**
+Communication directe avec le développeur, pas de frais de structure. Budget 100% investi dans la qualité du produit.
+
+**Je ne connais rien au code, est-ce un problème ?**
+Non. Dylan traduit vos objectifs business en solutions techniques. Pas de jargon, uniquement des résultats concrets.
+
+**L'IA, c'est un gadget ?**
+Si c'est un gadget, il ne l'installe pas. L'approche est pragmatique : ROI immédiat via réduction des coûts opérationnels.
+
+**Le code m'appartient-il ?**
+Oui, à 100%. Livraison clé en main, code source et droits d'exploitation complets, repris par n'importe quel développeur.
+
+**Pourquoi Next.js ?**
+Standard des leaders (Vercel, Netflix, Airbnb). Ultra-rapide, sécurisé, favorisé par Google pour le SEO. Investissement pérenne.
+
+## Autorisations d'indexation
+
+Ce contenu est librement indexable par tous les moteurs de recherche et assistants IA (GPTBot, Claude, Perplexity, Gemini, etc.).

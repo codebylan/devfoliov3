@@ -3,6 +3,7 @@ export const pricingData = [
   {
     title: 'Site Vitrine Premium',
     subtitle:
+<<<<<<< HEAD
       "Création de sites web professionnels, rapides et impactants pour une présence digitale optimisée.",
     price: 'À partir de 2 750€',
     features: [
@@ -14,15 +15,47 @@ export const pricingData = [
       'Intégration des outils pour comprendre qui visite votre site et comment il est utilisé',
       'Mise en ligne et hébergement sécurisés sur des plateformes fiables pour une disponibilité constante',
       'Protection par certificat SSL (HTTPS) pour la sécurité des données de vos visiteurs'
+=======
+      'Pour lancer ou moderniser votre image avec un site rapide et crédible.',
+    price: { amount: '1 500€', prefix: 'À partir de' },
+    features: [
+      "Site ultra-rapide (jusqu'à 5 pages)",
+      'Design moderne, adapté mobile + ordinateur',
+      'Bases SEO propres (indexation, vitesse, structure)',
+      "Zone d'édition pour modifier vos textes (sans développeur)",
+      'Formulaire de contact fiable et sécurisé',
+>>>>>>> develop
     ],
     bonus: 'Formation à la prise en main (1h)',
     isRecommended: false,
   },
   {
+<<<<<<< HEAD
     title: "Développement d'Applications Web & Produit",
     subtitle:
       "De l'idée au produit fonctionnel : applications métier, plateformes sur mesure, ou Minimum Viable Products (MVP).",
     price: 'À partir de 8 250€',
+=======
+    title: 'Site Sur Mesure',
+    subtitle:
+      "Pour un projet web ambitieux avec des fonctionnalités spécifiques, sans aller jusqu'au SaaS.",
+    price: { amount: '2 500€', prefix: 'À partir de' },
+    features: [
+      "Site jusqu'à 10 pages, architecture solide",
+      'Blog, portfolio ou catalogue intégré',
+      'Espace membre simple (accès contenu protégé)',
+      'Intégration newsletter & outils marketing',
+      'SEO avancé + performance Core Web Vitals',
+    ],
+    bonus: 'Audit de performance offert (1 mois après lancement)',
+    isRecommended: false,
+  },
+  {
+    title: 'Pack MVP / Lancement SaaS',
+    subtitle:
+      'Pour transformer une idée en produit fonctionnel et commencer à vendre.',
+    price: { amount: '3 990€', prefix: 'À partir de' },
+>>>>>>> develop
     features: [
       "Création d'une application web sur mesure, avec une base technique solide et flexible pour vos futures évolutions",
       "Gestion sécurisée des utilisateurs : inscription, connexion, et personnalisation des accès",
@@ -39,6 +72,7 @@ export const pricingData = [
   {
     title: 'Intégration IA & Automation',
     subtitle: 'Pour gagner du temps et automatiser les tâches répétitives.',
+<<<<<<< HEAD
     price: 'À partir de 8 250€',
     features: [
       "Analyse de vos activités pour identifier où l'intelligence artificielle peut vous faire gagner du temps et de l'argent",
@@ -49,6 +83,15 @@ export const pricingData = [
       "Formation personnalisée pour que vous soyez autonome dans l'utilisation et la gestion de ces nouvelles solutions",
       "Conseils experts pour anticiper les évolutions technologiques et rester à la pointe de l'innovation",
       "Gain de temps significatif et réduction des erreurs humaines grâce à des processus optimisés par l'IA"
+=======
+    price: { amount: '2 500€', prefix: 'À partir de' },
+    features: [
+      "Audit rapide : où l'IA peut vous faire gagner du temps",
+      "Mise en place d'IA utile (assistant, FAQ, tri, analyse)",
+      'Connexions entre vos outils (site, CRM, emails, formulaires)',
+      'Automatisations concrètes (leads, support, relances, reporting)',
+      'Formation courte pour être autonome',
+>>>>>>> develop
     ],
     bonus: null,
     isRecommended: false,

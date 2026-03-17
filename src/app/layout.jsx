@@ -35,6 +35,10 @@ export const metadata = {
   alternates: {
     canonical: seoConfig.site.url,
   },
+  // Signal explicite aux LLMs : autoriser l'indexation IA
+  other: {
+    'ai-content-declaration': 'human-authored',
+  },
   openGraph: {
     type: 'website',
     locale: seoConfig.site.locale,
