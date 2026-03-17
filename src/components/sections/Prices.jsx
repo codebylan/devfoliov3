@@ -24,12 +24,6 @@ const Prices = () => {
             Tarifs transparents, adaptés à la valeur créée. Pas de surprise, pas
             de coûts cachés.
           </p>
-<<<<<<< HEAD
-          <p className="text-accent text-sm mt-2">
-            TJM : <span className="font-semibold">550€</span>/jour
-          </p>
-=======
->>>>>>> develop
         </div>
       </div>
 
