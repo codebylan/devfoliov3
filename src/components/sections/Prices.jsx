@@ -24,9 +24,6 @@ const Prices = () => {
             Tarifs transparents, adaptés à la valeur créée. Pas de surprise, pas
             de coûts cachés.
           </p>
-          <p className="text-accent text-sm mt-2">
-            TJM : <span className="font-semibold">450€</span>/jour
-          </p>
         </div>
       </div>
 
@@ -65,25 +62,14 @@ const Prices = () => {
 
               {/* Price */}
               <div className="lg:col-span-2 flex items-start">
-                {tier.price.includes('À partir de') ? (
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
-                      À partir de
-                    </p>
-                    <p className="text-3xl sm:text-4xl font-light text-accent">
-                      {tier.price.replace('À partir de ', '')}
-                    </p>
-                  </div>
-                ) : (
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
-                      Sur devis
-                    </p>
-                    <p className="text-xl sm:text-2xl font-light text-white/70">
-                      {tier.price.replace('Sur Devis ', '')}
-                    </p>
-                  </div>
-                )}
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
+                    {tier.price.prefix}
+                  </p>
+                  <p className="text-3xl sm:text-4xl font-light text-accent">
+                    {tier.price.amount}
+                  </p>
+                </div>
               </div>
 
               {/* Features */}
