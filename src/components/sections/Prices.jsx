@@ -27,114 +27,190 @@ const Prices = () => {
         </div>
       </div>
 
-      {/* Pricing Tiers */}
-      <div className="space-y-4">
+      {/* Pricing Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.07]">
         {pricingData.map((tier, index) => (
           <div
             key={index}
-            className={`group relative ${
-              tier.isRecommended ? 'bg-accent/3' : ''
+            className={`relative flex flex-col p-8 lg:p-10 transition-colors duration-300 ${
+              tier.isRecommended
+                ? 'bg-accent/[0.04]'
+                : 'bg-[#080808] hover:bg-white/[0.02]'
             }`}
           >
-            {/* Main Row */}
-            <div
+            {/* Recommended accent bar */}
+            {tier.isRecommended && (
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent" />
+            )}
+
+            {/* Header */}
+            <div className="flex items-start justify-between gap-4 mb-8">
+              <div>
+                <h3 className="text-lg sm:text-xl text-white font-medium mb-2">
+                  {tier.title}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed">
+                  {tier.subtitle}
+                </p>
+              </div>
+              {tier.isRecommended && (
+                <span className="shrink-0 text-[10px] uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-1 rounded-sm">
+                  Recommandé
+                </span>
+              )}
+            </div>
+
+            {/* Price */}
+            <div className="mb-8 pb-8 border-b border-white/[0.07]">
+              <p className="text-[10px] uppercase tracking-widest text-white/30 mb-2">
+                {tier.price.prefix}
+              </p>
+              <p
+                className={`text-5xl sm:text-6xl font-light tracking-tight ${
+                  tier.isRecommended ? 'text-accent' : 'text-white'
+                }`}
+              >
+                {tier.price.amount}
+              </p>
+            </div>
+
+            {/* Features */}
+            <ul className="space-y-3 mb-8 flex-1">
+              {tier.features.map((feature, i) => (
+                <li
+                  key={i}
+                  className="text-sm text-white/55 flex items-start gap-3"
+                >
+                  <span className="text-accent/50 mt-0.5 shrink-0">—</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+              {tier.bonus && (
+                <li className="text-sm text-accent/90 flex items-start gap-3 pt-3 mt-1 border-t border-white/[0.06]">
+                  <span className="shrink-0 mt-0.5">+</span>
+                  <span className="font-medium">{tier.bonus}</span>
+                </li>
+              )}
+            </ul>
+
+            {/* CTA */}
+            <Button
+              onClick={openBookingModal}
               className={`
-                grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 
-                py-8 lg:py-10 px-6 lg:px-8
-                border-t border-white/10
-                ${tier.isRecommended ? 'border-t-accent/40' : ''}
+                group/btn w-full cursor-pointer text-sm px-6 py-5 transition-all duration-300 rounded-none
+                ${
+                  tier.isRecommended
+                    ? 'bg-accent text-black font-semibold hover:bg-accent/90'
+                    : 'bg-transparent border border-white/15 hover:border-accent/60 hover:bg-accent/5 text-white'
+                }
               `}
             >
-              {/* Tier Name & Badge */}
-              <div className="lg:col-span-3">
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="text-xl sm:text-2xl text-white font-medium">
-                    {tier.title}
-                  </h3>
-                  {tier.isRecommended && (
-                    <span className="text-[10px] uppercase tracking-widest text-accent bg-accent/10 px-2 py-1 rounded-sm">
-                      Recommandé
-                    </span>
-                  )}
-                </div>
-                <p className="text-white/40 text-sm italic">{tier.subtitle}</p>
-              </div>
-
-              {/* Price */}
-              <div className="lg:col-span-2 flex items-start">
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
-                    {tier.price.prefix}
-                  </p>
-                  <p className="text-3xl sm:text-4xl font-light text-accent">
-                    {tier.price.amount}
-                  </p>
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className="lg:col-span-5">
-                <ul className="space-y-2">
-                  {tier.features.map((feature, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-white/60 flex items-start gap-3"
-                    >
-                      <span className="text-accent/60 mt-0.5">—</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                  {tier.bonus && (
-                    <li className="text-sm text-accent flex items-start gap-3 pt-2">
-                      <span className="text-accent mt-0.5">+</span>
-                      <span className="font-medium">{tier.bonus}</span>
-                    </li>
-                  )}
-                </ul>
-              </div>
-
-              {/* CTA */}
-              <div className="lg:col-span-2 flex items-center justify-start lg:justify-end">
-                <Button
-                  onClick={openBookingModal}
-                  className={`
-                    group/btn cursor-pointer text-sm px-6 py-5 transition-all duration-300
-                    ${
-                      tier.isRecommended
-                        ? 'bg-accent text-black font-semibold'
-                        : 'bg-transparent border border-white/20 hover:border-accent hover:bg-accent/5 text-white'
-                    }
-                  `}
-                >
-                  <span className="flex items-center gap-2">
-                    Devis
-                    <ArrowRight
-                      size={14}
-                      className="group-hover/btn:translate-x-1 transition-transform"
-                    />
-                  </span>
-                </Button>
-              </div>
-            </div>
+              <span className="flex items-center justify-center gap-2">
+                Demander un devis
+                <ArrowRight
+                  size={14}
+                  className="group-hover/btn:translate-x-1 transition-transform"
+                />
+              </span>
+            </Button>
           </div>
         ))}
       </div>
 
-      {/* Bottom Border */}
-      <div className="border-t border-white/10 mt-0" />
+      {/* Add-ons */}
+      <div className="mt-px bg-white/[0.07]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px">
+          {/* Maintenance */}
+          <div className="bg-[#080808] p-8 lg:p-10">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[10px] uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-1 rounded-sm">
+                Add-on
+              </span>
+            </div>
+            <h3 className="text-lg text-white font-medium mb-1">
+              Forfait Maintenance Mensuel
+            </h3>
+            <p className="text-white/40 text-sm mb-6">
+              Gardez votre site performant et à jour, sans stress.
+            </p>
+            <div className="mb-6">
+              <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
+                À partir de
+              </p>
+              <p className="text-4xl font-light text-accent">290€/mois</p>
+            </div>
+            <ul className="space-y-2.5">
+              {[
+                'Corrections de bugs & mises à jour techniques',
+                'Monitoring performance & sécurité',
+                "Petites évolutions (jusqu'à 4h/mois de dev incluses)",
+                'Support prioritaire par email',
+                'Rapport mensuel de performance',
+              ].map((feature, i) => (
+                <li
+                  key={i}
+                  className="text-sm text-white/55 flex items-start gap-3"
+                >
+                  <span className="text-accent/50 mt-0.5 shrink-0">—</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      {/* Footer Note */}
-      <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-white/30">
-        <p>
-          Chaque projet est unique. Les tarifs sont indicatifs et ajustés selon
-          vos besoins spécifiques.
-        </p>
-        <button
-          onClick={openBookingModal}
-          className="text-accent hover:underline cursor-pointer"
-        >
-          Discutons de votre projet →
-        </button>
+          {/* TJM */}
+          <div className="bg-[#080808] p-8 lg:p-10 flex flex-col">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[10px] uppercase tracking-widest text-white/40 bg-white/5 px-2.5 py-1 rounded-sm">
+                Option
+              </span>
+            </div>
+            <h3 className="text-lg text-white font-medium mb-1">
+              TJM — Facturation au temps
+            </h3>
+            <p className="text-white/40 text-sm mb-8">
+              Pour des missions ponctuelles ou des collaborations récurrentes.
+            </p>
+            <div className="flex-1 flex flex-col justify-center space-y-px bg-white/[0.07]">
+              {[
+                { label: 'Développement', value: '400€', unit: '/jour' },
+                { label: 'Consulting IA', value: '450€', unit: '/jour' },
+                { label: 'Maintenance', value: '350€', unit: '/jour' },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-center justify-between px-6 py-4 bg-[#080808] hover:bg-white/[0.02] transition-colors"
+                >
+                  <p className="text-[11px] uppercase tracking-widest text-white/50">
+                    {item.label}
+                  </p>
+                  <p className="text-xl font-light text-accent">
+                    {item.value}
+                    <span className="text-sm text-accent/50">{item.unit}</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8">
+              <button
+                onClick={openBookingModal}
+                className="group/link flex items-center gap-2 text-sm text-accent cursor-pointer hover:gap-3 transition-all"
+              >
+                Discutons de votre projet
+                <ArrowRight
+                  size={14}
+                  className="group-hover/link:translate-x-1 transition-transform"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer note */}
+      <div className="mt-6 text-xs text-white/25">
+        Chaque projet est unique. Les tarifs sont indicatifs et ajustés selon
+        vos besoins spécifiques.
       </div>
     </section>
   );
