@@ -1,12 +1,13 @@
 'use client';
 
 import { stackCategories } from '../../data/stack';
+import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
 
 const MyStack = () => {
   return (
     <section id="mystack">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+      <FadeIn className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
         <div>
           <p className="text-accent text-xs uppercase tracking-[0.2em] mb-4">
             Stack technique
@@ -18,40 +19,44 @@ const MyStack = () => {
         <p className="text-white/40 text-sm max-w-xs lg:text-right">
           L&apos;écosystème JavaScript moderne, boosté par l&apos;IA.
         </p>
-      </div>
+      </FadeIn>
 
       {/* Flowing tech names */}
-      <div className="flex flex-wrap gap-x-6 gap-y-4 mb-16">
+      <Stagger stagger={0.04} className="flex flex-wrap gap-x-6 gap-y-4 mb-16">
         {stackCategories.flatMap((cat) =>
           cat.technologies.map((tech) => (
-            <span
+            <StaggerItem
               key={tech.name}
-              className="text-2xl sm:text-3xl lg:text-4xl text-white/80 hover:text-accent transition-colors cursor-default"
+              y={20}
             >
-              {tech.name}
-              {tech.subtitle && (
-                <sup className="text-white/20 text-xs ml-1">
-                  {tech.subtitle}
-                </sup>
-              )}
-            </span>
+              <span
+                className="text-2xl sm:text-3xl lg:text-4xl text-white/80 hover:text-accent transition-colors cursor-default"
+              >
+                {tech.name}
+                {tech.subtitle && (
+                  <sup className="text-white/20 text-xs ml-1">
+                    {tech.subtitle}
+                  </sup>
+                )}
+              </span>
+            </StaggerItem>
           ))
         )}
-      </div>
+      </Stagger>
 
       {/* Categories breakdown */}
-      <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/5">
+      <Stagger stagger={0.1} delay={0.2} className="grid grid-cols-3 gap-8 pt-8 border-t border-white/5">
         {stackCategories.map((cat) => (
-          <div key={cat.category}>
+          <StaggerItem key={cat.category}>
             <p className="text-accent text-xs uppercase tracking-wider mb-2">
               {cat.category}
             </p>
             <p className="text-white/30 text-sm">
               {cat.technologies.map((t) => t.name).join(', ')}
             </p>
-          </div>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
     </section>
   );
 };

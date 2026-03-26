@@ -1,9 +1,12 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { Calendar, Check } from 'lucide-react';
 import { useBooking } from '../../contexts/BookingContext';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
+
+const ease = [0.25, 0.1, 0.25, 1];
 
 const Hero = () => {
   const { openBookingModal } = useBooking();
@@ -11,15 +14,25 @@ const Hero = () => {
   return (
     <section id="hero">
       {/* left column  */}
-      <h1 className="max-w-4xl lg:text-6xl text-3xl mb-5 ">
+      <motion.h1
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease }}
+        className="max-w-4xl lg:text-6xl text-3xl mb-5"
+      >
         Concrétisez vos ambitions numériques avec{' '}
         <span className="italic text-[#C3C1BA]!">
           un développeur qui parle votre langue.
         </span>
-      </h1>
+      </motion.h1>
       <div className="flex items-center">
         <div>
-          <div className="lg:text-xl text-base max-w-3xl ">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease }}
+            className="lg:text-xl text-base max-w-3xl"
+          >
             <p className="text-accent">
               Développeur Fullstack Next.js, Node.js et Intégrateur IA.
             </p>
@@ -30,16 +43,27 @@ const Hero = () => {
             <p className="mt-2">
               De la conception au déploiement, je m&apos;occupe de tout.
             </p>
-          </div>
-          <Button
-            onClick={openBookingModal}
-            className="mt-5 text-sm items-center bg-accent text-black font-semibold cursor-pointer transition-colors"
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4, ease }}
           >
-            <Calendar size={18} />
-            Réserver un appel
-          </Button>
+            <Button
+              onClick={openBookingModal}
+              className="mt-5 text-sm items-center bg-accent text-black font-semibold cursor-pointer transition-colors"
+            >
+              <Calendar size={18} />
+              Réserver un appel
+            </Button>
+          </motion.div>
 
-          <div className="mt-4 flex flex-wrap items-center gap-2">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6, ease }}
+            className="mt-4 flex flex-wrap items-center gap-2"
+          >
             <Badge
               variant="outline"
               className="border-white/15 text-white/70 bg-white/5"
@@ -54,14 +78,7 @@ const Hero = () => {
               <Check className="text-accent" />
               30 min • Gratuit • Sans engagement
             </Badge>
-            {/* <Badge
-              variant="outline"
-              className="border-white/15 text-white/70 bg-white/5"
-            >
-              <Check className="text-accent" />
-              Livrables clairs (scope + délais)
-            </Badge> */}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

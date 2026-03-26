@@ -1,33 +1,87 @@
 export const projects = [
   {
+    slug: 'maison-panthera',
+    name: 'Maison Panthera',
+    type: 'Site vitrine + Espace de gestion',
+    job: 'Conception & développement sur-mesure',
+    valueProposition:
+      `Un site complet pour présenter les talents de l'agence, recevoir des candidatures en ligne et gérer tous les dossiers depuis un espace privé.`,
+    image: undefined,
+    video: '/videos/maison-panthera.mp4',
+    role: [
+      'Définition du projet et des parcours utilisateurs',
+      `Création du site public et de l'espace de gestion`,
+      `Mise en place d'un accès sécurisé pour les agents`,
+      'Formulaire de candidature complet (infos, photos, vidéo et consentements)',
+    ],
+    context: {
+      sector: 'Agence de mannequins & talents',
+      objective:
+        `Donner à l'agence un site professionnel pour présenter ses talents et recevoir des candidatures complètes, avec un espace privé pour que les agents gèrent les profils et les dossiers au quotidien.`,
+    },
+    constraints: [
+      'Protection des données personnelles et des médias sensibles des candidats',
+      `Plusieurs niveaux d'accès (agent, administrateur, talent)`,
+      'Gestion des books photo/vidéo avec un ordre précis et différents formats',
+    ],
+    solution: [
+      'Site public pour découvrir les talents, consulter leurs fiches et postuler',
+      'Espace privé sécurisé pour gérer les profils, les médias et les candidatures',
+      'Système de connexion robuste avec des accès adaptés à chaque rôle',
+    ],
+    stack: [
+      'Next.js',
+      'React',
+      'Convex',
+      'Better Auth',
+      'PostgreSQL (Neon) / SQLite',
+      'Tailwind CSS v4',
+      'Shadcn / Base UI',
+      '@dnd-kit (tri médias)',
+    ],
+    outcomes: [
+      `Tableau de bord clair : talents, candidatures et activité récente en un coup d'œil`,
+      'Vitrine publique avec fiches détaillées et prise de contact directe',
+      'Candidature guidée étape par étape (identité, mensurations, photos, consentements)',
+      'Une base solide, prête à accueillir de nouvelles fonctionnalités (statistiques, etc.)',
+    ],
+    seo: {
+      title:
+        'Maison Panthera — Case study agence mannequins (Next.js + Convex) | Dylan Agboton',
+      description:
+        'Case study : site et back-office pour une agence de talents. Roster, candidature scouting avec médias, administration des profils et des dossiers.',
+      ogImage: null,
+    },
+  },
+  {
     slug: 'LRD-vous-assiste',
     name: 'LRD Vous Assistes',
-    type: 'Saas / Back-office',
-    job: 'Développement Fullstack | Next.js, Supabase & Resend',
+    type: 'Outil métier en ligne',
+    job: 'Conception & développement sur-mesure',
     valueProposition:
-      'Un Back-office pour assistantes : clients, tâches, documents et espace client dans une seul app.',
+      'Un outil tout-en-un pour les assistantes : gestion des clients, des tâches, des documents et un espace dédié pour chaque client.',
     image: undefined,
-    video: '/videos/lrd-vous-assistes.mov',
+    video: '/videos/lrd-vous-assistes.mp4',
     role: [
-      'Cadrage technique',
-      'Développement fullstack',
-      'Auth & espace client (supabase)',
-      'Notifications email (resend)',
+      'Définition des besoins et du parcours utilisateur',
+      `Développement de l'application complète`,
+      'Création des comptes sécurisés (assistantes et clients)',
+      'Mise en place des notifications par e-mail',
     ],
     context: {
       sector: 'Assistance administrative',
       objective:
-        'Donner aux assistantes un outil unique pour gérer leurs dossiers clients, tâches et échanges documents, avec espace client dédié',
+        'Offrir aux assistantes un seul outil pour suivre leurs clients, organiser leurs tâches et échanger des documents, avec un espace privé pour chaque client.',
     },
     constraints: [
-      'Multi-utilisateur',
-      'Documents sensibles et traçabilité',
-      'Invitation client et premier accès sécurisé',
+      'Plusieurs utilisateurs avec des accès différents',
+      'Documents sensibles nécessitant un suivi précis',
+      'Invitation des clients avec un premier accès simple et sécurisé',
     ],
     solution: [
-      'App Next.js (Dashboard, clients,tâches, documents)',
-      'Supabase (Auth, BDD,RLS)',
-      'client (login, envoi de documents)',
+      'Tableau de bord pour piloter clients, tâches et documents',
+      'Accès sécurisés avec des droits adaptés à chaque profil',
+      'Espace client dédié pour se connecter et déposer des documents',
     ],
     stack: [
       'Next.js',
@@ -38,9 +92,9 @@ export const projects = [
       'Zod',
     ],
     outcomes: [
-      'Vue centralisée : tâches urgentes, clients actifs, activité récente',
-      'Tunnel d’invitation,client et accès sécurisé',
-      'Base prête pour évoluer (temps passé, rappels, etc.)',
+      'Tout au même endroit : tâches urgentes, clients actifs et activité récente',
+      'Invitation client en quelques clics avec accès sécurisé',
+      'Application prête à évoluer (suivi du temps, rappels, etc.)',
     ],
     seo: {
       title:
@@ -54,32 +108,32 @@ export const projects = [
     slug: 'dayness-cosmetics',
     name: 'Dayness Cosmetics',
     type: 'E-commerce',
-    job: 'Développement Fullstack | Next.js, Node.js & Stripe.',
+    job: 'Conception & développement de la boutique en ligne',
     valueProposition:
-      'Un e-commerce rapide, fiable et pensé pour convertir sur mobile.',
+      'Une boutique en ligne rapide, fiable et pensée pour vendre efficacement, surtout sur mobile.',
     image: '/images/dayness-cosmetics.png',
-    video: '/videos/dayness-cosmetics.mov',
-    role: ['Cadrage technique', 'Développement fullstack', 'Paiement Stripe'],
+    video: '/videos/dayness-cosmetics.mp4',
+    role: ['Définition du projet', 'Développement complet', 'Mise en place du paiement en ligne'],
     context: {
       sector: 'Cosmétiques',
       objective:
-        "Lancer une boutique en ligne performante avec un tunnel d'achat simple et rassurant.",
+        "Lancer une boutique en ligne performante avec un parcours d'achat simple et rassurant.",
     },
     constraints: [
-      'Expérience mobile-first',
-      'Paiement sécurisé et robuste',
-      'Catalogue clair et navigation fluide',
+      `Expérience pensée d'abord pour le mobile`,
+      'Paiement en ligne sécurisé et fiable',
+      'Catalogue lisible et navigation intuitive',
     ],
     solution: [
-      'Architecture Next.js orientée performance',
-      'Intégration Stripe (paiement, gestion des statuts)',
-      'UI sobre + focus sur la lisibilité produit',
+      'Site conçu pour se charger rapidement et rester fluide',
+      'Paiement intégré avec suivi des commandes en temps réel',
+      'Design épuré centré sur la mise en valeur des produits',
     ],
     stack: ['Next.js', 'Node.js', 'Stripe', 'Tailwind CSS'],
     outcomes: [
-      "Parcours d'achat simplifié (moins de friction)",
-      'Chargement rapide et navigation fluide',
-      'Base prête pour itérer (marketing, contenus, promos)',
+      "Parcours d'achat simplifié : moins d'étapes, plus de ventes",
+      'Pages rapides et navigation fluide sur tous les écrans',
+      'Site prêt à évoluer (promotions, contenus, campagnes marketing)',
     ],
     seo: {
       title:
@@ -93,36 +147,36 @@ export const projects = [
     slug: 'dayness-institut',
     name: 'Dayness Institut',
     type: 'Plateforme de réservation',
-    job: 'Développement Fullstack | Next.js, Node.js & API Google.',
+    job: 'Conception & développement du système de réservation',
     valueProposition:
-      'Une réservation en ligne claire, avec disponibilité et organisation simplifiées.',
+      `Un système de réservation en ligne simple et clair, autant pour les clients que pour l'équipe.`,
     image: '/images/dayness-institut.png',
-    video: '/videos/dayness-institut.mov',
+    video: '/videos/dayness-institut.mp4',
     role: [
-      'Conception du parcours réservation',
-      'Développement fullstack',
-      'Intégration API Google',
+      'Conception du parcours de réservation',
+      'Développement complet de la plateforme',
+      `Synchronisation avec l'agenda Google`,
     ],
     context: {
       sector: 'Institut / services',
       objective:
-        'Permettre aux clients de réserver rapidement, tout en facilitant la gestion côté business.',
+        `Permettre aux clients de réserver en quelques clics, tout en simplifiant l'organisation au quotidien.`,
     },
     constraints: [
-      'Parcours de réservation court et évident',
-      'Synchronisation/calendrier fiable',
-      'Limiter les erreurs et doubles réservations',
+      'Réservation rapide et intuitive en quelques étapes',
+      'Calendrier toujours à jour et fiable',
+      'Éviter les doublons et les erreurs de réservation',
     ],
     solution: [
-      'UI guidée: choix → créneau → confirmation',
-      "Intégration d'API Google pour la gestion des événements",
-      'Gestion des états et validations pour réduire les erreurs',
+      'Parcours guidé : choix de la prestation, créneau disponible, confirmation',
+      `Synchronisation automatique avec l'agenda pour éviter les conflits`,
+      'Vérifications intégrées pour garantir des réservations sans erreur',
     ],
     stack: ['Next.js', 'Node.js', 'Google APIs', 'Tailwind CSS'],
     outcomes: [
-      'Réservation plus rapide (moins d’allers-retours)',
-      'Organisation simplifiée (disponibilités plus lisibles)',
-      'Expérience client plus fluide et rassurante',
+      'Réservation plus rapide, sans allers-retours inutiles',
+      'Planning clair et disponibilités visibles en temps réel',
+      'Expérience client fluide et rassurante du début à la fin',
     ],
     seo: {
       title:
@@ -135,32 +189,32 @@ export const projects = [
   {
     slug: 'ridenow',
     name: 'RideNow',
-    type: 'Landing Page',
-    job: 'Développement Front-end | HTML & Tailwind CSS.',
+    type: 'Page de présentation',
+    job: 'Design & intégration de la page',
     valueProposition:
-      'Une landing page nette, orientée message et conversion, ultra lisible sur mobile.',
+      `Une page d'accueil percutante, pensée pour convaincre et parfaitement lisible sur mobile.`,
     image: '/images/ridenow.png',
-    role: ['Intégration UI', 'Responsive', 'Optimisation du rendu'],
+    role: ['Mise en page et design', 'Adaptation mobile', 'Optimisation de la vitesse'],
     context: {
       sector: 'Mobilité',
       objective:
-        'Présenter une offre de façon claire et crédible avec un focus sur la conversion.',
+        `Présenter l'offre de façon claire et crédible pour transformer les visiteurs en clients.`,
     },
     constraints: [
-      'Hiérarchie claire',
-      'Responsive strict',
-      'Temps de chargement',
+      'Message clair et hiérarchie visuelle évidente',
+      'Parfaitement lisible sur mobile et tablette',
+      'Chargement rapide de la page',
     ],
     solution: [
-      'Mise en page orientée “scan” (titres, sections, preuves)',
-      'Composants Tailwind réutilisables et cohérents',
-      'Optimisation des médias et des espacements',
+      'Mise en page structurée pour une lecture rapide (titres, sections, preuves sociales)',
+      `Design cohérent et soigné sur tous les formats d'écran`,
+      'Images et contenus optimisés pour un affichage instantané',
     ],
     stack: ['HTML', 'Tailwind CSS'],
     outcomes: [
-      'Message plus clair (moins de confusion)',
-      'Meilleure lisibilité mobile',
-      'Base solide pour itérer sur la conversion',
+      'Un message limpide qui se comprend en quelques secondes',
+      'Lecture agréable sur mobile comme sur ordinateur',
+      'Page prête à être améliorée au fil des retours (tests, ajustements)',
     ],
     seo: {
       title: 'RideNow — Case study landing page | Dylan Agboton',

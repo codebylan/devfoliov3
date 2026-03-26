@@ -1,21 +1,24 @@
+'use client';
+
 import Image from 'next/image';
 import { clientLogos } from '../../data/client-logos';
+import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
 
 const ClientLogos = () => {
   if (!Array.isArray(clientLogos) || clientLogos.length === 0) return null;
 
   return (
     <section id="clients">
-      <div className="mb-10">
+      <FadeIn className="mb-10">
         <p className="text-accent text-xs uppercase tracking-[0.2em] mb-4">
           Confiance
         </p>
         <h2 className="text-4xl sm:text-5xl italic leading-[0.95]">
           Ils me font <span className="text-accent">confiance</span>
         </h2>
-      </div>
+      </FadeIn>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
+      <Stagger stagger={0.08} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
         {clientLogos.map((logo) => {
           const LogoImage = (
             <div className="h-16 flex items-center justify-center bg-white/5 border border-white/10 rounded-sm px-4">
@@ -30,7 +33,7 @@ const ClientLogos = () => {
           );
 
           return (
-            <div key={logo.alt} className="flex">
+            <StaggerItem key={logo.alt} className="flex" y={20}>
               {logo.href ? (
                 <a
                   href={logo.href}
@@ -44,10 +47,10 @@ const ClientLogos = () => {
               ) : (
                 LogoImage
               )}
-            </div>
+            </StaggerItem>
           );
         })}
-      </div>
+      </Stagger>
     </section>
   );
 };

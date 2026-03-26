@@ -19,6 +19,8 @@ const LazyVideo = ({
   preloadVisible = 'metadata',
   preloadHidden = 'none',
   interactive = true,
+  autoPlay = false,
+  loop = false,
 }) => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
@@ -41,7 +43,7 @@ const LazyVideo = ({
 
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry?.isIntersecting) setIsInViewport(true);
+        setIsInViewport(entry?.isIntersecting ?? false);
       },
       { root: null, rootMargin: '250px 0px', threshold: 0.01 }
     );
@@ -49,6 +51,21 @@ const LazyVideo = ({
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  // Autoplay when visible in viewport
+  useEffect(() => {
+    if (!autoPlay || reduceMotion) return;
+    const v = videoRef.current;
+    if (!v) return;
+
+    if (isInViewport) {
+      v.play().catch(() => {});
+      setIsPlaying(true);
+    } else {
+      v.pause();
+      setIsPlaying(false);
+    }
+  }, [autoPlay, isInViewport, reduceMotion]);
 
   const play = async () => {
     if (reduceMotion) return;
@@ -134,6 +151,7 @@ const LazyVideo = ({
           preload={shouldLoad ? preloadVisible : preloadHidden}
           muted
           playsInline
+          loop={loop}
           poster={hasValidPoster ? poster : undefined}
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
             shouldLoad ? 'opacity-100' : 'opacity-0'

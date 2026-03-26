@@ -3,12 +3,13 @@
 import Image from 'next/image';
 import PaS from '../../../public/images/problem-and-solution.png';
 import { problems, solutions } from '../../data/problemAndSolution';
+import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
 
 const ProblemAndSolution = () => {
   return (
     <section>
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+      <FadeIn className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
         <div>
           <p className="text-accent text-xs uppercase tracking-[0.2em] mb-4">
             Proposition de valeur
@@ -20,12 +21,12 @@ const ProblemAndSolution = () => {
         <p className="text-white/40 text-sm max-w-xs lg:text-right">
           Ce qui vous bloque aujourd&apos;hui, je le transforme en avantage.
         </p>
-      </div>
+      </FadeIn>
 
       {/* Main Grid with Image */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         {/* Image Column */}
-        <div className="lg:col-span-5 order-2 lg:order-1">
+        <FadeIn delay={0.2} className="lg:col-span-5 order-2 lg:order-1">
           <div className="sticky top-24">
             <Image
               src={PaS}
@@ -41,12 +42,12 @@ const ProblemAndSolution = () => {
               Transformer les obstacles en opportunités
             </p>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Content Column */}
-        <div className="lg:col-span-7 order-1 lg:order-2 space-y-12">
+        <Stagger stagger={0.15} className="lg:col-span-7 order-1 lg:order-2 space-y-12">
           {problems.map((problem, index) => (
-            <div key={index} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <StaggerItem key={index} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Problem */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -78,9 +79,9 @@ const ProblemAndSolution = () => {
                   {solutions[index].description}
                 </p>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );
