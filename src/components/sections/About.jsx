@@ -32,7 +32,7 @@ const About = () => {
             <div className="relative">
               <Image
                 src={me}
-                alt="Dylan Agboton - Développeur Fullstack & Intégrateur IA"
+                alt="Dylan Agboton - Développeur web spécialisé entreprises de services"
                 width={400}
                 height={500}
                 quality={90}
@@ -54,17 +54,17 @@ const About = () => {
             <div className="relative pl-8 border-l border-white/10">
               <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
               <p className="text-white/70 leading-relaxed">
-                Je conçois des sites et applications web de A à Z : ce que voient
-                vos visiteurs, la logique qui tourne derrière, et la façon dont
-                vos données sont stockées. Le tout rapide, fiable et capable de
-                grandir avec vous.
+                Je conçois des sites web performants pour les entreprises de
+                services qui veulent attirer plus de clients en ligne. Instituts,
+                cabinets, commerces, consultants — je comprends vos enjeux parce
+                que je travaille exclusivement avec des entrepreneurs comme vous.
               </p>
               <p className="text-white/70 leading-relaxed mt-4">
-                Avec 3 ans d&apos;expérience en développement web, j&apos;accompagne
-                des entreprises et des entrepreneurs sur des projets concrets :
-                boutiques en ligne, systèmes de réservation en ligne, outils
-                sur-mesure pour votre activité, et mise en place de
-                l&apos;Intelligence Artificielle dans vos produits.
+                Avec 3 ans d&apos;expérience en développement web, j&apos;ai
+                accompagné des entreprises concrètes sur des projets à impact :
+                boutiques en ligne, systèmes de réservation, outils métier sur
+                mesure. Mon approche : un site rapide, bien référencé, que vous
+                pouvez gérer vous-même au quotidien.
               </p>
             </div>
           </StaggerItem>
@@ -93,8 +93,8 @@ const About = () => {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  L&apos;intégration de l&apos;IA dans vos produits (chatbots,
-                  aide à la décision, automatisation)
+                  Un référencement local solide pour que vos clients vous trouvent
+                  sur Google
                 </li>
               </ul>
             </div>
@@ -127,9 +127,8 @@ const About = () => {
           <StaggerItem>
             <div className="pt-6 border-t border-white/10">
               <p className="text-white/70 leading-relaxed">
-                Que vous soyez une startup, une PME ou une agence, je peux
-                intégrer votre équipe ou prendre en charge votre projet de bout en
-                bout.
+                Que vous soyez un indépendant, un commerce ou une PME de services,
+                je prends en charge votre projet de bout en bout.
               </p>
             </div>
           </StaggerItem>

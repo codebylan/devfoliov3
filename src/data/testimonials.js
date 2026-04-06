@@ -1,9 +1,20 @@
 export const testimonials = [
-  // {
-  //   name: 'Camille R.',
-  //   role: 'Fondatrice',
-  //   company: 'Marque D2C (cosmétique)',
-  //   quote:
-  //     'Dylan a cadré le projet en 48h, puis a livré une refonte Next.js propre et rapide. Résultat: site plus fluide, tunnel plus clair, et une vraie sensation “premium”.',
-  // },
+  {
+    name: 'Sophie',
+    role: 'Dayness Institut, Suisse',
+    quote: '[Témoignage client Dayness Institut à venir]',
+    stars: 5,
+  },
+  {
+    name: '[Prénom]',
+    role: 'Maison Panthera',
+    quote: '[Témoignage client Maison Panthera à venir]',
+    stars: 5,
+  },
+  {
+    name: '[Nom du client]',
+    role: 'via Malt',
+    quote: '[Avis Malt à copier ici]',
+    stars: 5,
+  },
 ];

@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react'; // kept for CTA button inside cards
 import { useBooking } from '../../contexts/BookingContext';
 import { pricingData } from '../../data/pricing';
 import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
@@ -121,107 +121,10 @@ const Prices = () => {
         </div>
       </Stagger>
 
-      {/* Add-ons */}
-      <Stagger stagger={0.15} delay={0.2}>
-        <div className="mt-px bg-white/[0.07]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px">
-            {/* Maintenance */}
-            <StaggerItem y={30}>
-              <div className="bg-[#080808] p-8 lg:p-10 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[10px] uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-1 rounded-sm">
-                    Add-on
-                  </span>
-                </div>
-                <h3 className="text-lg text-white font-medium mb-1">
-                  Forfait Maintenance Mensuel
-                </h3>
-                <p className="text-white/40 text-sm mb-6">
-                  Gardez votre site performant et à jour, sans stress.
-                </p>
-                <div className="mb-6">
-                  <p className="text-[10px] uppercase tracking-widest text-white/30 mb-1">
-                    À partir de
-                  </p>
-                  <p className="text-4xl font-light text-accent">290€/mois</p>
-                </div>
-                <ul className="space-y-2.5">
-                  {[
-                    'Corrections de bugs & mises à jour techniques',
-                    'Monitoring performance & sécurité',
-                    "Petites évolutions (jusqu'à 4h/mois de dev incluses)",
-                    'Support prioritaire par email',
-                    'Rapport mensuel de performance',
-                  ].map((feature, i) => (
-                    <li
-                      key={i}
-                      className="text-sm text-white/55 flex items-start gap-3"
-                    >
-                      <span className="text-accent/50 mt-0.5 shrink-0">—</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </StaggerItem>
-
-            {/* TJM */}
-            <StaggerItem y={30}>
-              <div className="bg-[#080808] p-8 lg:p-10 flex flex-col h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-[10px] uppercase tracking-widest text-white/40 bg-white/5 px-2.5 py-1 rounded-sm">
-                    Option
-                  </span>
-                </div>
-                <h3 className="text-lg text-white font-medium mb-1">
-                  TJM — Facturation au temps
-                </h3>
-                <p className="text-white/40 text-sm mb-8">
-                  Pour des missions ponctuelles ou des collaborations récurrentes.
-                </p>
-                <div className="flex-1 flex flex-col justify-center space-y-px bg-white/[0.07]">
-                  {[
-                    { label: 'Développement', value: '400€', unit: '/jour' },
-                    { label: 'Consulting IA', value: '450€', unit: '/jour' },
-                    { label: 'Maintenance', value: '350€', unit: '/jour' },
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      className="flex items-center justify-between px-6 py-4 bg-[#080808] hover:bg-white/[0.02] transition-colors"
-                    >
-                      <p className="text-[11px] uppercase tracking-widest text-white/50">
-                        {item.label}
-                      </p>
-                      <p className="text-xl font-light text-accent">
-                        {item.value}
-                        <span className="text-sm text-accent/50">{item.unit}</span>
-                      </p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-8">
-                  <button
-                    onClick={openBookingModal}
-                    className="group/link flex items-center gap-2 text-sm text-accent cursor-pointer hover:gap-3 transition-all"
-                  >
-                    Discutons de votre projet
-                    <ArrowRight
-                      size={14}
-                      className="group-hover/link:translate-x-1 transition-transform"
-                    />
-                  </button>
-                </div>
-              </div>
-            </StaggerItem>
-          </div>
-        </div>
-      </Stagger>
-
       {/* Footer note */}
       <FadeIn delay={0.3}>
-        <div className="mt-6 text-xs text-white/25">
-          Chaque projet est unique. Les tarifs sont indicatifs et ajustés selon
-          vos besoins spécifiques.
+        <div className="mt-6 text-sm text-white/40">
+          Maintenance &amp; suivi disponibles à partir de 290€/mois. Chaque projet est unique — les tarifs sont ajustés selon vos besoins.
         </div>
       </FadeIn>
     </section>

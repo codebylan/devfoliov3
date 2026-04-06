@@ -83,6 +83,12 @@ const Projects = () => {
                   <p className="text-white/40 text-sm leading-relaxed line-clamp-2">
                     {item.job}
                   </p>
+                  {item.result && (
+                    <p className="text-emerald-400 text-xs font-medium flex items-center gap-1 pt-1">
+                      <span>↑</span>
+                      {item.result}
+                    </p>
+                  )}
                   <p className="text-white/30 text-xs uppercase tracking-[0.15em] pt-1">
                     Voir le cas complet →
                   </p>

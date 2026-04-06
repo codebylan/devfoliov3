@@ -5,9 +5,9 @@ export const problems = [
       "Vos pages mettent plus de 3 secondes à charger. Vos clients partent avant d'avoir vu votre offre.",
   },
   {
-    title: 'Tâches répétitives (Excel/Saisie)',
+    title: 'Invisible sur Google',
     description:
-      'Vos équipes perdent des heures sur des processus manuels à faible valeur ajoutée.',
+      'Vos clients potentiels cherchent vos services en ligne, mais ils tombent sur vos concurrents. Votre site n'apparaît nulle part.',
   },
   {
     title: 'Développeurs "Fantômes"',
@@ -23,9 +23,9 @@ export const solutions = [
       'Une architecture moderne optimisée pour le chargement instantané. Vous récupérez le trafic que vous perdiez.',
   },
   {
-    title: 'Automatisation IA',
+    title: 'SEO local & visibilité',
     description:
-      "Intégration d'agents intelligents pour traiter vos données et répondre à vos clients 24/7.",
+      'Un site techniquement optimisé pour Google, avec un référencement local qui vous place devant vos concurrents dans votre zone.',
   },
   {
     title: 'Partenaire Business',

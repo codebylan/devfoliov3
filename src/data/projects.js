@@ -1,9 +1,94 @@
 export const projects = [
   {
+    slug: 'dayness-institut',
+    name: 'Dayness Institut',
+    type: 'Plateforme de réservation',
+    job: 'Conception & développement du système de réservation',
+    result: '+50% de réservations en ligne',
+    valueProposition:
+      `Un système de réservation en ligne simple et clair, autant pour les clients que pour l'équipe.`,
+    image: '/images/dayness-institut.png',
+    video: '/videos/dayness-institut.mp4',
+    role: [
+      'Conception du parcours de réservation',
+      'Développement complet de la plateforme',
+      `Synchronisation avec l'agenda Google`,
+    ],
+    context: {
+      sector: 'Institut / services',
+      objective:
+        `Permettre aux clients de réserver en quelques clics, tout en simplifiant l'organisation au quotidien.`,
+    },
+    constraints: [
+      'Réservation rapide et intuitive en quelques étapes',
+      'Calendrier toujours à jour et fiable',
+      'Éviter les doublons et les erreurs de réservation',
+    ],
+    solution: [
+      'Parcours guidé : choix de la prestation, créneau disponible, confirmation',
+      `Synchronisation automatique avec l'agenda pour éviter les conflits`,
+      'Vérifications intégrées pour garantir des réservations sans erreur',
+    ],
+    stack: ['Next.js', 'Node.js', 'Google APIs', 'Tailwind CSS'],
+    outcomes: [
+      'Réservation plus rapide, sans allers-retours inutiles',
+      'Planning clair et disponibilités visibles en temps réel',
+      'Expérience client fluide et rassurante du début à la fin',
+    ],
+    seo: {
+      title:
+        'Dayness Institut — Case study plateforme de réservation | Dylan Agboton',
+      description:
+        'Case study: plateforme de réservation Dayness Institut. Contexte, rôle, contraintes, solution (Next.js + API Google) et résultats.',
+      ogImage: '/images/dayness-institut.png',
+    },
+  },
+  {
+    slug: 'dayness-cosmetics',
+    name: 'Dayness Cosmetics',
+    type: 'E-commerce',
+    job: 'Conception & développement de la boutique en ligne',
+    result: '+40% de taux de conversion',
+    valueProposition:
+      'Une boutique en ligne rapide, fiable et pensée pour vendre efficacement, surtout sur mobile.',
+    image: '/images/dayness-cosmetics.png',
+    video: '/videos/dayness-cosmetics.mp4',
+    role: ['Définition du projet', 'Développement complet', 'Mise en place du paiement en ligne'],
+    context: {
+      sector: 'Cosmétiques',
+      objective:
+        "Lancer une boutique en ligne performante avec un parcours d'achat simple et rassurant.",
+    },
+    constraints: [
+      `Expérience pensée d'abord pour le mobile`,
+      'Paiement en ligne sécurisé et fiable',
+      'Catalogue lisible et navigation intuitive',
+    ],
+    solution: [
+      'Site conçu pour se charger rapidement et rester fluide',
+      'Paiement intégré avec suivi des commandes en temps réel',
+      'Design épuré centré sur la mise en valeur des produits',
+    ],
+    stack: ['Next.js', 'Node.js', 'Stripe', 'Tailwind CSS'],
+    outcomes: [
+      "Parcours d'achat simplifié : moins d'étapes, plus de ventes",
+      'Pages rapides et navigation fluide sur tous les écrans',
+      'Site prêt à évoluer (promotions, contenus, campagnes marketing)',
+    ],
+    seo: {
+      title:
+        'Dayness Cosmetics — Case study e-commerce (Next.js + Stripe) | Dylan Agboton',
+      description:
+        "Case study: création d'un e-commerce Dayness Cosmetics. Contexte, rôle, contraintes, solution Next.js/Stripe et résultats orientés conversion.",
+      ogImage: '/images/dayness-cosmetics.png',
+    },
+  },
+  {
     slug: 'maison-panthera',
     name: 'Maison Panthera',
     type: 'Site vitrine + Espace de gestion',
     job: 'Conception & développement sur-mesure',
+    result: 'Espace de gestion sur mesure livré en 3 semaines',
     valueProposition:
       `Un site complet pour présenter les talents de l'agence, recevoir des candidatures en ligne et gérer tous les dossiers depuis un espace privé.`,
     image: undefined,
@@ -55,9 +140,10 @@ export const projects = [
   },
   {
     slug: 'LRD-vous-assiste',
-    name: 'LRD Vous Assistes',
+    name: 'LRD Vous Assiste',
     type: 'Outil métier en ligne',
     job: 'Conception & développement sur-mesure',
+    result: 'Processus métier digitalisé de A à Z',
     valueProposition:
       'Un outil tout-en-un pour les assistantes : gestion des clients, des tâches, des documents et un espace dédié pour chaque client.',
     image: undefined,
@@ -102,88 +188,6 @@ export const projects = [
       description:
         'Case study : outil métier pour assistantes. Gestion clients, tâches, documents et espace client.',
       ogImage: null,
-    },
-  },
-  {
-    slug: 'dayness-cosmetics',
-    name: 'Dayness Cosmetics',
-    type: 'E-commerce',
-    job: 'Conception & développement de la boutique en ligne',
-    valueProposition:
-      'Une boutique en ligne rapide, fiable et pensée pour vendre efficacement, surtout sur mobile.',
-    image: '/images/dayness-cosmetics.png',
-    video: '/videos/dayness-cosmetics.mp4',
-    role: ['Définition du projet', 'Développement complet', 'Mise en place du paiement en ligne'],
-    context: {
-      sector: 'Cosmétiques',
-      objective:
-        "Lancer une boutique en ligne performante avec un parcours d'achat simple et rassurant.",
-    },
-    constraints: [
-      `Expérience pensée d'abord pour le mobile`,
-      'Paiement en ligne sécurisé et fiable',
-      'Catalogue lisible et navigation intuitive',
-    ],
-    solution: [
-      'Site conçu pour se charger rapidement et rester fluide',
-      'Paiement intégré avec suivi des commandes en temps réel',
-      'Design épuré centré sur la mise en valeur des produits',
-    ],
-    stack: ['Next.js', 'Node.js', 'Stripe', 'Tailwind CSS'],
-    outcomes: [
-      "Parcours d'achat simplifié : moins d'étapes, plus de ventes",
-      'Pages rapides et navigation fluide sur tous les écrans',
-      'Site prêt à évoluer (promotions, contenus, campagnes marketing)',
-    ],
-    seo: {
-      title:
-        'Dayness Cosmetics — Case study e-commerce (Next.js + Stripe) | Dylan Agboton',
-      description:
-        "Case study: création d'un e-commerce Dayness Cosmetics. Contexte, rôle, contraintes, solution Next.js/Stripe et résultats orientés conversion.",
-      ogImage: '/images/dayness-cosmetics.png',
-    },
-  },
-  {
-    slug: 'dayness-institut',
-    name: 'Dayness Institut',
-    type: 'Plateforme de réservation',
-    job: 'Conception & développement du système de réservation',
-    valueProposition:
-      `Un système de réservation en ligne simple et clair, autant pour les clients que pour l'équipe.`,
-    image: '/images/dayness-institut.png',
-    video: '/videos/dayness-institut.mp4',
-    role: [
-      'Conception du parcours de réservation',
-      'Développement complet de la plateforme',
-      `Synchronisation avec l'agenda Google`,
-    ],
-    context: {
-      sector: 'Institut / services',
-      objective:
-        `Permettre aux clients de réserver en quelques clics, tout en simplifiant l'organisation au quotidien.`,
-    },
-    constraints: [
-      'Réservation rapide et intuitive en quelques étapes',
-      'Calendrier toujours à jour et fiable',
-      'Éviter les doublons et les erreurs de réservation',
-    ],
-    solution: [
-      'Parcours guidé : choix de la prestation, créneau disponible, confirmation',
-      `Synchronisation automatique avec l'agenda pour éviter les conflits`,
-      'Vérifications intégrées pour garantir des réservations sans erreur',
-    ],
-    stack: ['Next.js', 'Node.js', 'Google APIs', 'Tailwind CSS'],
-    outcomes: [
-      'Réservation plus rapide, sans allers-retours inutiles',
-      'Planning clair et disponibilités visibles en temps réel',
-      'Expérience client fluide et rassurante du début à la fin',
-    ],
-    seo: {
-      title:
-        'Dayness Institut — Case study plateforme de réservation | Dylan Agboton',
-      description:
-        'Case study: plateforme de réservation Dayness Institut. Contexte, rôle, contraintes, solution (Next.js + API Google) et résultats.',
-      ogImage: '/images/dayness-institut.png',
     },
   },
   {

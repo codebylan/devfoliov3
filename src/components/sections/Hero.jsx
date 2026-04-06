@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar, Check } from 'lucide-react';
+import { Calendar, Check, FileSearch } from 'lucide-react';
 import { useBooking } from '../../contexts/BookingContext';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -20,9 +20,9 @@ const Hero = () => {
         transition={{ duration: 0.7, ease }}
         className="max-w-4xl lg:text-6xl text-3xl mb-5"
       >
-        Concrétisez vos ambitions numériques avec{' '}
+        Votre entreprise mérite un site qui{' '}
         <span className="italic text-[#C3C1BA]!">
-          un développeur qui parle votre langue.
+          vous amène des clients.
         </span>
       </motion.h1>
       <div className="flex items-center">
@@ -34,11 +34,13 @@ const Hero = () => {
             className="lg:text-xl text-base max-w-3xl"
           >
             <p className="text-accent">
-              Développeur Fullstack Next.js, Node.js et Intégrateur IA.
+              Développeur web spécialisé dans les sites performants pour
+              entreprises de services
             </p>
             <p>
-              J&apos;accompagne les entreprises de toute taille dans la création
-              d&apos;applications web rapides, robustes et rentables.
+              Je conçois des sites performants pour les entreprises de services
+              — instituts, cabinets, commerces — qui veulent être visibles sur
+              Google et convertir en ligne.
             </p>
             <p className="mt-2">
               De la conception au déploiement, je m&apos;occupe de tout.
@@ -48,13 +50,24 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4, ease }}
+            className="mt-5 flex flex-wrap gap-3"
           >
             <Button
               onClick={openBookingModal}
-              className="mt-5 text-sm items-center bg-accent text-black font-semibold cursor-pointer transition-colors"
+              className="text-sm items-center bg-accent text-black font-semibold cursor-pointer transition-colors"
             >
               <Calendar size={18} />
               Réserver un appel
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="text-sm items-center border-white/20 text-white bg-transparent hover:bg-white/5 hover:border-accent/60 cursor-pointer transition-colors"
+            >
+              <a href="#audit">
+                <FileSearch size={18} />
+                Recevez un audit gratuit de votre site
+              </a>
             </Button>
           </motion.div>
 

@@ -1,4 +1,5 @@
 import About from '../components/sections/About';
+import AuditForm from '../components/sections/AuditForm';
 import ClientLogos from '../components/sections/ClientLogos';
 import CTA from '../components/sections/CTA';
 import FAQ from '../components/sections/FAQ';
@@ -54,6 +55,7 @@ export default function Home() {
       <About />
       <Prices />
       <FAQ />
+      <AuditForm />
       <CTA />
     </main>
   );

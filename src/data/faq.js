@@ -14,10 +14,9 @@ export const faqData = [
   },
   {
     // icon: 'Sparkles',
-    question:
-      "L'intégration de l'IA, c'est un gadget ou ça rapporte vraiment ?",
+    question: 'Proposez-vous des fonctionnalités avancées (IA, automatisation) ?',
     answer:
-      "Si c'est un gadget, je ne l'installe pas. Mon approche est pragmatique : j'utilise l'IA (OpenAI, automatisations) pour réduire vos coûts opérationnels. Concrètement ? Cela peut être un assistant qui trie vos emails, un chatbot qui répond à vos clients 24/7, ou la génération automatique de vos fiches produits. L'objectif est le ROI immédiat.",
+      "Oui, en option. Sur certains projets, l'IA ou l'automatisation peut faire gagner du temps (chatbot, génération de contenu, connexion d'outils). Mais ce n'est jamais un prérequis : si ça ne génère pas de valeur concrète pour votre activité, je ne le propose pas.",
   },
   {
     // icon: 'ShieldCheck',
@@ -38,5 +37,15 @@ export const faqData = [
       'Que se passe-t-il après la mise en ligne ? Me laissez-vous tomber ?',
     answer:
       'Jamais. Un site web est vivant. Je propose des forfaits de maintenance pour assurer les mises à jour de sécurité et les évolutions. Je reste votre partenaire technique sur la durée pour accompagner la croissance de votre entreprise.',
+  },
+  {
+    question: 'Combien de temps faut-il pour avoir mon site en ligne ?',
+    answer:
+      "Entre 2 et 4 semaines selon la formule choisie. Je m'engage sur un calendrier précis dès la signature du devis, avec des points d'étape réguliers pour que vous ayez une visibilité totale.",
+  },
+  {
+    question: "Je n'ai pas de contenu (textes, photos) — est-ce un problème ?",
+    answer:
+      "Non. Je vous guide dans la rédaction de vos textes avec des templates prêts à remplir, et je peux vous recommander un photographe professionnel si besoin. Le manque de contenu ne doit jamais être un frein au lancement.",
   },
 ];

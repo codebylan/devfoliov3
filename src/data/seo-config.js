@@ -7,9 +7,9 @@ const personEntity = {
   '@type': 'Person',
   '@id': `${BASE_URL}/#person`,
   name: AUTHOR_NAME,
-  jobTitle: 'Développeur Fullstack & Intégrateur IA',
+  jobTitle: 'Développeur Next.js',
   description:
-    "Développeur web freelance spécialisé Next.js, Node.js et intégration IA basé à Paris. J'accompagne les PME et startups dans la création d'applications performantes et l'automatisation de processus via l'IA.",
+    "Développeur web freelance spécialisé Next.js basé à Paris. Je conçois des sites performants pour les entreprises de services — instituts, cabinets, commerces — qui veulent être visibles sur Google et convertir en ligne.",
   image: {
     '@type': 'ImageObject',
     url: `${BASE_URL}/images/me.webp`,
@@ -135,9 +135,9 @@ export const seoConfig = {
     name: AUTHOR_NAME,
     url: BASE_URL,
     defaultTitle:
-      'Dylan Agboton | Développeur Fullstack & Intégrateur IA Freelance à Paris',
+      'Dylan Agboton | Sites web performants pour entreprises de services | Développeur Next.js',
     defaultDescription:
-      'Développeur Fullstack Next.js, Node.js et Intégrateur IA basé à Paris. Création de SaaS, sites sur mesure et automatisations IA pour PME et startups. Réponse sous 24h.',
+      'Développeur web freelance spécialisé Next.js | Sites performants pour entreprises de services, instituts, commerces | Paris & Île-de-France',
     defaultImage: '/images/me.webp',
     locale: 'fr_FR',
     twitterHandle: TWITTER_HANDLE,
@@ -147,28 +147,28 @@ export const seoConfig = {
   keywords: {
     primary: [
       'Développeur Next.js Freelance Paris',
-      'Expert Intégrateur IA Paris',
-      'Développeur Fullstack Paris',
-      'Créer SaaS freelance Paris',
-      'Développeur MVP SaaS Paris',
+      'Site web entreprise de services Paris',
+      'Développeur web institut de beauté Paris',
+      'Création site web commerce Paris',
+      'Site web cabinet de santé Paris',
     ],
     secondary: [
       'Freelance Next.js',
-      'Intégrateur IA',
-      'Développeur Node.js Paris',
-      'Automatisation IA entreprise',
+      'Développeur web freelance Île-de-France',
+      'Site vitrine entreprise locale Paris',
+      'SEO local Paris',
       'Création site web sur mesure Paris',
-      'Développeur Supabase freelance',
-      'Intégration OpenAI Paris',
+      'Site web performant Google',
+      'Développeur web artisan Paris',
     ],
     longTail: [
       'Développeur web freelance spécialisé Next.js Paris',
-      'Intégrateur IA pour PME Paris',
-      'Expert Next.js freelance Ile-de-France',
-      'Créer application SaaS avec Next.js',
-      'Automatiser processus entreprise avec IA Paris',
-      'Développeur MVP startup Paris tarif',
-      'Freelance React Node.js SaaS Ile-de-France',
+      'Site web pour institut de beauté Île-de-France',
+      'Créer site web entreprise de services Paris',
+      'SEO local entreprise services Paris',
+      'Site vitrine performant Google PME Paris',
+      'Développeur web freelance commerces Paris',
+      'Freelance Next.js entreprises de services Île-de-France',
     ],
   },
 
@@ -184,11 +184,11 @@ export const seoConfig = {
     profilePage: {
       '@context': 'https://schema.org',
       '@type': 'ProfilePage',
-      name: `${AUTHOR_NAME} — Développeur Fullstack & Intégrateur IA Freelance à Paris`,
+      name: `${AUTHOR_NAME} — Développeur Next.js | Sites performants pour entreprises de services`,
       url: BASE_URL,
       inLanguage: 'fr-FR',
       description:
-        "Page de profil de Dylan Agboton, développeur web freelance spécialisé en Next.js, Node.js et intégration d'IA à Paris.",
+        'Page de profil de Dylan Agboton, développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services — instituts, cabinets, commerces.',
       mainEntity: { '@id': `${BASE_URL}/#person` },
       about: { '@id': `${BASE_URL}/#person` },
     },
@@ -197,11 +197,11 @@ export const seoConfig = {
     professionalService: {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: 'Dylan Agboton — Développement Web & Intégration IA',
+      name: 'Dylan Agboton — Développement Web pour entreprises de services',
       url: BASE_URL,
       provider: { '@id': `${BASE_URL}/#person` },
       description:
-        "Services de développement web Next.js, création de SaaS et intégration d'intelligence artificielle pour PME et startups. Basé à Paris, disponible en remote.",
+        'Sites web performants pour les entreprises de services — instituts, cabinets, commerces, consultants. Basé à Paris & Île-de-France, disponible en remote.',
       areaServed: [
         { '@type': 'City', name: 'Paris' },
         { '@type': 'State', name: 'Île-de-France' },
@@ -209,11 +209,11 @@ export const seoConfig = {
       ],
       serviceType: [
         'Développement Web',
-        'Création SaaS',
-        'Intégration IA',
-        'Automatisation',
-        'Développement MVP',
-        'Développement Fullstack',
+        'Création de site vitrine',
+        'Site e-commerce',
+        'Système de réservation',
+        'SEO local',
+        'Développement sur mesure',
       ],
       hasOfferCatalog: personEntity.hasOfferCatalog,
       priceRange: '€€',
@@ -227,7 +227,7 @@ export const seoConfig = {
       url: BASE_URL,
       image: `${BASE_URL}/images/me.webp`,
       description:
-        'Développeur Fullstack Next.js et Intégrateur IA basé à Paris. Création de SaaS, sites sur mesure et automatisations IA pour PME et startups.',
+        'Développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services — instituts, cabinets, commerces, consultants.',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Paris',
@@ -254,16 +254,16 @@ export const seoConfig = {
   pages: {
     home: {
       title:
-        'Dylan Agboton | Développeur Next.js Freelance Paris & Intégrateur IA',
+        'Dylan Agboton | Sites web performants pour entreprises de services | Développeur Next.js',
       description:
-        'Développeur Fullstack Next.js, Node.js et Intégrateur IA basé à Paris. SaaS, sites sur mesure et automatisations IA pour PME et startups. Réponse sous 24h.',
+        'Développeur web freelance spécialisé Next.js | Sites performants pour entreprises de services, instituts, commerces | Paris & Île-de-France',
       keywords: [
         'Développeur Next.js Freelance Paris',
-        'Expert Intégrateur IA Paris',
-        'Freelance Fullstack Paris',
-        'Créer SaaS Paris',
-        'Développeur MVP startup Paris',
-        'Automatisation IA PME',
+        'Site web entreprise de services Paris',
+        'Développeur web institut de beauté',
+        'Création site web commerce Paris',
+        'SEO local Paris',
+        'Site web performant Google',
       ],
       image: '/images/me.webp',
       type: 'website',
