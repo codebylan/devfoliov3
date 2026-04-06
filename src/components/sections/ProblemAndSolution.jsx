@@ -45,15 +45,18 @@ const ProblemAndSolution = () => {
         </FadeIn>
 
         {/* Content Column */}
-        <Stagger stagger={0.15} className="lg:col-span-7 order-1 lg:order-2 space-y-12">
+        <Stagger
+          stagger={0.15}
+          className="lg:col-span-7 order-1 lg:order-2 space-y-12"
+        >
           {problems.map((problem, index) => (
-            <StaggerItem key={index} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <StaggerItem
+              key={index}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            >
               {/* Problem */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-white/20 text-sm font-mono">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
                   <span className="text-white/40 text-xs uppercase tracking-widest">
                     Problème
                   </span>
@@ -67,7 +70,6 @@ const ProblemAndSolution = () => {
               {/* Solution */}
               <div className="space-y-3 sm:border-l sm:border-accent/20 sm:pl-6">
                 <div className="flex items-center gap-3">
-                  <span className="text-accent/40 text-sm font-mono">→</span>
                   <span className="text-accent text-xs uppercase tracking-widest">
                     Solution
                   </span>

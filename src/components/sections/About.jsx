@@ -49,18 +49,22 @@ const About = () => {
         </FadeIn>
 
         {/* Story Column */}
-        <Stagger stagger={0.12} className="lg:col-span-7 lg:col-start-6 space-y-12">
+        <Stagger
+          stagger={0.12}
+          className="lg:col-span-7 lg:col-start-6 space-y-12"
+        >
           <StaggerItem>
             <div className="relative pl-8 border-l border-white/10">
               <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
               <p className="text-white/70 leading-relaxed">
                 Je conçois des sites web performants pour les entreprises de
-                services qui veulent attirer plus de clients en ligne. Instituts,
-                cabinets, commerces, consultants — je comprends vos enjeux parce
-                que je travaille exclusivement avec des entrepreneurs comme vous.
+                services qui veulent attirer plus de clients en ligne.
+                Instituts, cabinets, commerces et consultants. Je comprends vos
+                enjeux parce que je travaille exclusivement avec des
+                entrepreneurs comme vous.
               </p>
               <p className="text-white/70 leading-relaxed mt-4">
-                Avec 3 ans d&apos;expérience en développement web, j&apos;ai
+                Avec 4 ans d&apos;expérience en développement web, j&apos;ai
                 accompagné des entreprises concrètes sur des projets à impact :
                 boutiques en ligne, systèmes de réservation, outils métier sur
                 mesure. Mon approche : un site rapide, bien référencé, que vous
@@ -88,13 +92,13 @@ const About = () => {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  Des données bien structurées et sécurisées (clients, commandes,
-                  réservations…)
+                  Des données bien structurées et sécurisées (clients,
+                  commandes, réservations…)
                 </li>
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  Un référencement local solide pour que vos clients vous trouvent
-                  sur Google
+                  Un référencement local solide pour que vos clients vous
+                  trouvent sur Google
                 </li>
               </ul>
             </div>
@@ -118,7 +122,8 @@ const About = () => {
                 </li>
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  -30% de temps de chargement grâce à l&apos;optimisation du site
+                  -30% de temps de chargement grâce à l&apos;optimisation du
+                  site
                 </li>
               </ul>
             </div>
@@ -127,8 +132,8 @@ const About = () => {
           <StaggerItem>
             <div className="pt-6 border-t border-white/10">
               <p className="text-white/70 leading-relaxed">
-                Que vous soyez un indépendant, un commerce ou une PME de services,
-                je prends en charge votre projet de bout en bout.
+                Que vous soyez un indépendant, un commerce ou une PME de
+                services, je prends en charge votre projet de bout en bout.
               </p>
             </div>
           </StaggerItem>
@@ -152,22 +157,19 @@ const About = () => {
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge
                     variant="outline"
-                    className="border-white/15 text-white/70 bg-white/5"
+                    className="border-none text-white/70 "
                   >
                     <Check className="text-accent" />
                     Réponse sous 24h
                   </Badge>
                   <Badge
                     variant="outline"
-                    className="border-white/15 text-white/70 bg-white/5"
+                    className="border-none text-white/70 "
                   >
                     <Check className="text-accent" />
                     Sans engagement
                   </Badge>
                 </div>
-                <p className="text-xs text-white/30">
-                  Accompagnement court ou long terme • Paris & remote
-                </p>
               </div>
             </div>
           </StaggerItem>

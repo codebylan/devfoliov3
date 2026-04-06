@@ -53,7 +53,7 @@ const Projects = () => {
                       poster={item.image}
                       alt={`${item.name} - ${item.type}`}
                       sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
-                      className="grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className=" group-hover:scale-105 transition-all duration-700"
                       preloadVisible="metadata"
                       preloadHidden="none"
                       interactive={false}
@@ -65,7 +65,7 @@ const Projects = () => {
                       src={item.image}
                       alt={`${item.name} - ${item.type}`}
                       fill
-                      className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="object-cover  group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                       sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
                     />
                   )}
@@ -83,12 +83,6 @@ const Projects = () => {
                   <p className="text-white/40 text-sm leading-relaxed line-clamp-2">
                     {item.job}
                   </p>
-                  {item.result && (
-                    <p className="text-emerald-400 text-xs font-medium flex items-center gap-1 pt-1">
-                      <span>↑</span>
-                      {item.result}
-                    </p>
-                  )}
                   <p className="text-white/30 text-xs uppercase tracking-[0.15em] pt-1">
                     Voir le cas complet →
                   </p>

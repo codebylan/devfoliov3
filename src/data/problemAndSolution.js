@@ -7,7 +7,7 @@ export const problems = [
   {
     title: 'Invisible sur Google',
     description:
-      'Vos clients potentiels cherchent vos services en ligne, mais ils tombent sur vos concurrents. Votre site n'apparaît nulle part.',
+      "Vos clients potentiels cherchent vos services en ligne, mais ils tombent sur vos concurrents. Votre site n'apparaît nulle part.",
   },
   {
     title: 'Développeurs "Fantômes"',

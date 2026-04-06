@@ -44,7 +44,7 @@ export const faqData = [
       "Entre 2 et 4 semaines selon la formule choisie. Je m'engage sur un calendrier précis dès la signature du devis, avec des points d'étape réguliers pour que vous ayez une visibilité totale.",
   },
   {
-    question: "Je n'ai pas de contenu (textes, photos) — est-ce un problème ?",
+    question: "Je n'ai pas de contenu (textes, photos), est-ce un problème ?",
     answer:
       "Non. Je vous guide dans la rédaction de vos textes avec des templates prêts à remplir, et je peux vous recommander un photographe professionnel si besoin. Le manque de contenu ne doit jamais être un frein au lancement.",
   },

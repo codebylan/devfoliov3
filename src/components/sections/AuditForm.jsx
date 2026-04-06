@@ -6,7 +6,7 @@ import { FadeIn } from '../motion/FadeIn';
 import { Button } from '../ui/button';
 
 const SECTORS = [
-  { value: '', label: 'Votre secteur d'activité' },
+  { value: '', label: "Votre secteur d'activité" },
   { value: 'institut', label: 'Institut / Salon' },
   { value: 'sante', label: 'Cabinet de santé' },
   { value: 'restaurant', label: 'Restaurant / Commerce' },

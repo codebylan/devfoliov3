@@ -9,7 +9,7 @@ const personEntity = {
   name: AUTHOR_NAME,
   jobTitle: 'Développeur Next.js',
   description:
-    "Développeur web freelance spécialisé Next.js basé à Paris. Je conçois des sites performants pour les entreprises de services — instituts, cabinets, commerces — qui veulent être visibles sur Google et convertir en ligne.",
+    "Développeur web freelance spécialisé Next.js basé à Paris. Je conçois des sites performants pour les entreprises de services (instituts, cabinets, commerces) qui veulent être visibles sur Google et convertir en ligne.",
   image: {
     '@type': 'ImageObject',
     url: `${BASE_URL}/images/me.webp`,
@@ -188,7 +188,7 @@ export const seoConfig = {
       url: BASE_URL,
       inLanguage: 'fr-FR',
       description:
-        'Page de profil de Dylan Agboton, développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services — instituts, cabinets, commerces.',
+        'Page de profil de Dylan Agboton, développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services : instituts, cabinets, commerces.',
       mainEntity: { '@id': `${BASE_URL}/#person` },
       about: { '@id': `${BASE_URL}/#person` },
     },
@@ -201,7 +201,7 @@ export const seoConfig = {
       url: BASE_URL,
       provider: { '@id': `${BASE_URL}/#person` },
       description:
-        'Sites web performants pour les entreprises de services — instituts, cabinets, commerces, consultants. Basé à Paris & Île-de-France, disponible en remote.',
+        'Sites web performants pour les entreprises de services : instituts, cabinets, commerces, consultants. Basé à Paris et Île-de-France, disponible en remote.',
       areaServed: [
         { '@type': 'City', name: 'Paris' },
         { '@type': 'State', name: 'Île-de-France' },
@@ -227,7 +227,7 @@ export const seoConfig = {
       url: BASE_URL,
       image: `${BASE_URL}/images/me.webp`,
       description:
-        'Développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services — instituts, cabinets, commerces, consultants.',
+        'Développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services : instituts, cabinets, commerces, consultants.',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Paris',
