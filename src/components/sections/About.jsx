@@ -75,30 +75,29 @@ const About = () => {
 
           <StaggerItem>
             <div className="relative pl-8 border-l border-white/10">
-              <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-white/20" />
+              {/* <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-white/20" /> */}
               <p className="text-white/30 text-xs uppercase tracking-widest mb-4">
                 Ce que j&apos;apporte concrètement
               </p>
               <ul className="space-y-3 text-white/70 leading-relaxed">
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  Des sites et applications agréables à utiliser, modernes et
-                  rapides
+                  Un site rapide, beau sur mobile, que vos clients comprennent
+                  en quelques secondes
                 </li>
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  Une logique serveur fiable : vos données et vos processus
-                  sécurisés et bien organisés
+                  Vos réservations, commandes et contacts gérés simplement, au
+                  même endroit
                 </li>
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  Des données bien structurées et sécurisées (clients,
-                  commandes, réservations…)
+                  Vos informations clients sécurisées et bien organisées
                 </li>
                 <li className="flex gap-2">
                   <span className="text-accent shrink-0">→</span>
-                  Un référencement local solide pour que vos clients vous
-                  trouvent sur Google
+                  Une présence sur Google qui vous amène des clients dans votre
+                  quartier et votre ville
                 </li>
               </ul>
             </div>
@@ -130,7 +129,7 @@ const About = () => {
           </StaggerItem>
 
           <StaggerItem>
-            <div className="pt-6 border-t border-white/10">
+            <div className="pt-6 ">
               <p className="text-white/70 leading-relaxed">
                 Que vous soyez un indépendant, un commerce ou une PME de
                 services, je prends en charge votre projet de bout en bout.

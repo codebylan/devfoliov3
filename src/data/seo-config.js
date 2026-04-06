@@ -2,14 +2,104 @@ const BASE_URL = 'https://dylan-agboton.com';
 const AUTHOR_NAME = 'Dylan Agboton';
 const TWITTER_HANDLE = '@codebylan';
 
-// Reusable person identity — referenced across schemas
+// Île-de-France coverage — all 8 departments + key cities
+const IDF_AREA_SERVED = [
+  { '@type': 'City', name: 'Paris' },
+  { '@type': 'City', name: 'Boulogne-Billancourt' },
+  { '@type': 'City', name: 'Saint-Denis' },
+  { '@type': 'City', name: 'Argenteuil' },
+  { '@type': 'City', name: 'Montreuil' },
+  { '@type': 'City', name: 'Versailles' },
+  { '@type': 'City', name: 'Nanterre' },
+  { '@type': 'City', name: 'Vitry-sur-Seine' },
+  { '@type': 'City', name: 'Créteil' },
+  { '@type': 'City', name: 'Colombes' },
+  { '@type': 'City', name: 'Aubervilliers' },
+  { '@type': 'City', name: 'Asnières-sur-Seine' },
+  { '@type': 'City', name: 'Courbevoie' },
+  { '@type': 'City', name: 'Metz-le-Comte' },
+  { '@type': 'AdministrativeArea', name: 'Île-de-France' },
+  { '@type': 'AdministrativeArea', name: 'Paris (75)' },
+  { '@type': 'AdministrativeArea', name: 'Hauts-de-Seine (92)' },
+  { '@type': 'AdministrativeArea', name: 'Seine-Saint-Denis (93)' },
+  { '@type': 'AdministrativeArea', name: 'Val-de-Marne (94)' },
+  { '@type': 'AdministrativeArea', name: 'Seine-et-Marne (77)' },
+  { '@type': 'AdministrativeArea', name: 'Yvelines (78)' },
+  { '@type': 'AdministrativeArea', name: 'Essonne (91)' },
+  { '@type': 'AdministrativeArea', name: "Val-d'Oise (95)" },
+  { '@type': 'Country', name: 'France' },
+];
+
+const offerCatalog = {
+  '@type': 'OfferCatalog',
+  name: 'Services Développement Web pour entreprises de services',
+  itemListElement: [
+    {
+      '@type': 'Offer',
+      name: 'Vitrine Pro',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Site Vitrine Pro',
+        description:
+          "Création de site vitrine jusqu'à 5 pages, design responsive sur mesure, SEO technique + Core Web Vitals, CMS intégré pour édition autonome, formulaire de contact, formation 1h + hébergement Vercel.",
+        areaServed: IDF_AREA_SERVED,
+      },
+      price: '2490',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: '2490',
+        priceCurrency: 'EUR',
+      },
+    },
+    {
+      '@type': 'Offer',
+      name: 'Site Business',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Site Business',
+        description:
+          "Site jusqu'à 10 pages avec architecture évolutive, système de réservation ou espace membre, SEO avancé + Google My Business, intégration newsletter et outils marketing, audit performance offert M+1.",
+        areaServed: IDF_AREA_SERVED,
+      },
+      price: '4490',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: '4490',
+        priceCurrency: 'EUR',
+      },
+    },
+    {
+      '@type': 'Offer',
+      name: 'Solution Sur Mesure',
+      itemOffered: {
+        '@type': 'Service',
+        name: 'Solution Sur Mesure',
+        description:
+          'Architecture scalable Next.js + Supabase, authentification complète, paiement en ligne, dashboard admin sur mesure, fonctionnalités avancées, mise en ligne + 1 mois de maintenance offert.',
+        areaServed: IDF_AREA_SERVED,
+      },
+      price: '5990',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: '5990',
+        priceCurrency: 'EUR',
+      },
+    },
+  ],
+};
+
 const personEntity = {
   '@type': 'Person',
   '@id': `${BASE_URL}/#person`,
   name: AUTHOR_NAME,
-  jobTitle: 'Développeur Next.js',
+  givenName: 'Dylan',
+  familyName: 'Agboton',
+  jobTitle: 'Développeur web freelance Next.js',
   description:
-    "Développeur web freelance spécialisé Next.js basé à Paris. Je conçois des sites performants pour les entreprises de services (instituts, cabinets, commerces) qui veulent être visibles sur Google et convertir en ligne.",
+    "Dylan Agboton est développeur web freelance spécialisé Next.js, basé en Île-de-France. Il conçoit des sites performants pour les entreprises de services (instituts de beauté, cabinets de santé, commerces, restaurants, consultants) qui veulent être visibles sur Google et convertir leurs visiteurs en clients.",
   image: {
     '@type': 'ImageObject',
     url: `${BASE_URL}/images/me.webp`,
@@ -25,108 +115,50 @@ const personEntity = {
     postalCode: '75000',
     addressCountry: 'FR',
   },
-  areaServed: [
-    { '@type': 'City', name: 'Paris' },
-    { '@type': 'State', name: 'Île-de-France' },
-    { '@type': 'Country', name: 'France' },
-  ],
+  areaServed: IDF_AREA_SERVED,
   sameAs: [
     'https://linkedin.com/in/dylanagboton',
     'https://github.com/dylanagboton',
     'https://twitter.com/codebylan',
+    'https://malt.fr/profile/dylanagboton',
   ],
   knowsAbout: [
     'Next.js',
     'React',
-    'Node.js',
     'TypeScript',
-    'Intelligence Artificielle',
-    'Intégration IA',
-    'OpenAI API',
+    'Tailwind CSS',
     'Développement Web',
-    'Fullstack Development',
-    'SaaS Development',
-    'Automatisation',
+    'Site vitrine entreprise',
+    'Site e-commerce',
+    'Système de réservation en ligne',
+    'SEO local',
+    'Core Web Vitals',
+    'Google My Business',
     'Supabase',
-    'PostgreSQL',
-    'Stripe',
-    'n8n',
     'Vercel',
+    'Stripe',
   ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Services Développement Web & IA',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        name: 'Site Vitrine Premium',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Site Vitrine Premium',
-          description:
-            "Création de site vitrine ultra-rapide jusqu'à 5 pages, design moderne responsive, SEO on-page, zone d'édition autonome, formulaire de contact sécurisé.",
-        },
-        price: '1500',
-        priceCurrency: 'EUR',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          minPrice: '1500',
-          priceCurrency: 'EUR',
-        },
-      },
-      {
-        '@type': 'Offer',
-        name: 'Site Sur Mesure',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Site Sur Mesure',
-          description:
-            "Site web ambitieux jusqu'à 10 pages : blog, espace membre, catalogue, intégration newsletter et outils marketing, SEO avancé Core Web Vitals.",
-        },
-        price: '2500',
-        priceCurrency: 'EUR',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          minPrice: '2500',
-          priceCurrency: 'EUR',
-        },
-      },
-      {
-        '@type': 'Offer',
-        name: 'Pack MVP / Lancement SaaS',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Pack MVP / Lancement SaaS',
-          description:
-            'Développement complet MVP SaaS : authentification sécurisée, paiement en ligne Stripe, espace admin, base de données Supabase, architecture scalable.',
-        },
-        price: '3990',
-        priceCurrency: 'EUR',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          minPrice: '3990',
-          priceCurrency: 'EUR',
-        },
-      },
-      {
-        '@type': 'Offer',
-        name: 'Intégration IA & Automation',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Intégration IA & Automation',
-          description:
-            "Audit IA, mise en place d'assistants IA (OpenAI, chatbots), automatisations n8n/Make, connexions inter-outils (CRM, emails, formulaires, reporting).",
-        },
-        price: '2500',
-        priceCurrency: 'EUR',
-        priceSpecification: {
-          '@type': 'PriceSpecification',
-          minPrice: '2500',
-          priceCurrency: 'EUR',
-        },
-      },
-    ],
-  },
+  workExample: [
+    {
+      '@type': 'CreativeWork',
+      name: 'Dayness Institut — Plateforme de réservation',
+      url: `${BASE_URL}/projets/dayness-institut`,
+      description: "+50% de réservations en ligne après la refonte du système de réservation.",
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Dayness Cosmetics — Boutique e-commerce',
+      url: `${BASE_URL}/projets/dayness-cosmetics`,
+      description: "+40% de taux de conversion après le lancement de la boutique en ligne.",
+    },
+    {
+      '@type': 'CreativeWork',
+      name: 'Maison Panthera — Site vitrine + espace de gestion',
+      url: `${BASE_URL}/projets/maison-panthera`,
+      description: "Site vitrine et back-office sur mesure livré en 3 semaines.",
+    },
+  ],
+  hasOfferCatalog: offerCatalog,
 };
 
 export const seoConfig = {
@@ -134,102 +166,105 @@ export const seoConfig = {
   site: {
     name: AUTHOR_NAME,
     url: BASE_URL,
-    defaultTitle:
-      'Dylan Agboton | Sites web performants pour entreprises de services | Développeur Next.js',
+    // < 60 chars ✓ (54 chars)
+    defaultTitle: 'Dylan Agboton | Développeur Next.js — Paris & Île-de-France',
+    // < 155 chars ✓ (143 chars)
     defaultDescription:
-      'Développeur web freelance spécialisé Next.js | Sites performants pour entreprises de services, instituts, commerces | Paris & Île-de-France',
+      'Sites web performants pour instituts, cabinets et commerces en Île-de-France. Visible sur Google, livré en 3 semaines. Devis gratuit sous 48h.',
     defaultImage: '/images/me.webp',
     locale: 'fr_FR',
     twitterHandle: TWITTER_HANDLE,
   },
 
-  // KEYWORDS
+  // KEYWORDS — local SEO Île-de-France + niche
   keywords: {
     primary: [
-      'Développeur Next.js Freelance Paris',
-      'Site web entreprise de services Paris',
+      'Développeur Next.js freelance Paris',
+      'Création site web Île-de-France',
       'Développeur web institut de beauté Paris',
-      'Création site web commerce Paris',
-      'Site web cabinet de santé Paris',
+      'Site web entreprise de services Paris',
+      'Création site web commerce Île-de-France',
     ],
     secondary: [
-      'Freelance Next.js',
       'Développeur web freelance Île-de-France',
-      'Site vitrine entreprise locale Paris',
-      'SEO local Paris',
-      'Création site web sur mesure Paris',
-      'Site web performant Google',
-      'Développeur web artisan Paris',
+      'Site web cabinet de santé Paris',
+      'Site vitrine restaurant Paris',
+      'SEO local Paris Île-de-France',
+      'Création site web artisan Paris',
+      'Site web consultant Paris',
+      'Développeur web salon de coiffure Paris',
     ],
     longTail: [
       'Développeur web freelance spécialisé Next.js Paris',
-      'Site web pour institut de beauté Île-de-France',
-      'Créer site web entreprise de services Paris',
-      'SEO local entreprise services Paris',
-      'Site vitrine performant Google PME Paris',
-      'Développeur web freelance commerces Paris',
-      'Freelance Next.js entreprises de services Île-de-France',
+      'Créer site web institut de beauté Île-de-France',
+      'Site web performant Google pour commerce Paris',
+      'SEO local entreprise services Île-de-France',
+      'Création site web avec réservation en ligne Paris',
+      'Développeur Next.js freelance Hauts-de-Seine',
+      'Site vitrine responsive PME Paris Île-de-France',
     ],
   },
 
   // JSON-LD SCHEMAS
   schemas: {
-    // Core person identity
     person: {
       '@context': 'https://schema.org',
       ...personEntity,
     },
 
-    // ProfilePage — signal fort pour les LLMs (ChatGPT, Perplexity, Claude)
+    // ProfilePage — signal fort pour les LLMs (ChatGPT, Perplexity, Claude, Gemini)
     profilePage: {
       '@context': 'https://schema.org',
       '@type': 'ProfilePage',
-      name: `${AUTHOR_NAME} — Développeur Next.js | Sites performants pour entreprises de services`,
+      name: 'Dylan Agboton — Développeur Next.js freelance | Paris & Île-de-France',
       url: BASE_URL,
       inLanguage: 'fr-FR',
+      dateModified: new Date().toISOString().split('T')[0],
       description:
-        'Page de profil de Dylan Agboton, développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services : instituts, cabinets, commerces.',
+        'Dylan Agboton est développeur web freelance spécialisé Next.js à Paris. Il conçoit des sites performants pour les entreprises de services en Île-de-France : instituts, cabinets, commerces, consultants.',
       mainEntity: { '@id': `${BASE_URL}/#person` },
       about: { '@id': `${BASE_URL}/#person` },
+      specialty: 'Sites web performants pour entreprises de services en Île-de-France',
     },
 
-    // ProfessionalService — pour les requêtes locales & métier
+    // ProfessionalService — requêtes locales & métier
     professionalService: {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: 'Dylan Agboton — Développement Web pour entreprises de services',
+      '@id': `${BASE_URL}/#service`,
+      name: 'Dylan Agboton — Développement Web Île-de-France',
       url: BASE_URL,
       provider: { '@id': `${BASE_URL}/#person` },
       description:
-        'Sites web performants pour les entreprises de services : instituts, cabinets, commerces, consultants. Basé à Paris et Île-de-France, disponible en remote.',
-      areaServed: [
-        { '@type': 'City', name: 'Paris' },
-        { '@type': 'State', name: 'Île-de-France' },
-        { '@type': 'Country', name: 'France' },
-      ],
+        'Création de sites web performants pour les entreprises de services en Île-de-France : instituts de beauté, cabinets de santé, commerces, restaurants, consultants. SEO local inclus.',
+      areaServed: IDF_AREA_SERVED,
       serviceType: [
-        'Développement Web',
         'Création de site vitrine',
         'Site e-commerce',
-        'Système de réservation',
+        'Système de réservation en ligne',
         'SEO local',
-        'Développement sur mesure',
+        'Site web sur mesure',
+        'Développement Next.js',
       ],
-      hasOfferCatalog: personEntity.hasOfferCatalog,
+      hasOfferCatalog: offerCatalog,
       priceRange: '€€',
+      availableLanguage: [{ '@type': 'Language', name: 'French' }],
     },
 
-    // LocalBusiness — pour le référencement local Google
+    // LocalBusiness — référencement local Google
     localBusiness: {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
+      '@id': `${BASE_URL}/#localbusiness`,
       name: 'Dylan Agboton — Développeur Web Freelance Paris',
       url: BASE_URL,
       image: `${BASE_URL}/images/me.webp`,
+      logo: `${BASE_URL}/images/logo.svg`,
       description:
-        'Développeur web freelance spécialisé Next.js à Paris. Sites performants pour entreprises de services : instituts, cabinets, commerces, consultants.',
+        'Développeur web freelance Next.js basé à Paris. Création de sites performants pour entreprises de services en Île-de-France : instituts, cabinets, commerces, consultants.',
       address: {
         '@type': 'PostalAddress',
+        streetAddress: '',
         addressLocality: 'Paris',
         addressRegion: 'Île-de-France',
         postalCode: '75000',
@@ -240,29 +275,38 @@ export const seoConfig = {
         latitude: 48.8566,
         longitude: 2.3522,
       },
-      priceRange: '€€',
-      areaServed: [
-        { '@type': 'City', name: 'Paris' },
-        { '@type': 'State', name: 'Île-de-France' },
-        { '@type': 'Country', name: 'France' },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
       ],
+      priceRange: '€€',
+      currenciesAccepted: 'EUR',
+      paymentAccepted: 'Virement bancaire, Carte bancaire',
+      areaServed: IDF_AREA_SERVED,
       sameAs: personEntity.sameAs,
+      hasOfferCatalog: offerCatalog,
+      knowsAbout: personEntity.knowsAbout,
     },
   },
 
   // METADATA PAR PAGE
   pages: {
     home: {
-      title:
-        'Dylan Agboton | Sites web performants pour entreprises de services | Développeur Next.js',
+      // 54 chars ✓
+      title: 'Dylan Agboton | Développeur Next.js — Paris & Île-de-France',
+      // 143 chars ✓
       description:
-        'Développeur web freelance spécialisé Next.js | Sites performants pour entreprises de services, instituts, commerces | Paris & Île-de-France',
+        'Sites web performants pour instituts, cabinets et commerces en Île-de-France. Visible sur Google, livré en 3 semaines. Devis gratuit sous 48h.',
       keywords: [
-        'Développeur Next.js Freelance Paris',
+        'Développeur Next.js freelance Paris',
+        'Création site web Île-de-France',
         'Site web entreprise de services Paris',
-        'Développeur web institut de beauté',
-        'Création site web commerce Paris',
         'SEO local Paris',
+        'Développeur web institut de beauté Paris',
         'Site web performant Google',
       ],
       image: '/images/me.webp',

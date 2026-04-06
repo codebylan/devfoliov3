@@ -30,7 +30,7 @@ const Hero = () => {
           transition={{ duration: 0.5, ease }}
           className="text-accent text-xs uppercase tracking-[0.2em] mb-6"
         >
-          Développeur Next.js · Paris &amp; remote
+          Développeur web · Paris &amp; Île-de-France
         </motion.p>
 
         {/* H1 */}

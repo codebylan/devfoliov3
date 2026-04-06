@@ -1,51 +1,42 @@
 export const faqData = [
   {
-    // icon: 'Briefcase',
-    question:
-      "Pourquoi passer par un freelance plutôt qu'une agence digitale ?",
+    question: "Pourquoi passer par vous plutôt qu'une agence ?",
     answer:
-      "Pour l'agilité et le coût. En travaillant avec moi, vous n'avez pas d'intermédiaire commercial ni de frais de structure gonflés. Vous parlez directement à celui qui code votre projet. Résultat : Une communication fluide, une vision technique claire dès le premier appel, et un budget investi à 100% dans la qualité de votre produit.",
+      "Avec une agence, vous payez des commerciaux, des chefs de projet et des frais de structure. Avec moi, vous parlez directement à celui qui fait le travail. Résultat : moins de délais, moins de malentendus, et un budget entièrement investi dans votre site.",
   },
   {
-    // icon: 'MessageCircle',
-    question: "Je n'y connais rien au code, est-ce un problème ?",
+    question: "Je ne connais rien à tout ça, est-ce un problème ?",
     answer:
-      "Absolument pas. Grâce à mon background commercial, je parle votre langue. Je ne vous noierai pas sous le jargon technique. Mon rôle est de traduire vos objectifs business (vendre plus, gagner du temps) en solutions techniques performantes. Vous vous occupez de la vision, je m'occupe de la machine.",
+      "Pas du tout. Je vous explique chaque étape en mots simples, sans jargon. Vous avez juste à me dire ce que vous voulez pour votre entreprise. Je m'occupe du reste.",
   },
   {
-    // icon: 'Sparkles',
-    question: 'Proposez-vous des fonctionnalités avancées (IA, automatisation) ?',
+    question: "Combien de temps pour avoir mon site en ligne ?",
     answer:
-      "Oui, en option. Sur certains projets, l'IA ou l'automatisation peut faire gagner du temps (chatbot, génération de contenu, connexion d'outils). Mais ce n'est jamais un prérequis : si ça ne génère pas de valeur concrète pour votre activité, je ne le propose pas.",
-  },
-  {
-    // icon: 'ShieldCheck',
-    question:
-      "Le site et le code m'appartiennent-ils une fois le projet fini ?",
-    answer:
-      "Oui, à 100%. Contrairement à certaines offres locatives (SaaS), une fois la facture finale réglée, vous êtes l'unique propriétaire du code source et des droits d'exploitation. Je vous livre un produit \"clé en main\", documenté, que n'importe quel autre développeur pourra reprendre si besoin. Vous êtes libre.",
-  },
-  {
-    // icon: 'Zap',
-    question: 'Pourquoi insistez-vous sur la technologie Next.js ?',
-    answer:
-      "Parce que c'est le standard utilisé par les leaders (Netflix, Airbnb) pour garantir la performance. Un site développé sous Next.js est ultra-rapide, sécurisé et favorisé par Google pour le référencement (SEO). C'est un investissement sur l'avenir : votre site ne sera pas obsolète dans 6 mois.",
-  },
-  {
-    // icon: 'HeartHandshake',
-    question:
-      'Que se passe-t-il après la mise en ligne ? Me laissez-vous tomber ?',
-    answer:
-      'Jamais. Un site web est vivant. Je propose des forfaits de maintenance pour assurer les mises à jour de sécurité et les évolutions. Je reste votre partenaire technique sur la durée pour accompagner la croissance de votre entreprise.',
-  },
-  {
-    question: 'Combien de temps faut-il pour avoir mon site en ligne ?',
-    answer:
-      "Entre 2 et 4 semaines selon la formule choisie. Je m'engage sur un calendrier précis dès la signature du devis, avec des points d'étape réguliers pour que vous ayez une visibilité totale.",
+      "Entre 2 et 4 semaines selon la formule choisie. Dès le départ, je vous donne un calendrier précis avec des étapes claires. Vous savez toujours où on en est.",
   },
   {
     question: "Je n'ai pas de contenu (textes, photos), est-ce un problème ?",
     answer:
-      "Non. Je vous guide dans la rédaction de vos textes avec des templates prêts à remplir, et je peux vous recommander un photographe professionnel si besoin. Le manque de contenu ne doit jamais être un frein au lancement.",
+      "Non. Je vous guide pas à pas pour rédiger vos textes avec des modèles simples à remplir. Si vous avez besoin de photos professionnelles, je peux vous recommander un photographe. On avance ensemble.",
+  },
+  {
+    question: "Mon site m'appartiendra-t-il vraiment ?",
+    answer:
+      "Oui, à 100%. Une fois payé, votre site est entièrement à vous. Vous pouvez faire ce que vous voulez avec : le modifier, le confier à quelqu'un d'autre, le déplacer. Aucune contrainte.",
+  },
+  {
+    question: "Pourquoi votre site sera-t-il plus rapide que celui de vos concurrents ?",
+    answer:
+      "J'utilise les mêmes outils que Netflix ou Airbnb pour construire des sites très rapides. Un site qui se charge vite, c'est moins de visiteurs qui partent et plus de clients qui vous contactent. Google aussi récompense les sites rapides en les affichant plus haut dans les résultats.",
+  },
+  {
+    question: "Que se passe-t-il après la mise en ligne ?",
+    answer:
+      "Je ne disparais pas. Je propose des formules de suivi mensuel pour garder votre site à jour, sécurisé et performant. Vous avez un interlocuteur fiable sur la durée.",
+  },
+  {
+    question: "Proposez-vous des fonctionnalités avancées comme la réservation en ligne ?",
+    answer:
+      "Oui. Je peux intégrer un système de réservation, un espace client, un paiement en ligne ou d'autres outils selon vos besoins. On en parle lors de l'appel découverte pour voir ce qui a vraiment de la valeur pour votre activité.",
   },
 ];

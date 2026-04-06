@@ -12,7 +12,7 @@ const ProblemAndSolution = () => {
       <FadeIn className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
         <div>
           <p className="text-accent text-xs uppercase tracking-[0.2em] mb-4">
-            Proposition de valeur
+            Ce que je règle
           </p>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl italic leading-[0.95]">
             Un problème ? <span className="text-accent">Une solution.</span>

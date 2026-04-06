@@ -7,29 +7,29 @@ export const problems = [
   {
     title: 'Invisible sur Google',
     description:
-      "Vos clients potentiels cherchent vos services en ligne, mais ils tombent sur vos concurrents. Votre site n'apparaît nulle part.",
+      "Vos clients cherchent vos services en ligne, mais ils tombent sur vos concurrents. Votre site n'apparaît nulle part.",
   },
   {
-    title: 'Développeurs "Fantômes"',
+    title: 'Développeurs Fantômes',
     description:
-      'Délais non respectés, jargon incompréhensible et silence radio après la livraison.',
+      'Délais non respectés, explications incompréhensibles et silence radio après la livraison.',
   },
 ];
 
 export const solutions = [
   {
-    title: 'Performance Next.js',
+    title: 'Site rapide & moderne',
     description:
-      'Une architecture moderne optimisée pour le chargement instantané. Vous récupérez le trafic que vous perdiez.',
+      'Votre site se charge en moins de 2 secondes. Vos visiteurs restent, lisent votre offre et vous contactent.',
   },
   {
-    title: 'SEO local & visibilité',
+    title: 'Visible sur Google',
     description:
-      'Un site techniquement optimisé pour Google, avec un référencement local qui vous place devant vos concurrents dans votre zone.',
+      'Votre site apparaît en premier quand un client cherche vos services près de chez lui.',
   },
   {
-    title: 'Partenaire Business',
+    title: 'Un interlocuteur fiable',
     description:
-      'Une communication claire (background commercial), des deadlines respectées et un suivi post-projet.',
+      'Je vous explique tout simplement, je respecte les délais et je reste disponible après la livraison.',
   },
 ];
