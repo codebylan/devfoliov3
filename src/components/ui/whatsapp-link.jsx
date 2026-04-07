@@ -1,16 +1,73 @@
 const WHATSAPP_NUMBER =
   process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '33765691039';
 
-const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Bonjour Dylan, j'ai vu votre portfolio et je souhaite discuter d'un projet web. Seriez-vous disponible ?"
-);
+// ─── Message builder ─────────────────────────────────────────────────────────
 
-export const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const PROJECT_MESSAGES = {
+  vitrine:
+    "Bonjour Dylan, j'ai vu votre portfolio. Je cherche à créer un site vitrine pour mon activité. Seriez-vous disponible pour en discuter ?",
+  ecommerce:
+    "Bonjour Dylan, j'ai vu votre portfolio. Je souhaite lancer une boutique en ligne. Pouvons-nous en discuter ?",
+  refonte:
+    "Bonjour Dylan, j'ai vu votre portfolio. Mon site actuel a besoin d'une refonte. Seriez-vous disponible ?",
+  seo:
+    "Bonjour Dylan, j'ai vu votre portfolio. Je cherche à améliorer mon référencement Google. Seriez-vous disponible ?",
+};
 
-export default function WhatsAppLink({ children, className, onClick, ...props }) {
+const SOURCE_MESSAGES = {
+  prices:
+    "Bonjour Dylan, j'ai consulté vos tarifs et je souhaite discuter de mon projet. Seriez-vous disponible ?",
+};
+
+const DEFAULT_MESSAGE =
+  "Bonjour Dylan, j'ai vu votre portfolio et je souhaite discuter d'un projet web. Seriez-vous disponible ?";
+
+/**
+ * Returns a plain (non-encoded) pre-filled message based on context.
+ * @param {{ projectType?: string, source?: string }} options
+ */
+export function buildWhatsAppMessage({ projectType, source } = {}) {
+  if (projectType && PROJECT_MESSAGES[projectType]) {
+    return PROJECT_MESSAGES[projectType];
+  }
+  if (source && SOURCE_MESSAGES[source]) {
+    return SOURCE_MESSAGES[source];
+  }
+  return DEFAULT_MESSAGE;
+}
+
+/**
+ * Returns a full wa.me URL with encoded pre-filled message.
+ * @param {{ projectType?: string, source?: string }} options
+ */
+export function buildWhatsAppHref(options = {}) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsAppMessage(options))}`;
+}
+
+// Static default — used when no context is needed (backward compat)
+export const WHATSAPP_HREF = buildWhatsAppHref();
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+/**
+ * @param {{ projectType?: string, source?: string, className?: string, onClick?: Function, children: React.ReactNode }} props
+ */
+export default function WhatsAppLink({
+  children,
+  className,
+  projectType,
+  source,
+  onClick,
+  ...props
+}) {
+  const href =
+    projectType || source
+      ? buildWhatsAppHref({ projectType, source })
+      : WHATSAPP_HREF;
+
   return (
     <a
-      href={WHATSAPP_HREF}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       className={className}

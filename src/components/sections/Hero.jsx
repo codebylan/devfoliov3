@@ -56,7 +56,14 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.3, ease }}
           className="flex flex-wrap items-center gap-4 mb-10"
         >
-          <WhatsAppCTA />
+          <WhatsAppCTA source="hero" />
+          <a
+            href="#projects"
+            className="text-sm text-white/50 hover:text-white transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            aria-label="Voir mes réalisations"
+          >
+            Voir mes réalisations
+          </a>
         </motion.div>
 
         {/* Trust signals */}

@@ -24,7 +24,7 @@ const CTA = () => {
           </FadeIn>
 
           <FadeIn delay={0.2} y={20}>
-            <WhatsAppCTA size="lg" showIcon={false} showArrow />
+            <WhatsAppCTA size="lg" showIcon={false} showArrow source="cta" />
 
             <p className="text-white/30 text-xs mt-6">Réponse sous 24h</p>
           </FadeIn>

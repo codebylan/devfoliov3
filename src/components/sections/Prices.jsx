@@ -106,6 +106,7 @@ const Prices = () => {
                   variant={tier.isRecommended ? 'primary' : 'secondary'}
                   showIcon={false}
                   className="w-full mt-auto justify-center"
+                  source="prices"
                 />
               </div>
             </StaggerItem>
