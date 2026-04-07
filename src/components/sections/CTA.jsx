@@ -27,6 +27,17 @@ const CTA = () => {
             <WhatsAppCTA size="lg" showIcon={false} showArrow source="cta" />
 
             <p className="text-white/30 text-xs mt-6">Réponse sous 24h</p>
+
+            <p className="text-white/25 text-xs mt-4">
+              Vous préférez l&apos;email ?{' '}
+              <a
+                href="mailto:d.agboton.dev@gmail.com"
+                className="underline underline-offset-2 decoration-white/20 hover:text-white/50 hover:decoration-white/40 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent rounded-sm"
+                aria-label="Envoyer un email à Dylan Agboton"
+              >
+                d.agboton.dev@gmail.com
+              </a>
+            </p>
           </FadeIn>
         </div>
       </div>
