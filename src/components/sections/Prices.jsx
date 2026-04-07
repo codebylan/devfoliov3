@@ -35,9 +35,9 @@ const Prices = () => {
           {pricingData.map((tier, index) => (
             <StaggerItem key={index} y={30}>
               <div
-                className={`relative flex flex-col p-8 lg:p-10 ${
+                className={`relative flex flex-col p-8 rounded-sm lg:p-10 ${
                   tier.isRecommended
-                    ? 'bg-accent/[0.06] ring-1 ring-accent/30 md:-translate-y-3 md:shadow-[0_0_60px_-12px_rgba(195,193,186,0.15)]'
+                    ? 'bg-accent/[0.06] ring-1  ring-accent/30 md:-translate-y-3 md:shadow-[0_0_60px_-12px_rgba(195,193,186,0.15)]'
                     : 'bg-[#0D0D0D] ring-1 ring-white/[0.06]'
                 }`}
               >
