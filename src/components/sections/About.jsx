@@ -9,7 +9,6 @@ import { Button } from '../ui/button';
 import WhatsAppLink from '../ui/whatsapp-link';
 
 const About = () => {
-
   return (
     <section id="about">
       {/* Header */}
@@ -53,8 +52,7 @@ const About = () => {
           className="lg:col-span-7 lg:col-start-6 space-y-12"
         >
           <StaggerItem>
-            <div className="relative pl-8 border-l border-white/10">
-              <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
+            <div className="relative pl-8 ">
               <p className="text-white/70 leading-relaxed">
                 Je conçois des sites web performants pour les entreprises de
                 services qui veulent attirer plus de clients en ligne.
@@ -73,8 +71,7 @@ const About = () => {
           </StaggerItem>
 
           <StaggerItem>
-            <div className="relative pl-8 border-l border-white/10">
-              {/* <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-white/20" /> */}
+            <div className="relative pl-8 ">
               <p className="text-white/30 text-xs uppercase tracking-widest mb-4">
                 Ce que j&apos;apporte concrètement
               </p>
@@ -103,8 +100,7 @@ const About = () => {
           </StaggerItem>
 
           <StaggerItem>
-            <div className="relative pl-8 border-l border-white/10">
-              <span className="absolute left-0 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-white/20" />
+            <div className="relative pl-8 ">
               <p className="text-white/30 text-xs uppercase tracking-widest mb-4">
                 Quelques résultats récents
               </p>
