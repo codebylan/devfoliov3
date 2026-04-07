@@ -1,9 +1,7 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
 import { FadeIn } from '../motion/FadeIn';
-import { Button } from '../ui/button';
-import WhatsAppLink from '../ui/whatsapp-link';
+import WhatsAppCTA from '../ui/whatsapp-cta';
 
 const CTA = () => {
   return (
@@ -26,20 +24,7 @@ const CTA = () => {
           </FadeIn>
 
           <FadeIn delay={0.2} y={20}>
-            <WhatsAppLink>
-              <Button
-                asChild
-                className="group bg-accent text-black font-semibold cursor-pointer px-10 py-6 text-base"
-              >
-                <span className="flex items-center gap-3">
-                  Discutons sur WhatsApp
-                  <ArrowRight
-                    size={18}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Button>
-            </WhatsAppLink>
+            <WhatsAppCTA size="lg" showIcon={false} showArrow />
 
             <p className="text-white/30 text-xs mt-6">Réponse sous 24h</p>
           </FadeIn>

@@ -1,9 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MessageCircle } from 'lucide-react';
-import { Button } from '../ui/button';
-import WhatsAppLink from '../ui/whatsapp-link';
+import WhatsAppCTA from '../ui/whatsapp-cta';
 
 const ease = [0.25, 0.1, 0.25, 1];
 
@@ -58,17 +56,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.3, ease }}
           className="flex flex-wrap items-center gap-4 mb-10"
         >
-          <WhatsAppLink>
-            <Button
-              asChild
-              className="bg-accent text-black font-semibold cursor-pointer px-6 py-5 text-sm"
-            >
-              <span className="flex items-center gap-2">
-                <MessageCircle size={16} />
-                Discutons sur WhatsApp
-              </span>
-            </Button>
-          </WhatsAppLink>
+          <WhatsAppCTA />
         </motion.div>
 
         {/* Trust signals */}
