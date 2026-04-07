@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { useBooking } from '../../contexts/BookingContext';
 import { pricingData } from '../../data/pricing';
 import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
@@ -106,7 +106,7 @@ const Prices = () => {
                 <Button
                   onClick={openBookingModal}
                   className={`
-                    group/btn w-full cursor-pointer text-sm px-6 py-5 rounded-none mt-auto
+                    group/btn w-full cursor-pointer text-sm px-6 py-5  mt-auto
                     ${
                       tier.isRecommended
                         ? 'bg-accent text-black font-semibold hover:bg-accent/90 transition-colors'
@@ -114,9 +114,8 @@ const Prices = () => {
                     }
                   `}
                 >
-                  <span className="flex items-center justify-center gap-2">
+                  <span className="flex  items-center justify-center gap-2">
                     Demander un devis
-                    <ArrowRight size={14} />
                   </span>
                 </Button>
               </div>

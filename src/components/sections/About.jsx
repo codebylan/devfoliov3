@@ -37,7 +37,7 @@ const About = () => {
                 height={500}
                 quality={90}
                 sizes="(max-width: 1024px) 100vw, 33vw"
-                className="w-full max-w-sm lg:max-w-none rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full max-w-sm lg:max-w-none rounded-sm  transition-all duration-700"
               />
               {/* Caption */}
               <div className="mt-4 flex items-center justify-between text-xs text-white/30">
