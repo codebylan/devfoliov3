@@ -1,14 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
-import { useBooking } from '../../contexts/BookingContext';
+import { MessageCircle } from 'lucide-react';
 import { Button } from '../ui/button';
+import WhatsAppLink from '../ui/whatsapp-link';
 
 const ease = [0.25, 0.1, 0.25, 1];
 
 const Hero = () => {
-  const { openBookingModal } = useBooking();
 
   return (
     <section
@@ -59,13 +58,17 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.3, ease }}
           className="flex flex-wrap items-center gap-4 mb-10"
         >
-          <Button
-            onClick={openBookingModal}
-            className="bg-accent text-black font-semibold cursor-pointer px-6 py-5 text-sm"
-          >
-            <Calendar size={16} />
-            Réserver un appel
-          </Button>
+          <WhatsAppLink>
+            <Button
+              asChild
+              className="bg-accent text-black font-semibold cursor-pointer px-6 py-5 text-sm"
+            >
+              <span className="flex items-center gap-2">
+                <MessageCircle size={16} />
+                Discutons sur WhatsApp
+              </span>
+            </Button>
+          </WhatsAppLink>
         </motion.div>
 
         {/* Trust signals */}
@@ -75,8 +78,8 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.45, ease }}
           className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-white/25"
         >
-          <span>✓ Réponse sous 24h</span>
-          <span>✓ 30 min · Gratuit · Sans engagement</span>
+          <span>✓ Réponse rapide</span>
+          <span>✓ Échange direct · Sans engagement</span>
           <span>✓ Devis sous 48h</span>
         </motion.div>
       </div>

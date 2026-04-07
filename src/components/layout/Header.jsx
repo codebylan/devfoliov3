@@ -6,21 +6,13 @@ import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import logo from '../../../public/images/logo.svg';
 import { Button } from '../ui/button';
-import { useBooking } from '../../contexts/BookingContext';
+import WhatsAppLink from '../ui/whatsapp-link';
 
 const Header = () => {
-  const { openBookingModal } = useBooking();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuPanelRef = useRef(null);
 
   const mobileMenuId = useMemo(() => 'mobile-menu', []);
-
-  const openBookingFromMobileHeader = () => {
-    if (isMobileMenuOpen) setIsMobileMenuOpen(false);
-    window.setTimeout(() => {
-      openBookingModal();
-    }, 0);
-  };
 
   useEffect(() => {
     if (!isMobileMenuOpen) return;
@@ -115,25 +107,33 @@ const Header = () => {
           </ul>
         </div>
         <div className="hidden lg:block">
-          <Button
-            onClick={openBookingModal}
-            className="cursor-pointer items-center bg-accent text-black font-semibold text-sm transition-colors"
-          >
-            <Phone size={16} />
-            Réserver un appel
-          </Button>
+          <WhatsAppLink>
+            <Button
+              asChild
+              className="cursor-pointer items-center bg-accent text-black font-semibold text-sm transition-colors"
+            >
+              <span className="flex items-center gap-2">
+                <Phone size={16} />
+                Réserver un appel
+              </span>
+            </Button>
+          </WhatsAppLink>
         </div>
 
         {/* Mobile actions */}
         <div className="lg:hidden flex items-center gap-2">
-          <Button
-            onClick={openBookingFromMobileHeader}
-            className="cursor-pointer items-center bg-accent text-black font-semibold text-sm transition-colors px-3"
-            aria-label="Réserver un appel"
-          >
-            <Phone size={16} />
-            <span className="hidden sm:inline">Réserver</span>
-          </Button>
+          <WhatsAppLink>
+            <Button
+              asChild
+              className="cursor-pointer items-center bg-accent text-black font-semibold text-sm transition-colors px-3"
+              aria-label="Réserver un appel"
+            >
+              <span className="flex items-center gap-2">
+                <Phone size={16} />
+                <span className="hidden sm:inline">Réserver</span>
+              </span>
+            </Button>
+          </WhatsAppLink>
 
           <button
             type="button"
@@ -204,18 +204,17 @@ const Header = () => {
               </ul>
 
               <div className="mt-auto">
-                <Button
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    window.setTimeout(() => {
-                      openBookingModal();
-                    }, 0);
-                  }}
-                  className="w-full cursor-pointer items-center justify-center bg-accent text-black font-semibold text-sm transition-colors"
-                >
-                  <Phone size={16} />
-                  Réserver un appel
-                </Button>
+                <WhatsAppLink onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button
+                    asChild
+                    className="w-full cursor-pointer items-center justify-center bg-accent text-black font-semibold text-sm transition-colors"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Phone size={16} />
+                      Réserver un appel
+                    </span>
+                  </Button>
+                </WhatsAppLink>
               </div>
             </div>
           </div>

@@ -3,13 +3,12 @@
 import { ArrowRight, Check } from 'lucide-react';
 import Image from 'next/image';
 import me from '../../../public/images/me.webp';
-import { useBooking } from '../../contexts/BookingContext';
 import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
+import WhatsAppLink from '../ui/whatsapp-link';
 
 const About = () => {
-  const { openBookingModal } = useBooking();
 
   return (
     <section id="about">
@@ -140,18 +139,20 @@ const About = () => {
           {/* CTA */}
           <StaggerItem>
             <div className="flex flex-col sm:flex-row items-start gap-6 pt-8">
-              <Button
-                onClick={openBookingModal}
-                className="group bg-accent text-black font-semibold cursor-pointer px-6 py-5 transition-colors"
-              >
-                <span className="flex items-center gap-2">
-                  Discutons de votre projet
-                  <ArrowRight
-                    size={16}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Button>
+              <WhatsAppLink>
+                <Button
+                  asChild
+                  className="group bg-accent text-black font-semibold cursor-pointer px-6 py-5 transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    Discutons de votre projet
+                    <ArrowRight
+                      size={16}
+                      className="group-hover:translate-x-1 transition-transform"
+                    />
+                  </span>
+                </Button>
+              </WhatsAppLink>
               <div className="flex flex-col gap-3">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge

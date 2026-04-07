@@ -1,13 +1,11 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
-import { useBooking } from '../../contexts/BookingContext';
 import { FadeIn } from '../motion/FadeIn';
 import { Button } from '../ui/button';
+import WhatsAppLink from '../ui/whatsapp-link';
 
 const CTA = () => {
-  const { openBookingModal } = useBooking();
-
   return (
     <section id="cta">
       <div className="py-16 sm:py-24 border-t border-white/10">
@@ -28,18 +26,20 @@ const CTA = () => {
           </FadeIn>
 
           <FadeIn delay={0.2} y={20}>
-            <Button
-              onClick={openBookingModal}
-              className="group bg-accent text-black font-semibold cursor-pointer px-10 py-6 text-base"
-            >
-              <span className="flex items-center gap-3">
-                Réserver un appel
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </span>
-            </Button>
+            <WhatsAppLink>
+              <Button
+                asChild
+                className="group bg-accent text-black font-semibold cursor-pointer px-10 py-6 text-base"
+              >
+                <span className="flex items-center gap-3">
+                  Discutons sur WhatsApp
+                  <ArrowRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </span>
+              </Button>
+            </WhatsAppLink>
 
             <p className="text-white/30 text-xs mt-6">Réponse sous 24h</p>
           </FadeIn>

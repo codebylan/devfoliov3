@@ -3,7 +3,6 @@ import SkipLink from '../components/a11y/SkipLink';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
 import StructuredData from '../components/seo/StructuredData';
-import { BookingProvider } from '../contexts/BookingContext';
 import { seoConfig } from '../data/seo-config';
 import '../styles/globals.css';
 
@@ -85,7 +84,6 @@ export default function RootLayout({ children }) {
       <body className="antialiased flex flex-col min-h-screen">
         <SkipLink targetId="main" />
         <StructuredData />
-        <BookingProvider>
           <div className="flex-1 flex flex-col  gap-12 py-8 lg:gap-12 lg:max-w-7xl max-w-xl px-4 mx-auto w-full">
             <Header />
             <div id="main" tabIndex={-1} className="outline-none">
@@ -93,7 +91,6 @@ export default function RootLayout({ children }) {
             </div>
             <Footer />
           </div>
-        </BookingProvider>
       </body>
     </html>
   );

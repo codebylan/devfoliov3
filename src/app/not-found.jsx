@@ -1,13 +1,9 @@
-'use client';
-
 import { Home } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../components/ui/button';
-import { useBooking } from '../contexts/BookingContext';
+import WhatsAppLink from '../components/ui/whatsapp-link';
 
 export default function NotFound() {
-  const { openBookingModal } = useBooking();
-
   return (
     <main className="min-h-[70vh] flex items-center justify-center">
       <div className="text-center">
@@ -31,12 +27,9 @@ export default function NotFound() {
               Accueil
             </Link>
           </Button>
-          <button
-            onClick={openBookingModal}
-            className="text-white/50 hover:text-accent text-sm underline underline-offset-4 transition-colors"
-          >
-            Réserver un appel
-          </button>
+          <WhatsAppLink className="text-white/50 hover:text-accent text-sm underline underline-offset-4 transition-colors">
+            Discutons sur WhatsApp
+          </WhatsAppLink>
         </div>
       </div>
     </main>

@@ -1,13 +1,12 @@
 'use client';
 
 import { Check } from 'lucide-react';
-import { useBooking } from '../../contexts/BookingContext';
 import { pricingData } from '../../data/pricing';
 import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
 import { Button } from '../ui/button';
+import WhatsAppLink from '../ui/whatsapp-link';
 
 const Prices = () => {
-  const { openBookingModal } = useBooking();
 
   return (
     <section id="prices">
@@ -103,21 +102,23 @@ const Prices = () => {
                 </ul>
 
                 {/* CTA */}
-                <Button
-                  onClick={openBookingModal}
-                  className={`
-                    group/btn w-full cursor-pointer text-sm px-6 py-5  mt-auto
-                    ${
-                      tier.isRecommended
-                        ? 'bg-accent text-black font-semibold hover:bg-accent/90 transition-colors'
-                        : 'bg-transparent border border-white/10 text-white/50'
-                    }
-                  `}
-                >
-                  <span className="flex  items-center justify-center gap-2">
-                    Demander un devis
-                  </span>
-                </Button>
+                <WhatsAppLink>
+                  <Button
+                    asChild
+                    className={`
+                      group/btn w-full cursor-pointer text-sm px-6 py-5 mt-auto transition-colors
+                      ${
+                        tier.isRecommended
+                          ? 'bg-accent text-black font-semibold hover:bg-accent/90 transition-colors'
+                          : 'bg-transparent border border-white/10 text-white/50'
+                      }
+                    `}
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      Demander un devis
+                    </span>
+                  </Button>
+                </WhatsAppLink>
               </div>
             </StaggerItem>
           ))}
