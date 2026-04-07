@@ -308,61 +308,27 @@ section[id] {
   animation: fade-in 200ms ease-out, zoom-in 200ms ease-out;
 }
 
-/* Projects infinite carousel */
+/* Projects infinite carousel
+   Track = 3× the unique items list.
+   Translating by exactly -33.333% (one third) always lands
+   at the start of the second copy → seamless loop regardless of item count. */
 @keyframes scroll-projects {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-28vw * 4 - 1.5rem * 4));
-  }
-}
-
-@keyframes scroll-projects-lg {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-35vw * 4 - 1.5rem * 4));
-  }
-}
-
-@keyframes scroll-projects-md {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-50vw * 4 - 1.5rem * 4));
-  }
-}
-
-@keyframes scroll-projects-sm {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-75vw * 4 - 1.5rem * 4));
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
 }
 
 .animate-scroll-projects {
   animation: scroll-projects 30s linear infinite;
 }
 
-@media (max-width: 1280px) {
-  .animate-scroll-projects {
-    animation: scroll-projects-lg 28s linear infinite;
-  }
-}
-
 @media (max-width: 1024px) {
   .animate-scroll-projects {
-    animation: scroll-projects-md 25s linear infinite;
+    animation-duration: 25s;
   }
 }
 
 @media (max-width: 640px) {
   .animate-scroll-projects {
-    animation: scroll-projects-sm 20s linear infinite;
+    animation-duration: 20s;
   }
 }

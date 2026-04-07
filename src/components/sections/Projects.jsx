@@ -53,21 +53,23 @@ const Projects = () => {
                       poster={item.image}
                       alt={`${item.name} - ${item.type}`}
                       sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
-                      className=" group-hover:scale-105 transition-all duration-700"
+                      className="group-hover:scale-105 transition-all duration-700"
                       preloadVisible="metadata"
                       preloadHidden="none"
                       interactive={false}
                       autoPlay
                       loop
                     />
-                  ) : (
+                  ) : item.image ? (
                     <Image
                       src={item.image}
                       alt={`${item.name} - ${item.type}`}
                       fill
-                      className="object-cover  group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="object-cover group-hover:scale-105 transition-all duration-700"
                       sizes="(max-width: 640px) 75vw, (max-width: 1024px) 50vw, 35vw"
                     />
+                  ) : (
+                    <div className="absolute inset-0 bg-white/[0.03]" />
                   )}
                   <div className="absolute inset-0 ring-1 ring-white/10 group-hover:ring-accent/25 transition-colors" />
                 </div>
@@ -83,6 +85,12 @@ const Projects = () => {
                   <p className="text-white/40 text-sm leading-relaxed line-clamp-2">
                     {item.job}
                   </p>
+                  {item.result && (
+                    <p className="text-emerald-400 text-xs font-medium flex items-center gap-1">
+                      <span aria-hidden>↑</span>
+                      {item.result}
+                    </p>
+                  )}
                   <p className="text-white/30 text-xs uppercase tracking-[0.15em] pt-1">
                     Voir le cas complet →
                   </p>
