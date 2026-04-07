@@ -1,5 +1,6 @@
 export const pricingData = [
   {
+    projectType: 'vitrine',
     title: 'Vitrine Pro',
     subtitle:
       'Pour avoir un site propre, rapide et visible sur Google. Idéal pour lancer ou moderniser votre image.',
@@ -14,6 +15,7 @@ export const pricingData = [
     isRecommended: false,
   },
   {
+    projectType: 'business',
     title: 'Site Business',
     subtitle:
       'Pour attirer plus de clients en ligne et vous démarquer clairement de vos concurrents.',
@@ -29,6 +31,7 @@ export const pricingData = [
     isRecommended: true,
   },
   {
+    projectType: 'custom',
     title: 'Sur Mesure',
     subtitle:
       'Pour un projet avec des besoins spécifiques : paiement en ligne, espace client, gestion avancée.',

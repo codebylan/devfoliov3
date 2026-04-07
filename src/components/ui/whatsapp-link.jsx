@@ -5,7 +5,11 @@ const WHATSAPP_NUMBER =
 
 const PROJECT_MESSAGES = {
   vitrine:
-    "Bonjour Dylan, j'ai vu votre portfolio. Je cherche à créer un site vitrine pour mon activité. Seriez-vous disponible pour en discuter ?",
+    "Bonjour Dylan, j'ai consulté votre offre Vitrine Pro et je souhaite créer un site vitrine pour mon activité. Seriez-vous disponible ?",
+  business:
+    "Bonjour Dylan, j'ai consulté votre offre Site Business et je souhaite attirer plus de clients en ligne. Pouvons-nous en discuter ?",
+  custom:
+    "Bonjour Dylan, j'ai consulté votre offre Sur Mesure. J'ai un projet avec des besoins spécifiques. Seriez-vous disponible pour en discuter ?",
   ecommerce:
     "Bonjour Dylan, j'ai vu votre portfolio. Je souhaite lancer une boutique en ligne. Pouvons-nous en discuter ?",
   refonte:
