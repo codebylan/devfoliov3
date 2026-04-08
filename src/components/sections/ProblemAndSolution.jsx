@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import PaS from '../../../public/images/problem-and-solution.png';
+import PaS from '../../../public/images/problemandsolution-image.svg';
 import { problems, solutions } from '../../data/problemAndSolution';
 import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
 
@@ -36,7 +36,7 @@ const ProblemAndSolution = () => {
               quality={85}
               priority
               sizes="(max-width: 1024px) 100vw, 42vw"
-              className="w-full max-w-md lg:max-w-none rounded-sm grayscale hover:grayscale-0 transition-all duration-700"
+              className="w-full max-w-md lg:max-w-none rounded-sm  transition-all duration-700"
             />
             <p className="mt-4 text-xs text-white/30">
               Transformer les obstacles en opportunités

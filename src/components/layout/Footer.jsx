@@ -16,9 +16,7 @@ const Footer = () => {
           >
             Dylan Agboton
           </Link>
-          <p className="text-white/40 text-sm mt-1">
-            Développeur Fullstack & Intégrateur IA
-          </p>
+          <p className="text-white/40 text-sm mt-1">Développeur Web</p>
         </div>
 
         {/* Center - Nav */}

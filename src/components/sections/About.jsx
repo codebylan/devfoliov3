@@ -1,12 +1,8 @@
 'use client';
 
-import { ArrowRight, Check } from 'lucide-react';
 import Image from 'next/image';
 import me from '../../../public/images/me.webp';
 import { FadeIn, Stagger, StaggerItem } from '../motion/FadeIn';
-import { Badge } from '../ui/badge';
-import { Button } from '../ui/button';
-import WhatsAppLink from '../ui/whatsapp-link';
 
 const About = () => {
   return (
@@ -129,44 +125,6 @@ const About = () => {
                 Que vous soyez un indépendant, un commerce ou une PME de
                 services, je prends en charge votre projet de bout en bout.
               </p>
-            </div>
-          </StaggerItem>
-
-          {/* CTA */}
-          <StaggerItem>
-            <div className="flex flex-col sm:flex-row items-start gap-6 pt-8">
-              <WhatsAppLink>
-                <Button
-                  asChild
-                  className="group bg-accent text-black font-semibold cursor-pointer px-6 py-5 transition-colors"
-                >
-                  <span className="flex items-center gap-2">
-                    Discutons de votre projet
-                    <ArrowRight
-                      size={16}
-                      className="group-hover:translate-x-1 transition-transform"
-                    />
-                  </span>
-                </Button>
-              </WhatsAppLink>
-              <div className="flex flex-col gap-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge
-                    variant="outline"
-                    className="border-none text-white/70 "
-                  >
-                    <Check className="text-accent" />
-                    Réponse sous 24h
-                  </Badge>
-                  <Badge
-                    variant="outline"
-                    className="border-none text-white/70 "
-                  >
-                    <Check className="text-accent" />
-                    Sans engagement
-                  </Badge>
-                </div>
-              </div>
             </div>
           </StaggerItem>
         </Stagger>

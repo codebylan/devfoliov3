@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import WhatsAppCTA from '../ui/whatsapp-cta';
 
 const ease = [0.25, 0.1, 0.25, 1];
@@ -10,7 +11,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative lg:grid lg:grid-cols-[1fr_280px] xl:grid-cols-[1fr_300px] lg:gap-16 lg:items-start"
+      className="relative lg:grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_500px] lg:gap-16 lg:items-start"
     >
       {/* ── Left column ── */}
       <div>
@@ -44,9 +45,9 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.15, ease }}
           className="text-white/50 text-base lg:text-lg max-w-lg mb-10 leading-relaxed"
         >
-          Je conçois des sites performants pour les instituts, cabinets et
-          commerces qui veulent être visibles sur Google et convertir en ligne.
-          De la conception au déploiement, je m&apos;occupe de tout.
+          Je conçois des sites pour les instituts, cabinets et commerces qui
+          veulent apparaître sur Google et avoir plus de clients. De la
+          conception au déploiement, je m&apos;occupe de tout.
         </motion.p>
 
         {/* CTAs */}
@@ -78,6 +79,24 @@ const Hero = () => {
           <span>✓ Devis sous 48h</span>
         </motion.div>
       </div>
+
+      {/* ── Right column : image ── */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: 0.2, ease }}
+        className="hidden lg:block relative w-full h-full"
+      >
+        <Image
+          src="/images/heroright-image.svg"
+          alt=""
+          fill
+          className="object-contain object-top"
+          priority
+          aria-hidden
+        />
+      </motion.div>
+
     </section>
   );
 };

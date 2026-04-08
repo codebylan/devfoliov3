@@ -4,7 +4,8 @@ import { Button } from './button';
 import WhatsAppLink from './whatsapp-link';
 
 const variantClasses = {
-  primary: 'bg-accent text-black font-semibold hover:bg-accent/90 transition-colors',
+  primary:
+    'bg-accent text-black font-semibold hover:bg-accent/90 transition-colors',
   secondary: 'bg-transparent border border-white/10 text-white/50',
 };
 
