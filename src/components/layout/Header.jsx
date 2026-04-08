@@ -114,7 +114,7 @@ const Header = () => {
             >
               <span className="flex items-center gap-2">
                 <Phone size={16} />
-                Réserver un appel
+                Discutons sur WhatsApp
               </span>
             </Button>
           </WhatsAppLink>
@@ -126,11 +126,11 @@ const Header = () => {
             <Button
               asChild
               className="cursor-pointer items-center bg-accent text-black font-semibold text-sm transition-colors px-3"
-              aria-label="Réserver un appel"
+              aria-label="Discutons sur WhatsApp"
             >
               <span className="flex items-center gap-2">
                 <Phone size={16} />
-                <span className="hidden sm:inline">Réserver</span>
+                <span className="hidden sm:inline">Discutons sur WhatsApp</span>
               </span>
             </Button>
           </WhatsAppLink>
@@ -229,7 +229,7 @@ const Header = () => {
                   >
                     <span className="flex items-center gap-2">
                       <Phone size={16} />
-                      Réserver un appel
+                      Discutons sur WhatsApp
                     </span>
                   </Button>
                 </WhatsAppLink>
